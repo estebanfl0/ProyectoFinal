@@ -1,0 +1,54 @@
+.col{
+    min-height: 100vh;
+}
+.verde{
+    background-color: #ADD063;
+    
+}
+.left{
+    min-width: 55%;
+    background-color: #ffffff;
+    
+}
+img{
+    margin: 0 auto;
+}
+.content{
+    min-width: 100%;
+}
+.inputCorreo{
+    max-width: 400px;
+}
+button.btn{
+    width: 400px;
+    border: 1px solid #ADD063;
+    
+}
+button.btnIngre{
+    background-color: #ADD063;
+    color: white;
+}
+button.btnIngre:hover{
+    background-color: #ADD070;
+    color: white;
+}
+button.btnCrear{
+    background-color: white;
+    color: #ADD063;
+}
+button.btnCrear:hover{
+    background-color: #f5f5f5;
+    color: #ADD063;
+    border: 1px solid #ADD063;
+}
+.bg-inf{
+    background-color: #F8F8F8;
+}
+h2.textIngre{
+    color: #4A4A4A;
+}
+.infoLogin{
+    height: 480px;
+}
+
+
