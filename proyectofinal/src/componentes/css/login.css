@@ -5,6 +5,113 @@
     background-color: #ADD063;
     
 }
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.inputBox {
+    position: relative;
+    min-width: 400px;
+}
+.inputBox input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid rgba(80, 80, 80, 0.25);
+    background: white;
+    border-radius: 5px;
+    outline: none;
+    color: black;
+    font-size: 1em;
+    transition: 0.5s;
+}
+
+.inputBox span {
+ position: absolute;
+ left: 0;
+ padding: 10px;
+ pointer-events: none;
+ font-size: 1em;
+ color: rgba(0, 0, 0, 0.25);
+ font-weight: bold;
+ text-decoration: uppercase;
+ transition: 0.5s;
+}
+
+.inputBox input:valid ~ span,
+.inputBox input:focus ~ span {
+    color: #ADD063;
+    transform: translateX(10px) translateY(-7px);
+    font-size: 14px;
+    font-weight: bold;
+    padding:  0 10px;
+    background: rgb(250, 250, 250);
+    border-left: 1px solid #ADD063;
+    border-right: 1px solid #ADD063;
+    letter-spacing: 0.2em;
+}
+.inputBox:nth-child(2) input:valid ~ span,
+.inputBox:nth-child(2) input:focus ~ span{
+    background: #ADD063;
+    color: white;
+    border-radius: 2px;
+}
+
+.inputBox input:valid,
+.inputBox input:focus {
+    border: 1px solid #ADD063;
+}
+
+
+/* .input-group {
+    position: relative;
+   }
+   
+   .input {
+    border: solid 1.5px #9e9e9e;
+    border-radius: 1rem;
+    background: none;
+    padding: 1rem;
+    font-size: 1rem;
+    color: #f5f5f5;
+    -webkit-transition: border 150ms cubic-bezier(0.4,0,0.2,1);
+    transition: border 150ms cubic-bezier(0.4,0,0.2,1);
+   }
+   
+   .user-label {
+    position: absolute;
+    left: 15px;
+    color: #e8e8e8;
+    pointer-events: none;
+    -webkit-transform: translateY(1rem);
+        -ms-transform: translateY(1rem);
+            transform: translateY(1rem);
+    -webkit-transition: 150ms cubic-bezier(0.4,0,0.2,1);
+    transition: 150ms cubic-bezier(0.4,0,0.2,1);
+   }
+   
+   .input:focus, input:valid {
+    outline: none;
+    border: 1.5px solid #1a73e8;
+   }
+   
+   .input:focus ~ label, input:valid ~ label {
+    -webkit-transform: translateY(-50%) scale(0.8);
+        -ms-transform: translateY(-50%) scale(0.8);
+            transform: translateY(-50%) scale(0.8);
+    background-color: #212121;
+    padding: 0 .2em;
+    color: #2196f3;
+   } */
 .left{
     min-width: 55%;
     background-color: #ffffff;
@@ -48,7 +155,7 @@ h2.textIngre{
     color: #4A4A4A;
 }
 .infoLogin{
-    height: 480px;
+    min-height: 600px;
 }
 
 
