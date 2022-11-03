@@ -1,10 +1,10 @@
 import React from "react";
 import { Link } from "react-router-dom";
-function EnviarCorreo(){
+function RecibirCodigo(){
     return(
         <div className="info">
-                       <Link to="/recibir-codigo">Hola</Link>
+                       fewfewfe
                     </div>
     )
 }
-export default EnviarCorreo
+export default RecibirCodigo

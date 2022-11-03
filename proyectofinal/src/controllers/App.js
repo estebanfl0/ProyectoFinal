@@ -7,19 +7,27 @@ import { Routes, Route} from "react-router-dom";
 import VistaContraseña from "../componentes/vista-contraseña";
 import IngresarCorreo from "../views/viewsContraseña/ingresar-correo";
 import EnviarCorreo from "../views/viewsContraseña/enviar-correo";
+import RecibirCodigo from "../views/viewsContraseña/recibir-codigo";
 
 function App() {
   return (
       <div className="App">
           <Routes>
-                <Route element={<VistaPrincipal />}>
+                <Route path="/" element={<VistaPrincipal />}>
                   <Route path="/" element={<Cuenta />}></Route>
                   <Route path="/vista-crear" element={<Crear />}></Route>
+                </Route>  
+                <Route path="/" element={<VistaContraseña />}>
+                  <Route path="/vista-contraseña" exact  element={<IngresarCorreo />}></Route>
+                  <Route path="/enviar-correo"  element={<EnviarCorreo />}></Route>
+                  <Route path="/recibir-codigo" element={<RecibirCodigo />}></Route>
                 </Route>
-                <Route path="/vista-contraseña" element={<VistaContraseña />}>
-                  <Route path="/vista-contraseña/" element={<IngresarCorreo />}></Route>
-                </Route>
+                
           </Routes>
+          
+          
+
+          
       </div>
   );
 }

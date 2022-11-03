@@ -5,7 +5,7 @@ function VistaPrincipal(){
     return(
         <div className="container-fluid">
             <div className="row">
-                <div className="col right verde  d-flex flex-column justify-content-center ">
+                <div className="col right verde d-flex flex-column justify-content-center ">
                     <div className="image ">
                         <div id="carouselExampleIndicators" data-interval="100" class="carousel slide" data-bs-ride="true" >
                             <div class="carousel-indicators" >
