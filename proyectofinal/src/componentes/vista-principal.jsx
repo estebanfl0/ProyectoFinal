@@ -7,8 +7,8 @@ function VistaPrincipal(){
             <div className="row">
                 <div className="col right verde  d-flex flex-column justify-content-center ">
                     <div className="image ">
-                        <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="true">
-                            <div class="carousel-indicators">
+                        <div id="carouselExampleIndicators" data-interval="100" class="carousel slide" data-bs-ride="true" >
+                            <div class="carousel-indicators" >
                                 <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
                                 <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
                                 <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>

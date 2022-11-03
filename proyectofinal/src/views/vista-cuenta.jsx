@@ -1,4 +1,5 @@
 import React from "react";
+import {Link} from 'react-router-dom';
 function Cuenta(){
     return(
         <main className="infoLogin mt-2 p-4 bg-inf rounded d-flex flex-column justify-content-center ">
@@ -21,8 +22,7 @@ function Cuenta(){
                             <div class="input-group inputCorreo mt-4  mx-auto">
                                 <button type="button" class="btn btnIngre p-2 fw-bold">Entrar</button>
                             </div>
-                           
-                            <a href="#" class=" mt-4 fw-bold text-decoration-none">Olvidé mi contraseña</a>
+                            <Link to='/vista-contraseña' class=" mt-4 fw-bold text-decoration-none">Olvidé mi contraseña</Link>
                         </main>
     )
 }
