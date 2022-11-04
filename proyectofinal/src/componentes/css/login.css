@@ -96,6 +96,7 @@ button.btn{
 }
 button.btnIngre{
     background-color: #ADD063;
+    /* #33CCCC */
     color: white;
 }
 button.btnIngre:hover{
@@ -113,6 +114,7 @@ button.btnCrear:hover{
 }
 .bg-inf{
     background-color: #F8F8F8;
+    
 }
 h2.textIngre{
     color: #4A4A4A;
@@ -146,3 +148,50 @@ h2.textIngre{
     margin-top: 60px;
 }
 
+.bg-redS{
+    background-color: #F1F1F1;
+}
+.perfil{
+    min-height: 202px;
+    max-width: 190px;
+    border-radius: 20px;
+    padding: 10px;
+    display: flex;
+    flex-direction: column ;
+    justify-content: center;
+    align-items: center;
+    background-color: white;
+}
+.aside{
+    background-color: white;
+    min-height: 680px;
+    max-width: 190px;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+.aside button{
+    background-color: white;
+    border: none;
+}
+
+.carouselPrecio{
+    width: 250px;
+}
+.noticasCafe{
+    display: flex;
+    
+}
+.noticasCafe1{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    background-color: #FFF9E9;
+    border-radius: 20px;
+    padding: 10px;
+    min-height: 76px;
+    min-width: 300px;
+    
+    
+}

@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 function Crear(){
     return (
             <main className="infoLogin mt-2 p-4 bg-inf rounded d-flex flex-column justify-content-center ">
@@ -21,7 +22,7 @@ function Crear(){
                                 
                             </section>
                             <div class="input-group inputCorreo mt-4  mx-auto">
-                                <button type="button" class="btn btnIngre p-2 fw-bold">Crear</button>
+                                <Link to='/cuenta-creada'><button type="submit" class="btn  btnIngre p-2 fw-bold">Crear</button></Link>
                             </div>
                            
                             

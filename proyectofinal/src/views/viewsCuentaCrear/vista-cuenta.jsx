@@ -20,7 +20,7 @@ function Cuenta(){
                                                         </div>
                             </section>
                             <div class="input-group inputCorreo mt-4  mx-auto">
-                                <button type="button" class="btn btnIngre p-2 fw-bold">Entrar</button>
+                                <Link to='/vistaPrincipal-red'><button type="button" class="btn btnIngre p-2 fw-bold">Entrar</button></Link>
                             </div>
                             <Link to='/vista-contraseña' class=" mt-4 fw-bold text-decoration-none">Olvidé mi contraseña</Link>
                         </main>
