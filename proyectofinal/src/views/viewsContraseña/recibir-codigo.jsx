@@ -4,7 +4,7 @@ function RecibirCodigo(){
     return(
         <div className="info">
                         <h1 className="infO fw-bold">Verificacion</h1>
-                        <img src={require('../../images/recibirCodigo.gif')} className="infO" alt="" width="300px"/>
+                        <img src={require('../../images/recibirCodigo.gif')} className="infO" alt="" width="200px"/>
                         <p className="infO fs-2">Ingrese el codigo mandado a su correo</p>
                         <div div className="inputBox mx-auto" style={{width:'10px'}}>  
                             <input type="text" required="required" className="inputBox "  />

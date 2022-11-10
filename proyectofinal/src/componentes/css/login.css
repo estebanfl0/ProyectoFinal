@@ -195,3 +195,27 @@ h2.textIngre{
     
     
 }
+.incomtra{
+    width: 122px;
+    height: 30px;
+    border-radius: 5px;
+    background-color: #00000060;
+    text-align: center;
+    
+}
+.posts{
+    max-width: 721px;
+    min-height: 743px;
+    background-color: white;
+    border-radius: 20px;
+}
+.publicar{
+    max-width: 639px;
+    height: 109px;
+    background-color: #D9D9D9;
+}
+.cardsPost{
+    max-width: 639px;
+    height: 550px;
+    border: 2px solid red;
+}
