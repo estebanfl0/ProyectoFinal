@@ -4,7 +4,7 @@ function VistaRedsocial({nombre}){
     return(
         <div className="container-fluid bg-redS">
             <div className="row">
-                <div className="col">
+                <div className="col-1">
                     <div className="perfil m-4">
                         <h1 className="fs-5"><span><img src={require('../images/logopagina.png')}alt="" /></span>CoffeeApp</h1>
                         <img  src={require('../images/perfil.png')} alt="" />
@@ -23,7 +23,7 @@ function VistaRedsocial({nombre}){
                     </div>
                 </div>
                 <div className="col">
-                    <div className="noticasCafe ">
+                    <div className="noticasCafe d-flex justify-content-center">
                         <div className="noticasCafe1 m-4">
                             <h1 className="fs-5">Cafe</h1>
                             <div id="carouselExampleControls" class="carousel slide carouselPrecio" data-bs-ride="carousel">
@@ -73,64 +73,13 @@ function VistaRedsocial({nombre}){
                                 </div>
                         </div>
                     </div>
-                    <div className="contenidoRedsocial">
+                    <div className="contenidoRedsocial mx-auto rounded-4">
                         <div className="IniComTra d-flex justify-content-around ">
-                            <p className="incomtra text-light"><span><img src={require('../images/home.png')} alt="" /></span>Inicio</p>
-                            <p className="incomtra text-light"><span><img src={require('../images/comprar.png')} alt="" /></span>Comprar</p>
-                            <p className="incomtra text-light"><span><img src={require('../images/trabajo.png')} alt="" /></span>Trabajos</p>
+                            <p className="incomtra mt-3 text-light"><span><img src={require('../images/home.png')} alt="" /></span>Inicio</p>
+                            <p className="incomtra mt-3 text-light"><span><img src={require('../images/comprar.png')} alt="" /></span>Comprar</p>
+                            <p className="incomtra mt-3 text-light"><span><img src={require('../images/trabajo.png')} alt="" /></span>Trabajos</p>
                         </div>
-                        <div className="posts p-4 d-flex flex-column">
-                            <div className="publicar rounded-4 p-4">
-                                <img src={require('../images/publicar.png')}alt='' width='50px' />
-                            </div>
-                            <div className="cardsPost rounded-4 mt-2 p-5">
-                                <div class="card mb-5">
-                                    <img src={require('../images/imageDefecto.png')} class="card-img-top"/>
-                                    <div class="card-body">
-                                        <h5 class="card-title">Card title</h5>
-                                        <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                                        <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-                                    </div>
-                                </div>
-                                <div class="card mb-5">
-                                    <img src={require('../images/imageDefecto.png')} class="card-img-top"/>
-                                    <div class="card-body">
-                                        <h5 class="card-title">Card title</h5>
-                                        <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                                        <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-                                    </div>
-                                </div>
-                                <div class="card mb-5">
-                                    <img src={require('../images/imageDefecto.png')} class="card-img-top"/>
-                                    <div class="card-body">
-                                        <h5 class="card-title">Card title</h5>
-                                        <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                                        <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-                                    </div>
-                                </div>
-                                <div class="card mb-5">
-                                    <img src={require('../images/imageDefecto.png')} class="card-img-top"/>
-                                    <div class="card-body">
-                                        <h5 class="card-title">Card title</h5>
-                                        <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                                        <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-                                    </div>
-                                </div>
-                                <div class="card mb-5">
-                                    <img src={require('../images/imageDefecto.png')} class="card-img-top"/>
-                                    <div class="card-body">
-                                        <h5 class="card-title">Card title</h5>
-                                        <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                                        <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div className="col">
-                    <div className="noticiasEmpleo m-4 rounded-4">
-                        <div></div>
+                        <Outlet />
                     </div>
                 </div>
                 

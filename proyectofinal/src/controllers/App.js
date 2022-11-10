@@ -9,6 +9,7 @@ import RecibirCodigo from "../views/viewsContraseña/recibir-codigo";
 import ContraseñaCambiada from "../views/viewsContraseña/contraseña-cambiada";
 import CuentaCreada from "../views/viewsCuentaCrear/cuenta-creada";
 import VistaRedsocial from "../componentes/vistaPrincipal-red";
+import VistaInicioRed from "../views/viewsRedsocial/vista-inicio-red";
 
 
 
@@ -27,9 +28,8 @@ function App() {
                   <Route path="/cambiar-contraseña"  element={<CmabiarContraseña/>}></Route>
                   <Route path="/contraseña-cambiada"  element={<ContraseñaCambiada />}></Route>
                 </Route>
-                <Route path="/vistaPrincipal-red" element={<VistaRedsocial nombre='kkulian'/>}>
-                  
-
+                <Route path="/" element={<VistaRedsocial nombre='kkulian'/>}>
+                    <Route path="/vistaPrincipal-red" element={<VistaInicioRed/>}></Route>
                 </Route>
                 
           </Routes>

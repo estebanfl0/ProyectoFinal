@@ -1,3 +1,5 @@
+
+
 .col{
     min-height: 100vh;
 }
@@ -153,7 +155,7 @@ h2.textIngre{
 }
 .perfil{
     min-height: 202px;
-    max-width: 190px;
+    max-width: 200px;
     border-radius: 20px;
     padding: 10px;
     display: flex;
@@ -179,10 +181,7 @@ h2.textIngre{
 .carouselPrecio{
     width: 250px;
 }
-.noticasCafe{
-    display: flex;
-    
-}
+
 .noticasCafe1{
     display: flex;
     align-items: center;
@@ -203,16 +202,12 @@ h2.textIngre{
     text-align: center;
     
 }
-.posts{
-    max-width: 721px;
-    min-height: 743px;
-    background-color: white;
-    border-radius: 20px;
-}
+
 .publicar{
     max-width: 639px;
     height: 109px;
     background-color: #D9D9D9;
+    box-shadow: 0 1px 6px 0 #979797;
 }
 .cardsPost{
     max-width: 639px;
@@ -220,11 +215,14 @@ h2.textIngre{
     overflow-y: scroll;
 }
 .noticiasEmpleo{
-    width: 350px;
-    height: 630px;
+    max-width: 350px;
+    height: 546px;
     background-color: white;
+    box-shadow: 0 1px 6px 0 #b3b3b3d7;
+    
     
 }
+
 
 /* width */
 ::-webkit-scrollbar {
@@ -242,3 +240,35 @@ h2.textIngre{
     background: #4A4A4A;
     border-radius: 10px;
   }
+  .noticias{
+    width: 349px;
+    height: 183px;
+    background-color: white;
+    
+    box-shadow: 0 1px 6px 0 #b3b3b3d7;
+  }
+
+  .card {
+    box-shadow: 0 1px 6px 0 #b3b3b3d7;
+  }
+  .contenidoRedsocial{
+    max-width: 1101px;
+    min-height: 766px;
+    background-color: white;
+    padding: 10px;
+    margin-bottom: 30px;
+    
+    
+  }
+  .IniComTra{
+    width: 96%;
+    margin: 0 auto;
+  }
+  .noticasEmpleoNoti{
+    display: flex;
+    flex-direction: column;
+  }
+  .col-1{
+    width: 200px;
+  }
+ 
