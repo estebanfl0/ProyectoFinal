@@ -3,6 +3,8 @@
 .col{
     min-height: 100vh;
 }
+
+
 .verde{
     background-color: #3FA04E;
     background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100%25' height='100%25' viewBox='0 0 800 400'%3E%3Cdefs%3E%3CradialGradient id='a' cx='396' cy='281' r='514' gradientUnits='userSpaceOnUse'%3E%3Cstop offset='0' stop-color='%23ADD063'/%3E%3Cstop offset='1' stop-color='%233FA04E'/%3E%3C/radialGradient%3E%3ClinearGradient id='b' gradientUnits='userSpaceOnUse' x1='400' y1='148' x2='400' y2='333'%3E%3Cstop offset='0' stop-color='%23FFFFFF' stop-opacity='0'/%3E%3Cstop offset='1' stop-color='%23FFFFFF' stop-opacity='0.5'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect fill='url(%23a)' width='800' height='400'/%3E%3Cg fill-opacity='0.4'%3E%3Ccircle fill='url(%23b)' cx='267.5' cy='61' r='300'/%3E%3Ccircle fill='url(%23b)' cx='532.5' cy='61' r='300'/%3E%3Ccircle fill='url(%23b)' cx='400' cy='30' r='300'/%3E%3C/g%3E%3C/svg%3E");
@@ -25,7 +27,7 @@ section {
 
 .inputBox{
     position: relative;
-    min-width: 400px;
+    width: 350px;
 }
 .inputBox input {
     width: 100%;
@@ -74,13 +76,19 @@ section {
 .inputBox input:focus {
     border: 1px solid #ADD063;
 }
+.bg-green{
+    background-color:#ADD063 ;
+}
 
 
 
 .left{
-    min-width: 55%;
     background-color: #ffffff;
     
+}
+.right{
+    
+    min-width: 50%;
 }
 img{
     margin: 0 auto;
@@ -89,10 +97,10 @@ img{
     min-width: 100%;
 }
 .inputCorreo,.select {
-    max-width: 400px;
+    max-width: 350px;
 }
 button.btn{
-    width: 400px;
+    min-width: 350px;
     border: 1px solid #ADD063;
     
 }
@@ -115,7 +123,8 @@ button.btnCrear:hover{
     border: 1px solid #ADD063;
 }
 .bg-inf{
-    background-color: #F8F8F8;
+    background-color: #E7E7E7;
+    
     
 }
 h2.textIngre{
@@ -124,6 +133,9 @@ h2.textIngre{
 .infoLogin{
     max-height: 600px;
     
+}
+.nombreApellido{
+    width: 350px;
 }
 /* .form-control{
     width: 50px;
@@ -150,80 +162,48 @@ h2.textIngre{
     margin-top: 60px;
 }
 
-.bg-redS{
-    background-color: #F1F1F1;
-}
-.perfil{
-    min-height: 202px;
-    max-width: 200px;
-    border-radius: 20px;
-    padding: 10px;
-    display: flex;
-    flex-direction: column ;
-    justify-content: center;
-    align-items: center;
-    background-color: white;
-}
-.aside{
-    background-color: white;
-    min-height: 680px;
-    max-width: 190px;
-    border-radius: 20px;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-}
-.aside button{
-    background-color: white;
-    border: none;
-}
 
-.carouselPrecio{
-    width: 250px;
-}
 
-.noticasCafe1{
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-    background-color: #FFF9E9;
-    border-radius: 20px;
-    padding: 10px;
-    min-height: 76px;
-    max-width: 300px;
+
+@media (min-width: 576px) {
+    .h-sm-100 {
+        height: 100%;
+    }
+    
+}
+@media(max-width:985px){
+    .contenidoPostNotiRed{
+        flex-wrap: wrap;
+    }
+    .noticias{
+        margin-top: 20px;
+    }
     
     
 }
-.incomtra{
-    width: 122px;
-    height: 30px;
-    border-radius: 5px;
-    background-color: #00000060;
-    text-align: center;
+@media (max-width:450px){
+    .noticiasCafe{
+        order: 9;
+      
+        padding: 20%;
+        margin-bottom: 20%;
+        
+    }
+    .right{
+        display: none;
+    }
+    .content{
+        padding-top:150px ;
+    }
+    .contenido{
+        overflow: auto;
+    }
     
 }
+@media (max-width:319px){
 
-.publicar{
-    max-width: 639px;
-    height: 109px;
-    background-color: #D9D9D9;
-    box-shadow: 0 1px 6px 0 #979797;
-}
-.cardsPost{
-    max-width: 639px;
-    height: 580px;
-    overflow-y: scroll;
-}
-.noticiasEmpleo{
-    max-width: 350px;
-    height: 546px;
-    background-color: white;
-    box-shadow: 0 1px 6px 0 #b3b3b3d7;
-    
     
 }
-
-
 /* width */
 ::-webkit-scrollbar {
     width: 14px;
@@ -240,35 +220,111 @@ h2.textIngre{
     background: #4A4A4A;
     border-radius: 10px;
   }
-  .noticias{
-    width: 349px;
-    height: 183px;
-    background-color: white;
-    
-    box-shadow: 0 1px 6px 0 #b3b3b3d7;
+    li{
+    padding: 20px 0;
   }
+.contenido{
+    width: 100%;
+    height: 100vh;
+    
+    
+}
+.noticiasCafe{
 
-  .card {
-    box-shadow: 0 1px 6px 0 #b3b3b3d7;
-  }
-  .contenidoRedsocial{
-    max-width: 1101px;
-    min-height: 766px;
-    background-color: white;
-    padding: 10px;
-    margin-bottom: 30px;
+    min-height: 10%;
+
+}
+.contenidoRed{
+    
+    height: 95%;
+}
+.precioCafe{
+    background-color: #FFF9E9;
+    width: 260px;
+    min-height: 50px;
+    margin: 10px;
+    padding: 5px;
     
     
-  }
-  .IniComTra{
-    width: 96%;
-    margin: 0 auto;
-  }
-  .noticasEmpleoNoti{
-    display: flex;
-    flex-direction: column;
-  }
-  .col-1{
+}
+.carousel{
     width: 200px;
-  }
- 
+    text-align: center;
+    margin: 0 auto;
+}
+.subContenidoRed{
+    background-color: white;
+    width: 100%;
+    min-height: 110%;
+   
+    
+    
+    
+}
+.carousel-control-next-icon,.carousel-control-prev-icon{
+    width: 20px;
+    height: 20px;
+    border-radius:4px ;
+}
+.cuadroPublicar{
+    background-color: grey;
+    min-width: 200px;
+    height: 80px;
+}
+.inputPublicar{
+    width: 90%;
+    outline: none;
+    text-indent: 10px;
+}
+.btnSB{
+    border: none;
+    padding: 5px;
+    min-width: 10%;
+    max-height: 25%;
+    font-size: 12px;
+    border-radius: 5px;
+    font-weight: 900;
+    
+}
+.escribirElegirPu{
+    
+    width: 90%;
+    height: 100%;
+}
+.post{
+    min-width: 60%;
+    
+}
+.noticias{
+    min-width: 40%;
+}
+
+.seePost{
+    height: 350px;
+    overflow-y: scroll;
+}
+.card{
+    max-width: 400px;
+    
+}
+
+.imagePost input{
+    display: none;
+}
+.imagePost  img{
+    cursor: pointer;
+    
+}
+
+#carouselExampleIndicators{
+    
+    height: 320px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* *{
+    overflow-y: auto;
+} */

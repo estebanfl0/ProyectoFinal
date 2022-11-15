@@ -9,7 +9,7 @@ function Cuenta(){
                                 <label className="user-label">First Name</label>
                             </div> */}
                             <section>
-                            <div div className="inputBox mt-4">
+                            <div className="inputBox mt-4">
                                 
                                                             <input type="text" required="required" />
                                                             <span>Correo</span>
@@ -18,10 +18,10 @@ function Cuenta(){
                                                             <input type="password" required="required"/>
                                                             <span>Contraseña</span>
                                                         </div>
-                            </section>
-                            <div class="input-group inputCorreo mt-4  mx-auto">
+                            <div className="inputBox  ">
                                 <Link to='/vistaPrincipal-red'><button type="button" class="btn btnIngre p-2 fw-bold">Entrar</button></Link>
                             </div>
+                            </section>
                             <Link to='/vista-contraseña' class=" mt-4 fw-bold text-decoration-none">Olvidé mi contraseña</Link>
                         </main>
     )

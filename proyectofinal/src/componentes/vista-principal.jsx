@@ -3,8 +3,18 @@ import './css/login.css';
 import{Link, Outlet} from 'react-router-dom';
 function VistaPrincipal(){
     return(
-        <div className="container-fluid">
+        <div className="container-fluid vistaPrincipalLogin">
             <div className="row">
+                <div className="col left">
+                    <div className="content  mt-4 d-flex flex-column text-center">
+                        <h1 className="fs-3 fw-bold tittle-login-name"><span><img src="https://cdn-icons-png.flaticon.com/512/3054/3054889.png" width="50px" /></span>CoffeApp</h1>
+                        <nav className="ingresar-crear d-flex justify-content-around mt-5">
+                            <Link to='/' className="cuentaLogin fs-4 fw-bold text-dark text-decoration-none">Cuenta</Link>
+                            <Link to='/vista-crear' className="fs-4 text-muted text-decoration-none">Crear cuenta</Link>
+                        </nav>
+                        <Outlet />
+                    </div>
+                </div>
                 <div className="col right verde d-flex flex-column justify-content-center ">
                     <div className="image ">
                         <div id="carouselExampleIndicators" data-interval="100" class="carousel slide" data-bs-ride="true" >
@@ -33,16 +43,6 @@ function VistaPrincipal(){
                                 <span class="visually-hidden">Next</span>
                             </button>
                             </div>
-                    </div>
-                </div>
-                <div className="col left">
-                    <div className="content  mt-4 d-flex flex-column text-center">
-                        <h1 className="fs-3 fw-bold tittle-login-name"><span><img src="https://cdn-icons-png.flaticon.com/512/3054/3054889.png" width="50px" /></span>CoffeApp</h1>
-                        <nav className="ingresar-crear d-flex justify-content-around mt-5">
-                            <Link to='/' className="cuentaLogin fs-4 fw-bold text-dark text-decoration-none">Cuenta</Link>
-                            <Link to='/vista-crear' className="fs-4 text-muted text-decoration-none">Crear cuenta</Link>
-                        </nav>
-                        <Outlet />
                     </div>
                 </div>
             </div>

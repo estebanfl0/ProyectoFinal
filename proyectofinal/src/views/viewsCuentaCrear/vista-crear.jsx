@@ -6,7 +6,7 @@ function Crear(){
                  <h2 className="fs-4 fw-bold textIngre">Cree su cuenta</h2>
                             <section>
                                 
-                                <div className="nombreApellido d-flex inputCorreo">
+                                <div className=" nombreApellido d-flex inputCorreo">
                                    <input className="form-control  " type="text" placeholder="Nombre" />
                                    <input className="form-control " type="text" placeholder="Apellido" />
                                 </div>
@@ -20,10 +20,10 @@ function Crear(){
                                 </div>
                                
                                 
-                            </section>
-                            <div class="input-group inputCorreo mt-4  mx-auto">
+                            <div class="inputBox  ">
                                 <Link to='/cuenta-creada'><button type="submit" class="btn  btnIngre p-2 fw-bold">Crear</button></Link>
                             </div>
+                            </section>
                            
                             
             </main>
