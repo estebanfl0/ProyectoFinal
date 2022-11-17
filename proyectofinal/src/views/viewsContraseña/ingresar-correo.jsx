@@ -2,19 +2,25 @@ import React from "react";
 import {Link} from 'react-router-dom'
 function IngresarCorreo(){
     return(
-        <div className="info">
-                        <h1 className="infO fw-bold">Olvidaste tu contraseña</h1>
-                        <img src={require('../../images/enviar-correo.gif')} className="infO" alt="" width="200px"/>
-                        <p className="infO fs-2">Ingrese su correo</p>
-                        <div className="inputBox mx-auto">
-                                
-                                                            <input type="text" required="required" />
-                                                            <span>Correo</span>
-                                                        </div>
-                        <div class="input-group inputCorreo mt-1  mx-auto ">
-                            <Link to="/recibir-codigo"><button type="button" class="btn btnIngre p-2 fw-bold">Enviar</button></Link>
-                        </div>
-                    </div>
+        <div className="">
+            <form action="#" class="sign-in-form">
+                <h2 class="title">Olvidaste tu contraseña</h2>
+                <img src={require('../../images/enviar-correo.gif')} className="infO" alt="" width="200px"/>
+                <p className="fw-bold fs-4">Ingresa tu correo</p>
+                <div class="input-field">
+                <i class="fas fa-lock"></i>
+                <input type="password" placeholder="Correo" />
+                </div>
+                <Link to='/recibir-codigo'>
+                    <button className="btnOlvide mt-4">
+                        <span class="box rounded" style={{backgroundColor:'#639bd050'}}>
+                            Continuar
+                        </span>
+                    </button>
+                </Link>
+                
+            </form>
+        </div>
     )
 }
 export default IngresarCorreo

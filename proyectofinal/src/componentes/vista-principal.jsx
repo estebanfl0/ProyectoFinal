@@ -11,11 +11,12 @@ const RemoveClick = ()=>{
     document.querySelector('.containerRed').classList.remove("sign-up-mode")
 }
 return(
-    <motion.div class="containerRed" initial={{opacity:0}} animate={{opacity:1}} exit={{opacity:0, transition:{duration:1}}}>
+    <motion.div class="containerRed" initial={{opacity:0}} animate={{opacity:1}} exit={{opacity:0, transition:{duration:0.2}}}>
         <div class="forms-container">
             <div class="signin-signup">
             <form action="#" class="sign-in-form">
                 <h2 class="title">Ingresar</h2>
+                
                 <div class="input-field">
                 <i class="fas fa-user"></i>
                 <input type="email" placeholder="Correo" />
@@ -24,23 +25,14 @@ return(
                 <i class="fas fa-lock"></i>
                 <input type="password" placeholder="Contraseña" />
                 </div>
-                <Link to='/vistaPrincipal-red'><input type="submit" value="Ingresar" class="btn solid" /></Link>
-                <Link to='/vista-contraseña'><p class="social-text">Olvidé mi contraseña</p></Link>
-                <p class="social-text">O ingresa con alguna de tus plataformas</p>
-                <div class="social-media">
-                <a href="#" class="social-icon">
-                    <i class="fab fa-facebook-f"></i>
-                </a>
-                <a href="#" class="social-icon">
-                    <i class="fab fa-twitter"></i>
-                </a>
-                <a href="#" class="social-icon">
-                    <i class="fab fa-google"></i>
-                </a>
-                <a href="#" class="social-icon">
-                    <i class="fab fa-linkedin-in"></i>
-                </a>
+                
+                <div class="main_div my-5">
+                <Link to='/vistaPrincipal-red'>
+                    <button className="fw-bold">Ingresar</button>
+                </Link>
                 </div>
+                <Link to='/vista-contraseña'><p class="social-text">Olvidé mi contraseña</p></Link>
+              
                 
             </form>
             <form action="#" class="sign-up-form">
@@ -57,22 +49,12 @@ return(
                 <i class="fas fa-lock"></i>
                 <input type="password" placeholder="Contraseña" />
                 </div>
-                <input type="submit" class="btn" value="Crear" />
-                <p class="social-text">O crea tu cuenta con alguna de tus plataformas</p>
-                <div class="social-media">
-                <a href="#" class="social-icon">
-                    <i class="fab fa-facebook-f"></i>
-                </a>
-                <a href="#" class="social-icon">
-                    <i class="fab fa-twitter"></i>
-                </a>
-                <a href="#" class="social-icon">
-                    <i class="fab fa-google"></i>
-                </a>
-                <a href="#" class="social-icon">
-                    <i class="fab fa-linkedin-in"></i>
-                </a>
+                <div class="main_div my-5">
+                
+                    <button className="fw-bold">Crear</button>
+                
                 </div>
+                
             </form>
             </div>
         </div>
@@ -84,11 +66,11 @@ return(
                 <p>
                 Crea tu cuenta y haz parte de esta gran familia
                 </p>
-                <button class="btn transparent" id="sign-up-btn" onClick={AddClick}>
+                <button class="btn transparent w-50" id="sign-up-btn" onClick={AddClick}>
                 Crear cuenta
                 </button>
             </div>
-            <img src="img/log.svg" class="image" alt="" />
+            <img src={require('../images/imageLogin.png')} class="image" alt="" />
             </div>
             <div class="panel right-panel">
             <div class="content">
@@ -96,11 +78,11 @@ return(
                 <p>
                 Ingresa a tu cuenta para que no te pierdas de todo lo que tenemos para ti
                 </p>
-                <button class="btn transparent" id="sign-in-btn" onClick={RemoveClick}>
+                <button class="btn transparent w-50" id="sign-in-btn" onClick={RemoveClick}>
                 Ingresar cuenta
                 </button>
             </div>
-            <img src="img/register.svg" class="image" alt="" />
+            <img src={require('../images/imageCreate.png')} class="image" alt="" />
             </div>
         </div>
     </motion.div>

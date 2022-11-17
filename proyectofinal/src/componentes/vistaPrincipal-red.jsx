@@ -1,15 +1,16 @@
 import React from "react";
 import { Link, Outlet } from "react-router-dom";
+import{motion} from 'framer-motion';
 
 
 function VistaRedsocial({nombre}){
     return(
-        <div class="container-fluid bg-redS">
+        <motion.div class="container-fluid bg-redS" initial={{opacity:0}} animate={{opacity:1}} exit={{opacity:0, transition:{duration:0.2}}}>
         <div class="row">
             <div class="col-12 col-sm-3 col-xl-2 p-2  d-flex sticky-top bg-green">
                 <div class="d-flex flex-sm-column flex-row flex-grow-1 align-items-center align-items-sm-start px-3 pt-2 text-white ">
                     <h1 className="fs-5  text-light fw-bold"><img className="logoApp"  src={require('../images/logopagina.png')}alt="" /><span className="textApp mx-3">CoffeeApp</span></h1>
-                    <ul class="nav nav-pills flex-sm-column flex-row flex-nowrap flex-shrink-1 flex-sm-grow-0 flex-grow-1 mb-sm-auto mb-0 justify-content-around align-items-center align-items-sm-start" id="menu">
+                    <ul class="nav ul nav-pills flex-sm-column flex-row flex-nowrap flex-shrink-1 flex-sm-grow-0 flex-grow-1 mb-sm-auto mb-0 justify-content-around align-items-center align-items-sm-start" id="menu">
                         <li class="nav-item">
                             <a href="#" class="nav-link px-sm-0 px-2">
                              <i className="fs-5 bi bi-house text-light"></i><span class="ms-1 d-none d-sm-inline text-light fw-bold fs-5 li">Inicio</span>
@@ -34,7 +35,7 @@ function VistaRedsocial({nombre}){
                     </ul>
                     <div class="dropdown py-sm-4 mt-sm-auto ms-auto ms-sm-0 flex-shrink-1">
                         <a href="#" class="d-flex align-items-center text-white text-decoration-none dropdown-toggle" id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">
-                            <img src="https://github.com/mdo.png" alt="hugenerd" width="28" height="28" class="rounded-circle"/>
+                            <img src={require('../images/imagenPerfil.png')} alt="hugenerd" width="28" height="28" class="rounded-circle"/>
                             <span class="d-none d-sm-inline fs-5 mx-1">Joe</span>
                         </a>
                         <ul class="dropdown-menu dropdown-menu-dark text-small shadow" aria-labelledby="dropdownUser1">
@@ -104,7 +105,7 @@ function VistaRedsocial({nombre}){
                 </div>
             </div>
         </div>
-    </div>
+    </motion.div>
     )
 }
 export default VistaRedsocial

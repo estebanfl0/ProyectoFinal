@@ -1,22 +1,21 @@
 import React from "react";
 import './css/login.css';
+import{Link, Outlet} from'react-router-dom'
+import{motion} from'framer-motion';
 
-import{Link, Outlet} from 'react-router-dom';
-function VistaContraseña(){
-    return(
-        <div className="container-fluid">
-            <div className="row">
-                <div className="col d-flex flex-column justify-content-center text-center">
-                    <Outlet />
-                </div>
-                <div className="col gris justify-content-center items-center self-center d-flex">
-                    <h1 className=" text-tittle text-white "><span><img src="https://cdn-icons-png.flaticon.com/512/3054/3054889.png" width="100px" /> </span>CofeeApp</h1>
-                </div>
+function VistaContraseña() {
+return(
+    <motion.div class="containerRed containerRedOlvide" initial={{opacity:0}} animate={{opacity:1}} exit={{opacity:0, transition:{duration:0.2}}}>
+        <div class="forms-container">
+            <div class="signin-signup">
+            <Outlet/>
             </div>
-            
         </div>
-        
-    )
-}
-export default VistaContraseña;
 
+        
+    </motion.div>
+
+)
+}
+
+export default VistaContraseña;

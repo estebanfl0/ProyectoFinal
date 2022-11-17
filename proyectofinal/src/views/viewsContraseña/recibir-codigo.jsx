@@ -2,19 +2,29 @@ import React from "react";
 import { Link } from "react-router-dom";
 function RecibirCodigo(){
     return(
-        <div className="info">
-                        <h1 className="infO fw-bold">Verificacion</h1>
-                        <img src={require('../../images/recibirCodigo.gif')} className="infO" alt="" width="200px"/>
-                        <p className="infO fs-2">Ingrese el codigo mandado a su correo</p>
-                        <div className="inputBox mx-auto">
-                                
-                                                            <input type="text" required="required" />
-                                                            <span>Correo</span>
-                                                        </div>
-                        <div class="input-group inputCorreo mt-1  mx-auto ">
-                            <Link to="/cambiar-contraseña"><button type="button" class="btn btnIngre p-2 fw-bold">Enviar</button></Link>
-                        </div>
-                    </div>
+        
+            <div className="">
+            <form action="#" class="sign-in-form">
+                <h2 class="title">Verificacion</h2>
+                <img src={require('../../images/enviar-correo.gif')} className="infO" alt="" width="200px"/>
+                <p className="fw-bold fs-4">Ingrese el codigo mandado a su correo</p>
+                <div class="input-field">
+                <i class="fas fa-lock"></i>
+                <input type="password" placeholder="Correo" />
+                </div>
+                <Link to='/cambiar-contraseña'>
+                    <button className="btnOlvide mt-4">
+                        <span class="box rounded" style={{backgroundColor:'#639bd050'}}>
+                            Continuar
+                        </span>
+                    </button>
+                </Link>
+               
+                
+               
+            </form>
+        </div>
+                        
     )
 }
 export default RecibirCodigo
