@@ -49,9 +49,9 @@ function VistaPostRed (){
                             </div>
                         </div>
                         <div className="carousel-indicators">
-                            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" className="active bg-secondary p-1 rounded-circle" aria-current="true" aria-label="Slide 1"></button>
-                            <button type="button" className="active bg-secondary p-1 rounded-circle" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
-                            <button type="button" className="active bg-secondary p-1 rounded-circle" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+                            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" className="active bg-secondary " aria-current="true" aria-label="Slide 1"></button>
+                            <button type="button" className="active bg-secondary " data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                            <button type="button" className="active bg-secondary" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
                         </div>
                     </div>
                 </div>

@@ -1,12 +1,13 @@
 import React from "react";
 import { Link, Outlet } from "react-router-dom";
+import {motion} from'framer-motion'
 
 
 function VistaRedsocial({nombre}){
     return(
-        <div class="container-fluid bg-redS">
+        <motion.div class="container-fluid bg-redS overflow-hidden" initial={{opacity:0}} animate={{opacity:1}} exit={{opacity:0, transition:{duration:1}}}>
         <div class="row">
-            <div class="col-12 col-sm-3 col-xl-2 p-2  d-flex sticky-top bg-green ">
+            <div class=" col-12 col-sm-3 col-xl-2 p-2  d-flex sticky-top bg-green ">
                 <div class="d-flex flex-sm-column flex-row flex-grow-1 align-items-center align-items-sm-start px-3 pt-2 text-white ">
                     <h1 className="fs-5 text-dark fw-bold"><img className="logoApp"  src={require('../images/logopagina.png')}alt="" />CoffeeApp</h1>
                     <ul class="nav nav-pills flex-sm-column flex-row flex-nowrap flex-shrink-1 flex-sm-grow-0 flex-grow-1 mb-sm-auto mb-0 justify-content-between align-items-center align-items-sm-start" id="menu">
@@ -44,7 +45,7 @@ function VistaRedsocial({nombre}){
                     </div>
                 </div>
             </div>
-            <div class="col p-0 bg-inf h-sm-100">
+            <div class="col  p-0 bg-inf h-sm-100">
                 <div className="contenido d-flex flex-column ">
                 <div className="noticiasCafe d-flex justify-content-evenly flex-wrap ">
                         <div className="precioCafe rounded-4 justify-content-center ">
@@ -105,7 +106,7 @@ function VistaRedsocial({nombre}){
                 </div>
             </div>
         </div>
-    </div>
+    </motion.div>
     )
 }
 export default VistaRedsocial
