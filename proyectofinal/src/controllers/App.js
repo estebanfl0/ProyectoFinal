@@ -9,16 +9,17 @@ import ContraseñaCambiada from "../views/viewsContraseña/contraseña-cambiada"
 
 import VistaRedsocial from "../componentes/vistaPrincipal-red";
 import VistaPostRed from "../views/viewsRedSocial/vista-post-red";
-import{AnimatePresence} from 'framer-motion';
+
 import'./css/App.css';
 
 function App() {
   const location = useLocation()
   return (
-      <div className="App">
-        <AnimatePresence>
-            <Routes location={location} key={location.pathname}>
-                  <Route path="/" element={<VistaPrincipal />}></Route>  
+      <div className="App overflow-hidden">
+        
+            <Routes location={location}>
+                  <Route path="/" element={<VistaPrincipal />}>
+                  </Route>  
                   <Route path="/" element={<VistaContraseña />}>
                     <Route path="/vista-contraseña" exact  element={<IngresarCorreo />}></Route>
                     <Route path="/recibir-codigo"  element={<RecibirCodigo/>}></Route>
@@ -26,10 +27,10 @@ function App() {
                     <Route path="/contraseña-cambiada"  element={<ContraseñaCambiada />}></Route>
                   </Route>
                   <Route path="/" element={<VistaRedsocial/>}>
-                      <Route path="/vistaPrincipal-red" element={<VistaPostRed />}></Route>
+                      <Route path="vistaPrincipal-red" element={<VistaPostRed />}></Route>
                   </Route>
             </Routes>
-        </AnimatePresence>
+          
       </div>
   );
 }
