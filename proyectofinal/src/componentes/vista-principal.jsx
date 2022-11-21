@@ -31,7 +31,7 @@ return(
                     <button className="fw-bold">Ingresar</button>
                 </Link>
                 </div>
-                <Link to='/vista-contraseña'><p class="social-text">Olvidé mi contraseña</p></Link>
+                <Link to='/vista-contraseña'><p class="social-text olv">Olvidé mi contraseña</p></Link>
               
                 
             </form>
@@ -61,16 +61,16 @@ return(
 
         <div class="panels-container">
             <div class="panel left-panel">
-            <div class="content">
-                <h3>¿Eres nuevo?</h3>
-                <p>
-                Crea tu cuenta y haz parte de esta gran familia
-                </p>
+                <div class="content">
+                    <h3>¿Eres nuevo?</h3>
+                    <p>
+                    Crea tu cuenta y haz parte de esta gran familia
+                    </p>
                 <button class="btn transparent w-50" id="sign-up-btn" onClick={AddClick}>
-                Crear cuenta
+                    Crear cuenta
                 </button>
-            </div>
-            <img src={require('../images/imageLogin.png')} class="image" alt="" />
+                </div>
+                <img src={require('../images/imageLogin.png')} class="image" alt="" />
             </div>
             <div class="panel right-panel">
             <div class="content">

@@ -11,8 +11,10 @@ import VistaRedsocial from "../componentes/vistaPrincipal-red";
 import VistaPostRed from "../views/viewsRedSocial/vista-post-red";
 
 import'./css/App.css';
+import '../componentes/css/login.css'
 import '../componentes/css/buttons.css';
 import'../componentes/css/input.css'
+import VistaEcommerce from "../views/viewsRedSocial/vista-ecommerce-red";
 
 function App() {
   const location = useLocation()
@@ -30,7 +32,9 @@ function App() {
                     <Route path="/contraseña-cambiada"  element={<ContraseñaCambiada />}></Route>
                   </Route>
                   <Route path="/" element={<VistaRedsocial/>}>
-                      <Route path="vistaPrincipal-red" element={<VistaPostRed />}></Route>
+                      <Route path="/vistaPrincipal-red" element={<VistaPostRed />}></Route>
+                      <Route path="/vista-ecommerce-red" element={<VistaEcommerce/>}></Route>
+
                   </Route>
             </Routes>
             </AnimatePresence>

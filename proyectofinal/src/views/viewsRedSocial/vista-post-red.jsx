@@ -2,11 +2,12 @@ import React from "react";
 import { Outlet } from "react-router-dom";
 import CardJob from "../../componentes/comCardPostCardJobs/componenteCardJob";
 import CardPost from "../../componentes/comCardPostCardJobs/componenteCardPost";
+import{motion} from'framer-motion'
 
 
 function VistaPostRed (){
     return(
-        <div className="contenidoPostNotiRed  d-flex  ">
+        <motion.div className="contenidoPostNotiRed  d-flex" initial={{opacity:0}} animate={{opacity:1}} exit={{opacity:0, transition:{duration:0.2}}} >
             <div className="post p-4">
                     <form action="">
                         <div className="cuadroPublicar rounded-2 p-2 d-flex"> 
@@ -65,7 +66,7 @@ function VistaPostRed (){
                 </div>
                
             </div>
-        </div>
+        </motion.div>
         
     )
 }
