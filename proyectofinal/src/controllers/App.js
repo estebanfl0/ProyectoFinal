@@ -14,6 +14,7 @@ import'./css/App.css';
 import '../componentes/css/login.css'
 import '../componentes/css/buttons.css';
 import'../componentes/css/input.css'
+import'../componentes/css/cardEcommerce.css'
 import VistaEcommerce from "../views/viewsRedSocial/vista-ecommerce-red";
 
 function App() {
