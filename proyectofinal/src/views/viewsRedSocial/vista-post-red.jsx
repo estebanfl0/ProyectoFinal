@@ -8,28 +8,28 @@ import { useState, useEffect } from "react";
 
 function VistaPostRed (){
     const [posts, setPosts] = useState([]);
-  const [cargar, setCargar] = useState(true);
-  const [titulo, setTitulo] = useState("");
-  const [cuerpoMsj, setCuerpoMsj] = useState("");
-  const [imagen, setImage] = useState('');
+    const [cargar, setCargar] = useState(true);
+    const [titulo, setTitulo] = useState("");
+    const [cuerpoMsj, setCuerpoMsj] = useState("");
+    const [imagen, setImage] = useState('');
 
-//   // Obtener datos con fetch API
-//   useEffect(() => {
+  // Obtener datos con fetch API
+  useEffect(() => {
 
-//     const cargarPost = async () => {
-//       const response = await fetch(
-//         "https://jsonplaceholder.typicode.com/posts?_limit=5"
-//       );
-//       const data = await response.json();
-//       console.log(data);
-//       setPosts(data);
-//     };
-//     if (cargar) {
-//       cargarPost();
-//       setCargar(false);
-//     }
+    const cargarPost = async () => {
+      const response = await fetch(
+        "https://jsonplaceholder.typicode.com/posts?_limit=5"
+      );
+      const data = await response.json();
+      console.log(data);
+      setPosts(data);
+    };
+    if (cargar) {
+      cargarPost();
+      setCargar(false);
+    }
 
-//   }, [cargar]);
+  }, [cargar]);
 
   // Borrar datos con fetch API
   const borrarPost = async (id) => {
@@ -99,11 +99,11 @@ function VistaPostRed (){
                     {posts.map((post)=>{
                         return(
                             <CardPost
+                                key={post.id}
+                                src={post.image}
                                 nombre='Barón'
                                 imagenPerfil={require('../../images/imagenPerfil.png')}
                                 body={post.body}
-                                key={post.id}
-                                src={post.image}
                                 onClick={() => borrarPost(post.id)}
                             />
                         );
@@ -115,25 +115,7 @@ function VistaPostRed (){
             </div>
             <div className="noticias">
                 <div className="Jobs">
-                    <div id="carouselExampleIndicators" className="carousel slide p-5" data-bs-ride="true">
-                        <div className="carousel-inner text-light">
-                            <div className="carousel-item active">
-                                <CardJob></CardJob>
-                            </div>
-                            <div className="carousel-item">
-                                <CardJob></CardJob>
-                            </div>
-                            <div className="carousel-item">
-                                <CardJob></CardJob>
-                            </div>
-                        </div>
-                        
-                        <div className="carousel-indicators">
-                            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" className="active bg-secondary " aria-current="true" aria-label="Slide 1"></button>
-                            <button type="button" className="active bg-secondary " data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
-                            <button type="button" className="active bg-secondary " data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
-                        </div>
-                    </div>
+                    
                 </div>
                
             </div>

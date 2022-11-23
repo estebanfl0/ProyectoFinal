@@ -406,7 +406,7 @@ form.sign-in-form {
 }
 
 .bg-green{
-    background-color:#ADD063 ;
+    background-color:#212529 ;
     min-width: 100px;
     
 }
@@ -426,6 +426,17 @@ form.sign-in-form {
     }
     
 }
+@media (min-width: 1320px) {
+  .h-sm-100 {
+      height: 100%;
+      
+  }
+  .CardJobTrabajo{
+    width: 60% ;
+  }
+  
+}
+
 @media(max-width:985px){
         .contenidoPostNotiRed{
             flex-wrap: wrap;
@@ -437,6 +448,8 @@ form.sign-in-form {
         .textApp{
           display: none;
         }
+        
+        
         /* span{
           display: none;
         }
@@ -444,7 +457,8 @@ form.sign-in-form {
     
     
 }
-@media (max-width:450px){
+
+@media (max-width:540px){
     .noticiasCafe{
         display: none;
         
@@ -457,11 +471,9 @@ form.sign-in-form {
         overflow: auto;
     }
     
-}
-@media (max-width:319px){
-
     
 }
+
 /* width */
  ::-webkit-scrollbar {
     width: 14px;
@@ -486,6 +498,7 @@ form.sign-in-form {
     
     
 }
+
 .bg-green{
   min-width: 100px;
 }

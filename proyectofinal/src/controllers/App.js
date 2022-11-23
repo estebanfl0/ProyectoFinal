@@ -16,6 +16,7 @@ import '../componentes/css/buttons.css';
 import'../componentes/css/input.css'
 import'../componentes/css/cardEcommerce.css'
 import VistaEcommerce from "../views/viewsRedSocial/vista-ecommerce-red";
+import VistaTrabajoRed from "../views/viewsRedSocial/vista-trabajo-red";
 
 function App() {
   const location = useLocation()
@@ -35,6 +36,7 @@ function App() {
                   <Route path="/" element={<VistaRedsocial/>}>
                       <Route path="/vistaPrincipal-red" element={<VistaPostRed />}></Route>
                       <Route path="/vista-ecommerce-red" element={<VistaEcommerce/>}></Route>
+                      <Route path="/vista-trabajo-red" element={<VistaTrabajoRed/>}></Route>
 
                   </Route>
             </Routes>

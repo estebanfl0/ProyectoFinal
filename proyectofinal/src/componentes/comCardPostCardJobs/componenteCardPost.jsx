@@ -11,8 +11,8 @@ function CardPost({imagenPerfil,nombre,key,body,src,onClick}){
       }
     return(
         <div class="card mx-auto mt-4" key={key}>
-        <img src={require('../../images/imageDefecto.png')} className="card-img-top" />
-        <div class="card-body">
+            <img src={src} className="card-img-top" />
+            <div class="card-body">
             <h5 class="card-title"><span><img className="rounded-5" src={imagenPerfil} width="50px" style={{marginRight:'10px'}} /></span>{nombre}</h5>
             <p class="card-text">{body}</p>
             <div className="d-flex justify-content-between">
@@ -22,8 +22,8 @@ function CardPost({imagenPerfil,nombre,key,body,src,onClick}){
             </button>
             <button type="button" className="btn" style={{backgroundColor:'red', width:'80px', height:'30px',fontSize:'12px'}} onClick={onClick}>Borrar</button>
             </div>
+            </div>
         </div>
-    </div>
     )
 }
 export default CardPost

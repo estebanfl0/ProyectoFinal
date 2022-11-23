@@ -1,7 +1,8 @@
 import React from "react";
 function CardJob(){
     return(
-        <div className="card border-0 cardJob mb-3">
+      
+        <div className="card border-0 cardJob mb-3" style={{width: '18rem'}}>
                                     <div className="row g-0 text-dark">
                                             <div className="col-md-4">
                                                 <img src={require('../../images/imageDefecto.png')} className=" rounded-start img-fluid"/>
