@@ -11,7 +11,7 @@ function CardPost({imagenPerfil,nombre,key,body,src,onClick}){
       }
     return(
         <div class="card mx-auto mt-4" key={key}>
-            <img src={src} className="card-img-top" />
+            <img src={require('../../images/imageDefecto.png')} className="card-img-top"   />
             <div class="card-body">
             <h5 class="card-title"><span><img className="rounded-5" src={imagenPerfil} width="50px" style={{marginRight:'10px'}} /></span>{nombre}</h5>
             <p class="card-text">{body}</p>

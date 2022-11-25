@@ -13,29 +13,29 @@ function VistaRedsocial({nombre}){
                     <ul class="nav ul nav-pills flex-sm-column flex-row flex-nowrap flex-shrink-1 flex-sm-grow-0 flex-grow-1 mb-sm-auto mb-0 justify-content-around align-items-center align-items-sm-start" id="menu">
                         <li class="nav-item">
                             <Link to='/vistaPrincipal-red' class="nav-link px-sm-0 px-2">
-                             <i className="fs-5 bi bi-house text-light"></i><span class="ms-1 d-none d-sm-inline text-light fw-bold fs-5 li">Inicio</span>
+                             <i className="fs-5 bi bi-house hvo"></i><span class="ms-1 d-none d-sm-inline fw-bold fs-5 li">Inicio</span>
                             </Link>
                         </li>
                         <li>
                             <a href="#submenu1" data-bs-toggle="collapse" class="nav-link px-sm-0 px-2">
-                            <i class="fs-5 bi bi-bell-fill text-light fs-5"></i><span class="ms-1 d-none d-sm-inline text-light fw-bold fs-5 li">Notificaciones</span> </a>
+                            <i class="fs-5 bi bi-bell-fill hvo fs-5"></i><span class="ms-1 d-none d-sm-inline fw-bold fs-5 li">Notificaciones</span> </a>
                         </li>
                         <li>
                             <a href="#" class="nav-link px-sm-0 px-2">
-                            <i class="fs-5 bi bi-save-fill text-light fs-5"></i><span class="ms-1 d-none d-sm-inline text-light fw-bold fs-5 li">Guardado</span></a>
+                            <i class="fs-5 bi bi-save-fill hvo fs-5"></i><span class="ms-1 d-none d-sm-inline fw-bold fs-5 li">Guardado</span></a>
                         </li>
                         <li>
                             <a href="#" class="nav-link px-sm-0 px-2">
-                            <i class=" fs-5 bi bi-sliders text-light fs-5"></i><span class="ms-1 d-none d-sm-inline text-light fw-bold fs-5 li">Configuraciones</span></a>
+                            <i class=" fs-5 bi bi-sliders hvo fs-5"></i><span class="ms-1 d-none d-sm-inline fw-bold fs-5 li">Configuraciones</span></a>
                         </li>
                         <li>
                             
                             <Link to='/vista-trabajo-red' class="nav-link px-sm-0 px-2">
-                            <i class=" fs-5 bi bi-briefcase-fill text-light fs-5"></i><span class="ms-1 d-none d-sm-inline text-light fw-bold fs-5 li">Trabajos</span> </Link>
+                            <i class=" fs-5 bi bi-briefcase-fill hvo fs-5"></i><span class="ms-1 d-none d-sm-inline fw-bold fs-5 li">Trabajos</span> </Link>
                         </li>
                         <li>
                             <Link to='/vista-ecommerce-red' class="nav-link px-sm-0 px-2">
-                            <i class=" fs-5 bi bi-briefcase-fill text-light fs-5"></i><span class="ms-1 d-none d-sm-inline text-light fw-bold fs-5 li">Tienda</span> </Link>
+                            <i class=" fs-5 bi bi-briefcase-fill hvo fs-5"></i><span class="ms-1 d-none d-sm-inline fw-bold fs-5 li">Tienda</span> </Link>
                         </li>
                     </ul>
                     <div class="dropdown py-sm-4 mt-sm-auto ms-auto ms-sm-0 flex-shrink-1">
