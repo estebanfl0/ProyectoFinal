@@ -1,6 +1,6 @@
 .cardEcommerce {
     width: 190px;
-    min-height: 254px;
+    max-height: 400px;
     padding: .8em;
     border-radius: 20px;
     position: relative;
@@ -60,13 +60,16 @@
     background-color: #ADD063;
    }
    .postEcommerce{
-    min-width: 100%;
-    padding: 5px;
+    height: 90%;
+    padding: 30px;
+    display: flex;
+    justify-content: center;
     gap: 50px;
-    margin: 10px;
-    height: 100%;
     flex-wrap: wrap;
     overflow-y: auto;
-    display: flex;
+
+    
+    
+    
    }
    

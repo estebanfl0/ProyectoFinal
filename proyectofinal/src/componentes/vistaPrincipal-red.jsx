@@ -9,7 +9,7 @@ function VistaRedsocial({nombre}){
         <div class="row">
             <div class="col-12 col-sm-3 col-xl-2 p-2  d-flex sticky-top bg-green">
                 <div class="d-flex flex-sm-column flex-row flex-grow-1 align-items-center align-items-sm-start px-3 pt-2 text-white ">
-                    <h1 className="fs-5 text-light fw-bold d-flex align-items-center"><img className="logoApp"  src={require('../images/logopequeño.png')}alt="" width='80px' /><span className="textApp">Coffecom</span></h1>
+                    <h1 className="fs-5 tittleLogo text-light fw-bold d-flex align-items-center"><img className="logoApp"  src={require('../images/logopequeño.png')}alt="" width='80px' /><span className="textApp">Coffecom</span></h1>
                     <ul class="nav ul nav-pills flex-sm-column flex-row flex-nowrap flex-shrink-1 flex-sm-grow-0 flex-grow-1 mb-sm-auto mb-0 justify-content-around align-items-center align-items-sm-start" id="menu">
                         <li class="nav-item">
                             <Link to='/vistaPrincipal-red' class="nav-link px-sm-0 px-2">
@@ -38,7 +38,7 @@ function VistaRedsocial({nombre}){
                             <i class=" fs-5 bi bi-briefcase-fill hvo fs-5"></i><span class="ms-1 d-none d-sm-inline fw-bold fs-5 li">Tienda</span> </Link>
                         </li>
                     </ul>
-                    <div class="dropdown py-sm-4 mt-sm-auto ms-auto ms-sm-0 flex-shrink-1">
+                    <div class="dropdown py-sm-4 mt-sm-auto ms-auto ms-sm-0 flex-shrink-1 px-2">
                         <a href="#" class="d-flex align-items-center text-white text-decoration-none dropdown-toggle" id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">
                             <img src={require('../images/imagenPerfil.png')} alt="hugenerd" width="28" height="28" class="rounded-circle"/>
                             <span class="d-none d-sm-inline fs-5 mx-1">Joe</span>
