@@ -15,8 +15,15 @@ import '../componentes/css/login.css'
 import '../componentes/css/buttons.css';
 import'../componentes/css/input.css'
 import'../componentes/css/cardEcommerce.css'
+import'../componentes/css/card_job.css'
+import'../componentes/css/editarP.css'
 import VistaEcommerce from "../views/viewsRedSocial/vista-ecommerce-red";
 import VistaTrabajoRed from "../views/viewsRedSocial/vista-trabajo-red";
+import VistaConfigRed from "../views/viewsRedSocial/vista-config-red";
+import VistaPerfil from "../views/viewsRedSocial/vistaPerfil/vista-perfil-red";
+import VistaInfoPerfil from "../views/viewsRedSocial/vistaPerfil/vista-info-perfil";
+import VistaPostPerfil from "../views/viewsRedSocial/vistaPerfil/vista-post-perfil";
+
 
 function App() {
   const location = useLocation()
@@ -36,8 +43,14 @@ function App() {
                   </Route>
                   <Route path="/" element={<VistaRedsocial/>}>
                       <Route path="/vistaPrincipal-red" element={<VistaPostRed />}></Route>
-                      <Route path="/vista-ecommerce-red" element={<VistaEcommerce/>}></Route>
-                      <Route path="/vista-trabajo-red" element={<VistaTrabajoRed/>}></Route>
+                      <Route path="/vista-ecommerce-red" element={<VistaEcommerce />}></Route>
+                      <Route path="/vista-trabajo-red" element={<VistaTrabajoRed />}></Route>
+                      <Route path="/vista-config-red" element={<VistaConfigRed />}></Route>
+                      <Route path="/vista-perfil-red" element={<VistaPerfil />}>
+                        <Route path="/vista-perfil-red" element={<VistaInfoPerfil />}></Route>
+                        <Route path="/vista-perfil-red/vista-post-perfil" element={<VistaPostPerfil />}></Route>
+
+                      </Route>
 
                   </Route>
             </Routes>

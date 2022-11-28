@@ -11,45 +11,45 @@ const RemoveClick = ()=>{
     document.querySelector('.containerRed').classList.remove("sign-up-mode")
 }
 return(
-    <motion.div class="containerRed" initial={{opacity:0}} animate={{opacity:1}} exit={{opacity:0, transition:{duration:0.2}}}>
-        <div class="forms-container">
-            <div class="signin-signup">
-            <form action="#" class="sign-in-form">
-                <h2 class="title">Ingresar</h2>
+    <motion.div className="containerRed" initial={{opacity:0}} animate={{opacity:1}} exit={{opacity:0, transition:{duration:0.2}}}>
+        <div className="forms-container">
+            <div className="signin-signup">
+            <form action="#" className="sign-in-form">
+                <h2 className="title">Ingresar</h2>
                 
-                <div class="input-field">
-                <i class="fas fa-user"></i>
+                <div className="input-field">
+                <i className="fas fa-user"></i>
                 <input type="email" placeholder="Correo" />
                 </div>
-                <div class="input-field">
-                <i class="fas fa-lock"></i>
+                <div className="input-field">
+                <i className="fas fa-lock"></i>
                 <input type="password" placeholder="Contraseña" />
                 </div>
                 
-                <div class="main_div my-5">
+                <div className="main_div my-5">
                 <Link to='/vistaPrincipal-red'>
-                    <button className="fw-bold">Ingresar</button>
+                    <button classNameName="fw-bold">Ingresar</button>
                 </Link>
                 </div>
-                <Link to='/vista-contraseña'><p class="social-text olv">Olvidé mi contraseña</p></Link>
+                <Link to='/vista-contraseña'><p className="social-text olv">Olvidé mi contraseña</p></Link>
               
                 
             </form>
-            <form action="#" class="sign-up-form">
-                <h2 class="title">Crear</h2>
-                <div class="input-field">
-                <i class="fas fa-user"></i>
+            <form action="#" className="sign-up-form">
+                <h2 className="title">Crear</h2>
+                <div className="input-field">
+                <i className="fas fa-user"></i>
                 <input type="text" placeholder="Nombre" />
                 </div>
-                <div class="input-field">
-                <i class="fas fa-envelope"></i>
+                <div className="input-field">
+                <i className="fas fa-envelope"></i>
                 <input type="email" placeholder="Correo" />
                 </div>
-                <div class="input-field">
-                <i class="fas fa-lock"></i>
+                <div className="input-field">
+                <i className="fas fa-lock"></i>
                 <input type="password" placeholder="Contraseña" />
                 </div>
-                <div class="main_div my-5">
+                <div className="main_div my-5">
                 
                     <button className="fw-bold">Crear</button>
                 
@@ -59,30 +59,30 @@ return(
             </div>
         </div>
 
-        <div class="panels-container">
-            <div class="panel left-panel">
-                <div class="content">
+        <div className="panels-container">
+            <div className="panel left-panel">
+                <div className="content">
                     <h3>¿Eres nuevo?</h3>
                     <p>
                     Crea tu cuenta y haz parte de esta gran familia
                     </p>
-                <button class="btn transparent w-50" id="sign-up-btn" onClick={AddClick}>
+                <button className="btn transparent w-50" id="sign-up-btn" onClick={AddClick}>
                     Crear cuenta
                 </button>
                 </div>
-                <img src={require('../images/imageLogin.png')} class="image" alt="" />
+                <img src={require('../images/imageLogin.png')} className="image" alt="" />
             </div>
-            <div class="panel right-panel">
-            <div class="content">
+            <div className="panel right-panel">
+            <div className="content">
                 <h3>¿Ya eres uno de nosotros?</h3>
                 <p>
                 Ingresa a tu cuenta para que no te pierdas de todo lo que tenemos para ti
                 </p>
-                <button class="btn transparent w-50" id="sign-in-btn" onClick={RemoveClick}>
+                <button className="btn transparent w-50" id="sign-in-btn" onClick={RemoveClick}>
                 Ingresar cuenta
                 </button>
             </div>
-            <img src={require('../images/imageCreate.png')} class="image" alt="" />
+            <img src={require('../images/imageCreate.png')} className="image" alt="" />
             </div>
         </div>
     </motion.div>

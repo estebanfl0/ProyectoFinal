@@ -4,8 +4,8 @@ import CardJobTrabajo from "../../componentes/comCardPostCardJobs/componenteCard
 function VistaTrabajoRed(){
     return(
         <motion.div className="contenidoPostNotiRed  d-flex" initial={{opacity:0}} animate={{opacity:1}} exit={{opacity:0, transition:{duration:0.2}}} >
-            <div className="post p-4 d-flex flex-wrap" style={{width:'100%'}}>
-                <div className="d-flex justify-content-center  flex-wrap gap-2 CardJobTrabajo" style={{height:'92vh',overflowY:'auto'}}>
+            <div className="post p-4 d-flex flex-wrap">
+                <div className="d-flex  flex-wrap gap-2 CardJobTrabajo" style={{height:'92vh',overflowY:'auto',width:'100%'}}>
 
                    <CardJobTrabajo/>
                    <CardJobTrabajo/>
@@ -16,10 +16,11 @@ function VistaTrabajoRed(){
                    <CardJobTrabajo/>
                    <CardJobTrabajo/>
                    <CardJobTrabajo/>
+                   <CardJobTrabajo/>
+                   <CardJobTrabajo/>
+                   <CardJobTrabajo/>
                 </div>
-                <div>
-                    lugwqgdwqwdquigui
-                </div>
+                
                     
                
             </div>
