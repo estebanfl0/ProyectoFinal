@@ -69,11 +69,14 @@ export const CartProvider = ({ children }) => {
       );
     }
   };
+  const click = ()=>{
+    alert()
+  }
 
   return (
     /* Envolvemos el children con el provider y le pasamos un objeto con las propiedades que necesitamos por value */
     <CartContext.Provider
-      value={{ cartItems, AddItemToCart, DeleteItemToCart }}
+      value={{ cartItems, AddItemToCart, DeleteItemToCart,click }}
     >
       {children}  
     </CartContext.Provider>

@@ -25,13 +25,13 @@ import VistaInfoPerfil from "../views/viewsRedSocial/vistaPerfil/vista-info-perf
 import VistaPostPerfil from "../views/viewsRedSocial/vistaPerfil/vista-post-perfil";
 
 
+
+
 function App() {
   const location = useLocation()
   return (
       <div className="App overflow-hidden">
-        
         <AnimatePresence>
-        
             <Routes location={location} key={location.pathname}>
                   <Route path="/" element={<VistaPrincipal />}>
                   </Route>  
@@ -55,6 +55,8 @@ function App() {
                   </Route>
             </Routes>
             </AnimatePresence>
+        
+        
           
       </div>
   );

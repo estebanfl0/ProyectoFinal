@@ -26,7 +26,10 @@ function VistaPerfil(){
                         <li><a href="#" title=""><i className="icono-perfil fas fa-camera"></i> Fotos</a></li>
                     </ul>
                 </div>
+                <div className="p-5">
+
                 <Outlet />
+                </div>
                 
                 
         

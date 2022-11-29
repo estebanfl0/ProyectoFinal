@@ -4,6 +4,9 @@ import CardJob from "../../componentes/comCardPostCardJobs/componenteCardJob";
 import CardPost from "../../componentes/comCardPostCardJobs/componenteCardPost";
 import{motion} from'framer-motion'
 import { useState, useEffect } from "react";
+import { useContext } from "react";
+import ExampleContext from "../../controllers/context/ExampleContext";
+
 
 
 function VistaPostRed (){
