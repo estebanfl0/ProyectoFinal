@@ -8,7 +8,7 @@ function VistaPerfil(){
                 <div className="portada-perfil" >
                     <div className="sombra"></div>
                     <div className="avatar-perfil">
-                        <img src={require('../../../images/imagenPerfil.png')} alt="img"/>
+                        <img src={require('../../../images/imagenPerfil.png')} className='imgPerfil' alt="img"/>
                     </div>
                     <div className="datos-perfil">
                         <h4 className="titulo-usuario">Joe Ramirez</h4>
@@ -26,7 +26,7 @@ function VistaPerfil(){
                         <li><a href="#" title=""><i className="icono-perfil fas fa-camera"></i> Fotos</a></li>
                     </ul>
                 </div>
-                <div className="p-5">
+                <div className="p-1">
 
                 <Outlet />
                 </div>

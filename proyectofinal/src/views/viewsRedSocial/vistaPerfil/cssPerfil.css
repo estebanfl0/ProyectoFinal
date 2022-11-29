@@ -19,7 +19,7 @@
 .perfil-usuario .sombra {
     border-radius: 0 0 20px 20px;
 }
-.perfil-usuario img {
+.perfil-usuario .imgPerfil {
     width: 100%;
 }
 .contenedor-perfil {
@@ -227,4 +227,10 @@
 }
  .lista-datos li {
     padding: 5px 0;
+}
+.PostPerfil{
+    
+    width: 100%;
+    height: 50vh;
+    overflow-y: scroll;
 }

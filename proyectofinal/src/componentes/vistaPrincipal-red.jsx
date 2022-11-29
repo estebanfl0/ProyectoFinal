@@ -4,6 +4,7 @@ import{motion} from 'framer-motion';
 
 
 function VistaRedsocial({nombre}){
+    
     return(
         <div class="container-fluid bg-redS" >
         <div class="row">
