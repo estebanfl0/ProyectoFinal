@@ -23,8 +23,7 @@ import VistaConfigRed from "../views/viewsRedSocial/vista-config-red";
 import VistaPerfil from "../views/viewsRedSocial/vistaPerfil/vista-perfil-red";
 import VistaInfoPerfil from "../views/viewsRedSocial/vistaPerfil/vista-info-perfil";
 import VistaPostPerfil from "../views/viewsRedSocial/vistaPerfil/vista-post-perfil";
-
-
+import {ApiProvider,useApiContext} from "./context/ApiContext"
 
 
 function App() {
@@ -62,4 +61,6 @@ function App() {
   );
 }
 
-export default App;
+export default ()=> <ApiProvider>
+  <App></App>
+</ApiProvider>
