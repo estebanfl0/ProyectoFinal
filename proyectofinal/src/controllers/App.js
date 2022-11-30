@@ -23,43 +23,45 @@ import VistaConfigRed from "../views/viewsRedSocial/vista-config-red";
 import VistaPerfil from "../views/viewsRedSocial/vistaPerfil/vista-perfil-red";
 import VistaInfoPerfil from "../views/viewsRedSocial/vistaPerfil/vista-info-perfil";
 import VistaPostPerfil from "../views/viewsRedSocial/vistaPerfil/vista-post-perfil";
+import React, { useState } from "react";
 
 
 
 
-function App() {
-  const location = useLocation()
-  return (
-      <div className="App overflow-hidden">
-        <AnimatePresence>
-            <Routes location={location} key={location.pathname}>
-                  <Route path="/" element={<VistaPrincipal />}>
-                  </Route>  
-                  <Route path="/" element={<VistaContraseña />}>
-                    <Route path="/vista-contraseña" exact  element={<IngresarCorreo />}></Route>
-                    <Route path="/recibir-codigo"  element={<RecibirCodigo/>}></Route>
-                    <Route path="/cambiar-contraseña"  element={<CmabiarContraseña/>}></Route>
-                    <Route path="/contraseña-cambiada"  element={<ContraseñaCambiada />}></Route>
-                  </Route>
-                  <Route path="/" element={<VistaRedsocial/>}>
-                      <Route path="/vistaPrincipal-red" element={<VistaPostRed />}></Route>
-                      <Route path="/vista-ecommerce-red" element={<VistaEcommerce />}></Route>
-                      <Route path="/vista-trabajo-red" element={<VistaTrabajoRed />}></Route>
-                      <Route path="/vista-config-red" element={<VistaConfigRed />}></Route>
-                      <Route path="/vista-perfil-red" element={<VistaPerfil />}>
-                        <Route path="/vista-perfil-red" element={<VistaInfoPerfil />}></Route>
-                        <Route path="/vista-perfil-red/vista-post-perfil" element={<VistaPostPerfil />}></Route>
-
-                      </Route>
-
-                  </Route>
-            </Routes>
-            </AnimatePresence>
-        
-        
+ export function App (){
+  const [login,setLogin] = useState(false)
+  
+    return (
+        <div className="App overflow-hidden">
+          <AnimatePresence>
+              <Routes>
+                    <Route path="/" element={<VistaPrincipal />}>
+                    </Route>
+                    <Route path="/" element={<VistaRedsocial/>}>
+                        <Route path="/vistaPrincipal-red" element={<VistaPostRed />}></Route>
+                        <Route path="/vista-ecommerce-red" element={<VistaEcommerce />}></Route>
+                        <Route path="/vista-trabajo-red" element={<VistaTrabajoRed />}></Route>
+                        <Route path="/vista-config-red" element={<VistaConfigRed />}></Route>
+                        <Route path="/vista-perfil-red" element={<VistaPerfil />}>
+                          <Route path="/vista-perfil-red" element={<VistaInfoPerfil />}></Route>
+                          <Route path="/vista-perfil-red/vista-post-perfil" element={<VistaPostPerfil />}></Route>
+                        </Route>
+                    </Route>
+                    <Route path="/" element={<VistaContraseña />}>
+                      <Route path="/vista-contraseña" exact  element={<IngresarCorreo />}></Route>
+                      <Route path="/recibir-codigo"  element={<RecibirCodigo/>}></Route>
+                      <Route path="/cambiar-contraseña"  element={<CmabiarContraseña/>}></Route>
+                      <Route path="/contraseña-cambiada"  element={<ContraseñaCambiada />}></Route>
+                    </Route>
+                   
+              </Routes>
+              </AnimatePresence>
           
-      </div>
-  );
-}
+          
+            
+        </div>
+    );
+  }
 
-export default App;
+
+

@@ -22,14 +22,50 @@ export const ApiProvider = ({ children }) => {
     localStorage.setItem("cartProducts", JSON.stringify(exampleItems));
   }, [exampleItems]);
 
-  const click = ()=>{
-    alert(8)
-  }
+  const [datos,setDatos] = useState({password:''})
+  const handleInputChange = (event) => {
+    setDatos({
+    
+        ...datos,
+        [event.target.password] : event.target.value
+        
+      })
+      const valorINput = event.target.value
+      console.log(valorINput)
+      
+    }
+const enviarDatos = (event) => {
+  event.preventDefault()
+  console.log('enviando datos...' + datos.password)
+}
+  // constructor(props) {
+  //     super(props)
+  //     this.state = {
+  //       passwordP: '12345',
+  //       passwordA:'admin',
+  //       authorized1: false,
+  //       authorized2: false
+
+  //     };
+  //     this.authorize = this.authorize.bind(this);
+  //   };
+  
+  //   authorize(e) {
+  //     const password = e.target.querySelector(
+  //       'input[type="password"]').value;
+  //     const auth1 = password === this.state.passwordP;
+  //     const auth2 = password === this.state.passwordA;
+
+  //     this.setState({
+  //       authorized1: auth1,
+  //       authorized2:auth2
+  //     });
+  //   }
 
   return (
     /* Envolvemos el children con el provider y le pasamos un objeto con las propiedades que necesitamos por value */
     <ApiContext.Provider
-      value={{exampleItems,click }}
+      value={{exampleItems,handleInputChange,enviarDatos,datos}}
     >
       {children}  
     </ApiContext.Provider>
