@@ -1,7 +1,11 @@
 import React from "react";
+
 import './css/login.css';
 import{Link} from'react-router-dom'
 import{motion} from'framer-motion';
+import { useContext } from "react";
+import ApiContext from "../controllers/context/ExampleContext";
+
 
 function VistaPrincipal() {
   const AddClick = ()=>{
@@ -10,25 +14,29 @@ function VistaPrincipal() {
 const RemoveClick = ()=>{
     document.querySelector('.containerRed').classList.remove("sign-up-mode")
 }
+const {handleInputChange,enviarDatos} = useContext(ApiContext)
 return(
     <motion.div className="containerRed" initial={{opacity:0}} animate={{opacity:1}} exit={{opacity:0, transition:{duration:0.2}}}>
+        
+
         <div className="forms-container">
             <div className="signin-signup">
-            <form action="#" className="sign-in-form">
+                
+            <form action="#" className="sign-in-form" onSubmit={enviarDatos}>
                 <h2 className="title">Ingresar</h2>
                 
                 <div className="input-field">
                 <i className="fas fa-user"></i>
-                <input type="email" placeholder="Correo" />
+                <input type="email" placeholder="Correo"  />
                 </div>
                 <div className="input-field">
                 <i className="fas fa-lock"></i>
-                <input type="password" placeholder="Contraseña" />
+                <input id="password1" type="password" placeholder="Contraseña" onChange={handleInputChange}  />
                 </div>
-                
                 <div className="main_div my-5">
+                    
                 <Link to='/vistaPrincipal-red'>
-                    <button classNameName="fw-bold">Ingresar</button>
+                    <button type="submit" classNameName="fw-bold">Ingresar</button>
                 </Link>
                 </div>
                 <Link to='/vista-contraseña'><p className="social-text olv">Olvidé mi contraseña</p></Link>
@@ -85,6 +93,7 @@ return(
             <img src={require('../images/imageCreate.png')} className="image" alt="" />
             </div>
         </div>
+        
     </motion.div>
 
 )
