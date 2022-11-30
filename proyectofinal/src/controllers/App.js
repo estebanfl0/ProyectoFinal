@@ -4,10 +4,10 @@ import { Routes, Route , useLocation} from "react-router-dom";
 import CmabiarContraseña from "../views/viewsContraseña/cambiar-contraseña";
 import VistaContraseña from "../componentes/vista-contraseña";
 import IngresarCorreo from "../views/viewsContraseña/ingresar-correo";
+import VistaRedsocial from "../componentes/vistaPrincipal-red";
 import RecibirCodigo from "../views/viewsContraseña/recibir-codigo";
 import ContraseñaCambiada from "../views/viewsContraseña/contraseña-cambiada";
 import { AnimatePresence } from "framer-motion";
-import VistaRedsocial from "../componentes/vistaPrincipal-red";
 import VistaPostRed from "../views/viewsRedSocial/vista-post-red";
 
 import'./css/App.css';
@@ -17,13 +17,15 @@ import'../componentes/css/input.css'
 import'../componentes/css/cardEcommerce.css'
 import'../componentes/css/card_job.css'
 import'../componentes/css/editarP.css'
+import'../componentes/css/notificaciones.css'
 import VistaEcommerce from "../views/viewsRedSocial/vista-ecommerce-red";
 import VistaTrabajoRed from "../views/viewsRedSocial/vista-trabajo-red";
 import VistaConfigRed from "../views/viewsRedSocial/vista-config-red";
 import VistaPerfil from "../views/viewsRedSocial/vistaPerfil/vista-perfil-red";
 import VistaInfoPerfil from "../views/viewsRedSocial/vistaPerfil/vista-info-perfil";
 import VistaPostPerfil from "../views/viewsRedSocial/vistaPerfil/vista-post-perfil";
-import React, { useState } from "react";
+import React, { useState , Suspense,lazy } from "react";
+
 
 
 
