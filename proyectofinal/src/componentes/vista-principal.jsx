@@ -4,7 +4,7 @@ import './css/login.css';
 import{Link} from'react-router-dom'
 import{motion} from'framer-motion';
 import { useContext } from "react";
-import ApiContext from "../controllers/context/ExampleContext";
+import {useApiContext} from "../controllers/context/ApiContext";
 
 
 function VistaPrincipal() {
@@ -14,7 +14,6 @@ function VistaPrincipal() {
 const RemoveClick = ()=>{
     document.querySelector('.containerRed').classList.remove("sign-up-mode")
 }
-const {handleInputChange,enviarDatos} = useContext(ApiContext)
 return(
     <motion.div className="containerRed" initial={{opacity:0}} animate={{opacity:1}} exit={{opacity:0, transition:{duration:0.2}}}>
         
@@ -22,7 +21,7 @@ return(
         <div className="forms-container">
             <div className="signin-signup">
                 
-            <form action="#" className="sign-in-form" onSubmit={enviarDatos}>
+            <form action="#" className="sign-in-form">
                 <h2 className="title">Ingresar</h2>
                 
                 <div className="input-field">
@@ -31,7 +30,7 @@ return(
                 </div>
                 <div className="input-field">
                 <i className="fas fa-lock"></i>
-                <input id="password1" type="password" placeholder="Contraseña" onChange={handleInputChange}  />
+                <input id="password1" type="password" placeholder="Contraseña"/>
                 </div>
                 <div className="main_div my-5">
                     

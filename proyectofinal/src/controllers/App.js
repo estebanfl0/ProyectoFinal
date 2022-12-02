@@ -25,13 +25,16 @@ import VistaPerfil from "../views/viewsRedSocial/vistaPerfil/vista-perfil-red";
 import VistaInfoPerfil from "../views/viewsRedSocial/vistaPerfil/vista-info-perfil";
 import VistaPostPerfil from "../views/viewsRedSocial/vistaPerfil/vista-post-perfil";
 import React, { useState , Suspense,lazy } from "react";
+import {ApiProvider,useApiContext} from './context/ApiContext'
 
 
+export default ()=> <ApiProvider>
+  <App></App>
+</ApiProvider>
 
-
-
- export function App (){
+function App (){
   const [login,setLogin] = useState(false)
+
   
     return (
         <div className="App overflow-hidden">
