@@ -15,7 +15,7 @@ function VistaRedsocial({nombre}){
                     <ul class="nav ul nav-pills flex-sm-column flex-row flex-nowrap flex-shrink-1 flex-sm-grow-0 flex-grow-1 mb-sm-auto mb-0 justify-content-around align-items-center align-items-sm-start" id="menu">
                         
                         <li class="nav-item">
-                            <Link to='/vistaPrincipal-red' class="nav-link px-sm-0 px-2">
+                            <Link  to='/vistaPrincipal-red' class="nav-link px-sm-0 px-2">
                              <i className="fs-5 bi bi-house hvo"></i><span class="ms-1 d-none d-sm-inline fw-bold fs-5 li">Inicio</span>
                             </Link>
                         </li>

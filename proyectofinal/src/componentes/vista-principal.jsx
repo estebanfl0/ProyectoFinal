@@ -7,7 +7,7 @@ import { useContext } from "react";
 import {useApiContext} from "../controllers/context/ApiContext";
 
 
-function VistaPrincipal() {
+function VistaPrincipal({onClick}) {
   const AddClick = ()=>{
     document.querySelector('.containerRed').classList.add("sign-up-mode")
 }
@@ -35,7 +35,7 @@ return(
                 <div className="main_div my-5">
                     
                 <Link to='/vistaPrincipal-red'>
-                    <button type="submit" classNameName="fw-bold">Ingresar</button>
+                    <button type="submit" classNameName="fw-bold" onClick={onClick}>Ingresar</button>
                 </Link>
                 </div>
                 <Link to='/vista-contraseña'><p className="social-text olv">Olvidé mi contraseña</p></Link>

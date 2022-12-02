@@ -24,23 +24,36 @@ import VistaConfigRed from "../views/viewsRedSocial/vista-config-red";
 import VistaPerfil from "../views/viewsRedSocial/vistaPerfil/vista-perfil-red";
 import VistaInfoPerfil from "../views/viewsRedSocial/vistaPerfil/vista-info-perfil";
 import VistaPostPerfil from "../views/viewsRedSocial/vistaPerfil/vista-post-perfil";
-import React, { useState , Suspense,lazy } from "react";
-import {ApiProvider,useApiContext} from './context/ApiContext'
+import Recargar from "../componentes/componenteCargar/componenteCargar";
+import React, { useState } from "react";
 
 
-export default ()=> <ApiProvider>
-  <App></App>
-</ApiProvider>
 
-function App (){
-  const [login,setLogin] = useState(false)
 
+
+ export function App (){
+  const [loading,setLoading] = useState(false);
+
+  const cambiarEstado = () =>{
+    
+
+    setLoading(true);
+    setTimeout(()=>{
+      setLoading(false)
+    },3000)
+  }
+  
+  if(loading){
+    return(
+      <Recargar/>
+    )
+  }
   
     return (
         <div className="App overflow-hidden">
           <AnimatePresence>
               <Routes>
-                    <Route path="/" element={<VistaPrincipal />}>
+                    <Route path="/" element={<VistaPrincipal onClick={()=>cambiarEstado()} />}>
                     </Route>
                     <Route path="/" element={<VistaRedsocial/>}>
                         <Route path="/vistaPrincipal-red" element={<VistaPostRed />}></Route>

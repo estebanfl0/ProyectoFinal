@@ -57,6 +57,25 @@ function VistaPostRed (){
       return;
     }
   };
+  // Funcion para obtener una sola publicacion
+  const getPost = async(id)=>{
+    let response = await fetch(
+      `https://projectapi-production.up.railway.app/api/publication/${id}`,
+      {
+        method: "GET"
+      }
+  
+    );
+    let data = await response.json()
+    if (response.status === 200) {
+      setPosts(data.data)
+      console.log(data.data)
+      
+    } else {
+      return;
+    }
+  }
+  
   // Publicar datos con fetch API
   const agregarPosts = async (titulo, mensaje,imagen) => {
     let response = await fetch("https://jsonplaceholder.typicode.com/posts", {
@@ -83,6 +102,31 @@ function VistaPostRed (){
     e.preventDefault();
     agregarPosts(titulo, content,imagen);
   };
+  
+  // const [info,setInfo] = useState(false)
+  // const infoCard = (id) =>{
+  //   console.log(id)
+  //   setInfo(true)
+    
+  // }
+  // 
+  // 
+  // if(!info){
+  //   alert(9)
+  //   {posts.map((post) => (
+      
+  //     <CardPost
+  //     key={post.id}
+  //     src={post.image}
+  //     nombre={post.title}
+  //     imagenPerfil={require('../../images/imagenPerfil.png')}
+  //     body={post.content}
+  //     onClick={() => borrarPost(post.id)}
+  //     clickEx={()=>infoCard()}
+  // />
+  //   ))}
+  // }
+ 
     return(
         <motion.div className="contenidoPostNotiRed  d-flex" initial={{opacity:0}} animate={{opacity:1}} exit={{opacity:0, transition:{duration:0.2}}} >
             <div className="post p-4">
@@ -104,18 +148,30 @@ function VistaPostRed (){
                         </div>
                     </form>
                 <div className="seePost mt-1 p-2">
-                    {posts.map((post)=>{
-                        return(
-                            <CardPost
-                                key={post.id}
-                                src={post.image}
-                                nombre={post.title}
-                                imagenPerfil={require('../../images/imagenPerfil.png')}
-                                body={post.content}
-                                onClick={() => borrarPost(post.id)}
-                            />
-                        );
-                    })}
+                  {!Array.isArray(posts) ? <CardPost key={posts.id}
+                              src={posts.image}
+                              nombre={posts.title}
+                              imagenPerfil={require('../../images/imagenPerfil.png')}
+                              body={posts.content} />
+                    :
+                    posts.map((post)=>{
+                      return(
+                          <CardPost
+                              key={post.id}
+                              src={post.image}
+                              nombre={post.title}
+                              imagenPerfil={require('../../images/imagenPerfil.png')}
+                              body={post.content}
+                              onClick={() => borrarPost(post.id)}
+                              clickEx={()=>getPost(post.id)}
+                          />
+                      );
+                  }) 
+                    
+                      
+                   }
+                  
+                    
                    
                     
                     
