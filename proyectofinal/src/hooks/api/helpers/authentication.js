@@ -14,8 +14,10 @@ const Authentication =(url)=>{
             })
             let token = res.data.token
             localStorage.setItem('token',token)
+            console.log(res.data)
             return res.data            
         } catch (error) {
+            console.log(error.response.data)
             return error.response.data
         }
     }
@@ -30,6 +32,7 @@ const Authentication =(url)=>{
             const res = await axios.post(`${url}logout`,{},
             {headers:headers})
             localStorage.removeItem('token')
+            console.log(res.data)
             return res.data
         } catch (error) {
             return error.response.data
@@ -45,9 +48,10 @@ const Authentication =(url)=>{
                 birthdate:birthdate,
                 cc:cc
             })
+            console.log(res.data)
             return res.data
         } catch (error) {
-            console.log(error.response.data.message)
+            console.log(error)
             return error.response.data
         }
     }
