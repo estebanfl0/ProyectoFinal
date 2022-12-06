@@ -4,7 +4,7 @@ import './css/login.css';
 import{Link} from'react-router-dom'
 import{motion} from'framer-motion';
 import { useContext } from "react";
-import {useApiContext} from "../controllers/context/ApiContext";
+import {useApiContext} from "../hooks/context/ApiContext";
 
 
 function VistaPrincipal({onClick}) {
