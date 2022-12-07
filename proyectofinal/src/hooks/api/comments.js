@@ -26,6 +26,17 @@ const comments = (url) => {
       console.log(error.response.data)
     }
   }
+
+  const getAllComment = async(publication_id)=>{
+    try {
+      const res = await axios.get(`${apiUrl}all/${publication_id}`)
+      console.log(res.data)
+      return res.data
+    } catch (error) {
+      console.log(error.response.data)
+      return error.response.data
+    }
+  }
   
   const updateComment = async(id,id_publication,id_comment,content)=>{
     let request = {content,user_id:id,publication_id:id_publication}
@@ -52,6 +63,7 @@ const comments = (url) => {
   return {
     createComment,
     getComment,
+    getAllComment,
     updateComment,
     deleteComment,
   }
