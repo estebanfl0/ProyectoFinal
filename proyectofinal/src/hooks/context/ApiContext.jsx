@@ -6,6 +6,13 @@ import userData from '../api/userData'
 import publicaciones from "../api/publicaciones";
 import comments from "../api/comments";
 import report from "../api/report";
+import role from "../api/role";
+import report from "../api/report";
+import notification from "../api/notifications";
+import typenotification from "../api/typenotification";
+import imagespublication from "../api/imagespublication";
+import typepublication from "../api/typepubliction";
+import like from "../api/likes";
 
 /* Creamos el context, se le puede pasar un valor inicial */
 const ApiContext = createContext();
@@ -23,6 +30,23 @@ export const ApiProvider = (props) => {
   const {createComment,getComment,getAllComment,updateComment,deleteComment} = comments(ApiUrl)
   // se importan las funciones de report
   const {getAllReports,createReport,getReport,updateReport,deleteReport} = report(ApiUrl)
+
+  //Esteban
+  // se importan las funciones de roles
+  const {getRole, createRole, updateRole, deleteRole} = role(ApiUrl)
+  // se importan las funciones de notification
+  const {getNotification, createNotification, updateNotification, deleteNotification, getAllNotifications} = notification(ApiUrl)
+// se importan las funciones de TypeNotification
+const {getTypeNotification, createTypeNotification, updateTypeNotification, deleteTypeNotification, getAllTypeNotifications} = typenotification(ApiUrl)
+// se importan las funciones de images publication
+const {createimages_publication, getimages_publication, updateimages_publication, deleteimages_publication, getAllimages_publications} = imagespublication(ApiUrl)
+// se importan las funciones de images publication
+const {createtypespublication, gettypespublication, updatetypespublication, deletetypespublication, getAlltypespublications} = typepublication(ApiUrl)
+// se importan las funciones de likes
+const {createlike, getlike, updatelike, deletelike, getAlllikes} = like(ApiUrl)
+
+
+
 
   // ------> la parte de abajo se encarga de el envio de la data atraves del hook <----------
   const value = useMemo(()=>{
@@ -60,7 +84,22 @@ export const ApiProvider = (props) => {
       getReport,
       updateReport,
       deleteReport,
-    })
+      //Esteban
+      //Role
+      getRole, createRole, updateRole, deleteRole,
+      //report
+      getReport, createReport, updateReport, deleteReport, getAllReports,
+      //Notifications
+      getNotification, createNotification, updateNotification, deleteNotification, getAllNotifications,
+      //Notifications
+      getTypeNotification, createTypeNotification, updateTypeNotification, deleteTypeNotification, getAllTypeNotifications,
+      //imagesPublication
+      createimages_publication, getimages_publication, updateimages_publication, deleteimages_publication, getAllimages_publications,
+    //typePublication
+    createtypespublication, gettypespublication, updatetypespublication, deletetypespublication, getAlltypespublications,
+      //like
+      createlike, getlike, updatelike, deletelike, getAlllikes,
+  })
     // nota: como segundo parametro se envia los hooks que no se desean alterar
   },[])
 

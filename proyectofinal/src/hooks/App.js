@@ -26,7 +26,6 @@ import VistaInfoPerfil from "../views/viewsRedSocial/vistaPerfil/vista-info-perf
 import VistaPostPerfil from "../views/viewsRedSocial/vistaPerfil/vista-post-perfil";
 import Recargar from "../componentes/componenteCargar/componenteCargar";
 import React, { useState } from "react";
-
 import { ApiProvider,useApiContext } from "./context/ApiContext";
 
 
@@ -50,6 +49,26 @@ import { ApiProvider,useApiContext } from "./context/ApiContext";
   // se importan las funciones de report
   const {getAllReports,createReport,getReport,updateReport,deleteReport} = useApiContext()
 
+  //ESTEBAN
+// se importan las funciones de role
+  const {getRole, createRole, updateRole, deleteRole} = useApiContext()
+  //se importan las funciones de report
+//se importan las funciones de notification
+const {getNotification, createNotification, updateNotification, deleteNotification, getAllNotifications} = useApiContext()
+//se importan las funciones de typenotification
+const {getTypeNotification, createTypeNotification, updateTypeNotification, deleteTypeNotification, getAllTypeNotifications} = useApiContext()
+//se importan las funciones de typePublication
+const {createtypespublication, gettypespublication, updatetypespublication, deletetypespublication, getAlltypespublications} = useApiContext()
+//se importan las funciones de like
+const {createlike, getlike, updatelike, deletelike, getAlllikes} = useApiContext()
+
+
+
+  const userGetcomment = async(id)=>{
+    setLoading(true)
+    const res = await getComment(id)
+    setLoading(false)
+  }
   const cambiarEstado = () =>{
     
 
@@ -73,6 +92,9 @@ import { ApiProvider,useApiContext } from "./context/ApiContext";
             {/* <button onClick={()=>logout()}>logout</button> */}
             {/* <button onClick={()=>login('mimail1@mail.com','12345')}>login</button> */}
             {/* <button onClick={()=>register('desde react','mimail1@mail.com','12345','1999-10-16','122313456789')}>Register</button> */}
+            <button onClick={()=>logout()}>logout</button>
+            <button onClick={()=>login('mimail1@mail.com','12345')}>login</button>
+            <button onClick={()=>register('desde react','mimail1@mail.com','12345','1999-10-16','122313456789')}>Register</button>
 
         {/* funciones de usuario */}
             {/* <button onClick={()=>getUser('1')}>get one</button> */}
@@ -107,6 +129,52 @@ import { ApiProvider,useApiContext } from "./context/ApiContext";
             {/* <button onClick={()=>updateReport('2','enrelaidad me caen mal','3')}>actualizar report</button> */}
             {/* <button onClick={()=>deleteReport('2')}>eliminar report</button> */}
             
+            {/* <button onClick={()=>userGetcomment('6')}>obtener un comentario</button> */}
+            {/* <button onClick={()=>createComment('1','1','este es mi comentario desde react')}>crear comment</button> */}
+            {/* <button onClick={()=>updateComment('1','1','3','este es el segundo comentario')}>actualizar</button> */}
+            {/* <button onClick={()=>deleteComment('3')}>eliminar</button> */}
+
+    {/*Funciones añadidas por Esteban */}
+
+      {/*Funciones Rol */}
+          {/*<button onClick={()=>getRole('3')}>obtener un rol</button> */} 
+          {/*<button onClick={()=>createRole('friend')}>crear Role</button> */}
+          { /*<button onClick={()=>updateRole('1','Friend Actualizado')}>actualizar</button>*/}
+          {/*<button onClick={()=>deleteRole('1')}>eliminar Role</button>*/ }
+
+      {/*Funciones Notification */}
+          {/*<button onClick={()=>getNotification('1')}>obtener un Notification</button>*/} 
+          {/*<button onClick={()=>createNotification('content','3','5','7')}>crear Notification</button> */}
+          {/*<button onClick={()=>deleteNotification('3')}>eliminar Notification</button> */}
+
+        {/*Funciones TypeNotification */}
+          {/*<button onClick={()=>createTypeNotification('Ensayito', 'Primer ensayo')}>Craer un tipo Notification</button>*/} 
+          {/*FALTA <button onClick={()=>getTypeNotification('2')}>obtener un ti´po de Notification</button>*/} 
+          {/*<button onClick={()=>getAllTypeNotifications()}>obtener todos los tipos Notification</button>*/} 
+          {/*<button onClick={()=>updateTypeNotification('4','Ensayito 2 update','este es el segundo ensayo')}>Actualizar un tipo de Notification</button> */}
+          {/*<button onClick={()=>deleteTypeNotification('4')}>eliminar Notification</button> */}
+
+        {/*Funciones Images Publication //////////ZZZZZZ FALTA todo*/}
+          {/*<button onClick={()=>createimages_publication('Ensayito', 'Primer ensayo')}>Craer un tipo Notification</button>*/} 
+          {/*<button onClick={()=>getimages_publication('2')}>obtener un ti´po de Notification</button>*/} 
+          {/*<button onClick={()=>updateimages_publication('4','Ensayito 2 update','este es el segundo ensayo')}>Actualizar un tipo de Notification</button> */}
+          {/*<button onClick={()=>deleteimages_publication('4')}>eliminar Notification</button> */}
+
+        {/*Funciones Type Publication*/}
+          {/*<button onClick={()=>createtypespublication('Ensayito', 'Primer ensayo')}>Crear un tipo </button>*/} 
+          { /*<button onClick={()=>gettypespublication('2')}>obtener un tipo de </button>*/} 
+          {/*<button onClick={()=>getAlltypespublications()}>obtener todos los tipos </button>*/} 
+          {/*<button onClick={()=>updatetypespublication('9','Ensayito 2 update','este es el segundo ensayo')}>Actualizar un tipo de </button> */}
+          {/*<button onClick={()=>deletetypespublication('9')}>eliminar </button> */}
+        
+        {/*Funciones Likes*/}
+          {/*<button onClick={()=>createlike('1', '2')}>Crear un like </button>*/} 
+          { /*<button onClick={()=>getlike('2')}>obtener un like</button>*/} 
+          {/*<button onClick={()=>getAlllikes()}>obtener todos likes </button>*/} 
+          {/*<button onClick={()=>updatelike('10','2','2')}>Actualizar like </button>*/}
+          {/*<button onClick={()=>deletelike('10')}>eliminar </button> */}
+        
+       
               <Routes>
                     <Route path="/" element={<VistaPrincipal onClick={()=>cambiarEstado()} />}>
                     </Route>

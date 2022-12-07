@@ -2,11 +2,11 @@ import React from 'react'
 import axios from "axios";
 
 
-const role = (url) => {
-  let apiUrl = `${url}role/`   
+const like = (url) => {
+  let apiUrl = `${url}like/`   
 
-  const createRole= async(name)=>{
-    let request = {name}
+  const createlike= async(user_id, publication_id)=>{
+    let request = {user_id, publication_id}
     try {
       const res = await axios.post(`${apiUrl}`,request)
       console.log(res.data)
@@ -15,20 +15,29 @@ const role = (url) => {
       console.log(error.response.data)
       return error.response.data
     }
-  }
+  }//YA
 
-  const getRole = async(id)=>{
+  const getlike = async(id)=>{
     try {
       const res = await axios.get(`${apiUrl}${id}`)
       console.log(res.data)
-      return res.data 
+      return res.data
     } catch (error) {
       console.log(error.response.data)
     }
   }
+  const getAlllikes = async()=>{
+    try {
+      const res = await axios.get(`${apiUrl}`)
+      console.log(res.data)
+      return res.data
+    } catch (error) {
+      return error.response.data
+    }
+  }
   
-  const updateRole = async(id,name)=>{
-    let request = {id,name}
+  const updatelike = async(id, user_id, publication_id)=>{
+    let request = {user_id, publication_id}
     try {
       const res = await axios.put(`${apiUrl}${id}`,request)
       console.log(res.data)
@@ -39,7 +48,7 @@ const role = (url) => {
     }
   }
 
-  const deleteRole = async(id)=>{
+  const deletelike = async(id)=>{
     try {
       const res = await axios.delete(`${apiUrl}${id}`)
       console.log(res.data)
@@ -50,11 +59,12 @@ const role = (url) => {
   }
 
   return {
-    createRole,
-    getRole,
-    updateRole,
-    deleteRole,
+    createlike,
+    getlike,
+    updatelike,
+    deletelike,
+    getAlllikes,
   }
 }
 
-export default role
+export default like

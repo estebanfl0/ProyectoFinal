@@ -2,11 +2,11 @@ import React from 'react'
 import axios from "axios";
 
 
-const role = (url) => {
-  let apiUrl = `${url}role/`   
+const typenotification = (url) => {
+  let apiUrl = `${url}typenotification/`   
 
-  const createRole= async(name)=>{
-    let request = {name}
+  const createTypeNotification= async(name, description)=>{
+    let request = {name, description}
     try {
       const res = await axios.post(`${apiUrl}`,request)
       console.log(res.data)
@@ -15,9 +15,9 @@ const role = (url) => {
       console.log(error.response.data)
       return error.response.data
     }
-  }
+  }//YA
 
-  const getRole = async(id)=>{
+  const getTypeNotification = async(id)=>{
     try {
       const res = await axios.get(`${apiUrl}${id}`)
       console.log(res.data)
@@ -26,9 +26,18 @@ const role = (url) => {
       console.log(error.response.data)
     }
   }
+  const getAllTypeNotifications = async()=>{
+    try {
+      const res = await axios.get(`${apiUrl}`)
+      console.log(res.data)
+      return res.data
+    } catch (error) {
+      return error.response.data
+    }
+  }
   
-  const updateRole = async(id,name)=>{
-    let request = {id,name}
+  const updateTypeNotification = async(id, name, description)=>{
+    let request = {name, description}
     try {
       const res = await axios.put(`${apiUrl}${id}`,request)
       console.log(res.data)
@@ -39,7 +48,7 @@ const role = (url) => {
     }
   }
 
-  const deleteRole = async(id)=>{
+  const deleteTypeNotification = async(id)=>{
     try {
       const res = await axios.delete(`${apiUrl}${id}`)
       console.log(res.data)
@@ -50,11 +59,12 @@ const role = (url) => {
   }
 
   return {
-    createRole,
-    getRole,
-    updateRole,
-    deleteRole,
+    createTypeNotification,
+    getTypeNotification,
+    updateTypeNotification,
+    deleteTypeNotification,
+    getAllTypeNotifications,
   }
 }
 
-export default role
+export default typenotification
