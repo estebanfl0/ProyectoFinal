@@ -5,6 +5,7 @@ import User from '../api/user'
 import userData from '../api/userData'
 import publicaciones from "../api/publicaciones";
 import comments from "../api/comments";
+import report from "../api/report";
 
 /* Creamos el context, se le puede pasar un valor inicial */
 const ApiContext = createContext();
@@ -19,7 +20,9 @@ export const ApiProvider = (props) => {
   // se importan las funciones de publicacion
   const {getAllPublication,getOnePublication,createPublication,updatePublication,deletePublication}=publicaciones(ApiUrl)
   // se importan las funciones de commentarios
-  const {createComment,getComment,updateComment,deleteComment} = comments(ApiUrl)
+  const {createComment,getComment,getAllComment,updateComment,deleteComment} = comments(ApiUrl)
+  // se importan las funciones de report
+  const {getAllReports,createReport,getReport,updateReport,deleteReport} = report(ApiUrl)
 
   // ------> la parte de abajo se encarga de el envio de la data atraves del hook <----------
   const value = useMemo(()=>{
@@ -48,8 +51,15 @@ export const ApiProvider = (props) => {
       // comments
       createComment,
       getComment,
+      getAllComment,
       updateComment,
       deleteComment,
+      // report
+      getAllReports,
+      createReport,
+      getReport,
+      updateReport,
+      deleteReport,
     })
     // nota: como segundo parametro se envia los hooks que no se desean alterar
   },[])
