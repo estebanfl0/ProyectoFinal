@@ -46,13 +46,10 @@ import { ApiProvider,useApiContext } from "./context/ApiContext";
   // se importan las funciones de publication
   const {getAllPublication,getOnePublication,createPublication,updatePublication,deletePublication} = useApiContext() 
   // se importan las funciones de comment
-  const {createComment,getComment,updateComment,deleteComment} = useApiContext()
+  const {createComment,getComment,getAllComment,updateComment,deleteComment} = useApiContext()
+  // se importan las funciones de report
+  const {getAllReports,createReport,getReport,updateReport,deleteReport} = useApiContext()
 
-  const userGetcomment = async(id)=>{
-    setLoading(true)
-    const res = await getComment(id)
-    setLoading(false)
-  }
   const cambiarEstado = () =>{
     
 
@@ -73,9 +70,9 @@ import { ApiProvider,useApiContext } from "./context/ApiContext";
         <div className="App overflow-hidden">
           <AnimatePresence>
         {/* funciones de autenticacion */}
-            <button onClick={()=>logout()}>logout</button>
-            <button onClick={()=>login('mimail1@mail.com','12345')}>login</button>
-            <button onClick={()=>register('desde react','mimail1@mail.com','12345','1999-10-16','122313456789')}>Register</button>
+            {/* <button onClick={()=>logout()}>logout</button> */}
+            {/* <button onClick={()=>login('mimail1@mail.com','12345')}>login</button> */}
+            {/* <button onClick={()=>register('desde react','mimail1@mail.com','12345','1999-10-16','122313456789')}>Register</button> */}
 
         {/* funciones de usuario */}
             {/* <button onClick={()=>getUser('1')}>get one</button> */}
@@ -97,11 +94,18 @@ import { ApiProvider,useApiContext } from "./context/ApiContext";
             {/* <button onClick={()=>deletePublication('6')}>delete</button> */}
 
         {/* funciones de comentarios */}
-            {/* <button onClick={()=>userGetcomment('6')}>obtener un comentario</button> */}
-            {/* <button onClick={()=>createComment('1','1','este es mi comentario desde react')}>crear comment</button> */}
+            {/* <button onClick={()=>getComment('6')}>obtener un comentario</button> */}
+            {/* <button onClick={()=>createComment('1','3','este es mi comentario desde react')}>crear comment</button> */}
             {/* <button onClick={()=>updateComment('1','1','3','este es el segundo comentario')}>actualizar</button> */}
             {/* <button onClick={()=>deleteComment('3')}>eliminar</button> */}
+            {/* <button onClick={()=>getAllComment('3')}>obtener todos</button> */}
 
+        {/* funciones de report */}
+            {/* <button onClick={()=>getAllReports()}>todos los reportes</button> */}
+            {/* <button onClick={()=>createReport('una publicacion con informacion falsa','3')}>crear report</button> */}
+            {/* <button onClick={()=>getReport('2')}>ver un reporte</button> */}
+            {/* <button onClick={()=>updateReport('2','enrelaidad me caen mal','3')}>actualizar report</button> */}
+            {/* <button onClick={()=>deleteReport('2')}>eliminar report</button> */}
             
               <Routes>
                     <Route path="/" element={<VistaPrincipal onClick={()=>cambiarEstado()} />}>
