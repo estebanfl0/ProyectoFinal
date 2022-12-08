@@ -1,4 +1,4 @@
-import React,{ createContext, useMemo, useContext} from "react";
+import React,{ createContext, useMemo,useState, useContext} from "react";
 import ApiUrl from '../api/helpers/config'
 import Authentication from '../api/helpers/authentication'
 import User from '../api/user'
@@ -7,19 +7,27 @@ import publicaciones from "../api/publicaciones";
 import comments from "../api/comments";
 import report from "../api/report";
 import role from "../api/role";
-import report from "../api/report";
 import notification from "../api/notifications";
 import typenotification from "../api/typenotification";
 import imagespublication from "../api/imagespublication";
 import typepublication from "../api/typepubliction";
 import like from "../api/likes";
 
+
 /* Creamos el context, se le puede pasar un valor inicial */
 const ApiContext = createContext();
 
-export const ApiProvider = (props) => {  
+export const ApiProvider = (props) => {
+  const[data,setData]= useState({})
+
+ const LoginUser = async(email,password)=>{
+    let res = await login(email,password)
+    setData(res)
+}
+console.log('Desde api context')
+console.log(data)
   // se programa es uso de los hooks para la autenticacion async de la API
-  const {login,logout,register} = Authentication(ApiUrl)  
+  const {login,logout,register,dataLogin} = Authentication(ApiUrl)  
   // se progrma el uso async de la API para la tabla de users
   const {createUser, getUser,getAllUsers,updateUser,deleteUser} = User(ApiUrl)
   //se programa el uso asyn de la api para la tabla de data users 
@@ -53,9 +61,10 @@ const {createlike, getlike, updatelike, deletelike, getAlllikes} = like(ApiUrl)
     return ({
       // aqui se retorna lo que se desea utilizar en el contexto
       // auth
-      login,
+      LoginUser,
       logout,
       register,
+      data,
       // user
       createUser,
       getUser,
@@ -101,7 +110,7 @@ const {createlike, getlike, updatelike, deletelike, getAlllikes} = like(ApiUrl)
       createlike, getlike, updatelike, deletelike, getAlllikes,
   })
     // nota: como segundo parametro se envia los hooks que no se desean alterar
-  },[])
+  },[data])
 
   return (
     // aqui se genera el jsx que genera el provedor

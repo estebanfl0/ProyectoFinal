@@ -1,32 +1,29 @@
 import React from "react";
-import { Link, Outlet } from "react-router-dom";
+import { Link, Outlet, useParams } from "react-router-dom";
 import{motion} from 'framer-motion';
 import { useState,useEffect } from "react";
 import{useApiContext} from '../hooks/context/ApiContext'
 
 
 function VistaRedsocial(){
-    const {logout,login} = useApiContext()
-    const [role, setRole] = useState(null);
-    // const [deleted,setDeleted] = useState(null)
-    // const [cargar, setCargar] = useState(false);
+    const {logout,data,getUser} = useApiContext()
+    const [dataUser,setDataUser] = useState()
+    useEffect(()=>{
+        setTimeout(()=>{
+            setDataUser(data)
+            console.log(dataUser)
+        },2000)
+        
 
-    useEffect(() => {
-        validationRole()
-        // deleteDataUser()
-      }, []);
-    //   const {id} = useParams()
-      const validationRole = async ()=>{
-        // setCargar(true)
-        const res = await login()
-        console.log('este es el rol 2 '+role)
-        setRole(res.data)
-        // setCargar(false)
-      }
-
+    },[dataUser])
+   
     
+    
+
     return(
-        <div class="container-fluid bg-redS" >
+        <div>
+           
+            {!dataUser ? undefined :<div class="container-fluid bg-redS" >
         <div class="row">
             <div class="col-12 col-sm-3 col-xl-2 p-2  d-flex sticky-top bg-green">
                 <div class="d-flex flex-sm-column flex-row flex-grow-1 align-items-center align-items-sm-start px-3 pt-2 text-white ">
@@ -37,6 +34,7 @@ function VistaRedsocial(){
                              <i className="fs-5 bi bi-house hvo"></i><span class="ms-1 d-none d-sm-inline fw-bold fs-5 li">Inicio</span>
                             </Link>
                         </li>
+                        
                         <li>
                             <Link to='/vista-administrar-rol' class="nav-link px-sm-0 px-2">
                             <i class=" fs-5 bi bi-sliders hvo fs-5"></i><span class="ms-1 d-none d-sm-inline fw-bold fs-5 li">Administar</span></Link>
@@ -84,7 +82,9 @@ function VistaRedsocial(){
                 </div>
             </div>
         </div>
-    </div>
+    </div>}
+        </div>
+        
     )
 }
 export default VistaRedsocial

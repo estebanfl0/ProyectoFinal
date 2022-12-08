@@ -4,7 +4,7 @@ import { useState, useEffect } from "react";
 import { Link,useParams } from "react-router-dom";
 
 function ShowAllUsers(){
-    const {getUser,getAllUsers,updateUser,userDelete,createUser}=useApiContext()
+    const {getUser,getAllUsers,updateUser,deleteUser,createUser}=useApiContext()
     const [data, setData] = useState(null);
     // const [deleted,setDeleted] = useState(null)
     const [cargar, setCargar] = useState(false);
@@ -63,7 +63,7 @@ function ShowAllUsers(){
                                         <ul class="dropdown-menu dropdown-menu-dark">
                                             <li><Link to={`/vista-administrar-rol/showUser/${datas.id}`} class="dropdown-item" ><i class="fa fa-search"></i> Show</Link></li>
                                             <li><Link to= {`/vista-administrar-rol/editUser/${datas.id}`} class="dropdown-item"><i class="fa fa-pen"></i> Edit</Link></li>
-                                            <li><button class="dropdown-item bg-danger btn-delete" onClick={()=>userDelete(datas.id)}><i class="fa fa-trash"></i> Delete</button></li>
+                                            <li><button class="dropdown-item bg-danger btn-delete" onClick={()=>deleteUser(datas.id)}><i class="fa fa-trash"></i> Delete</button></li>
                                         </ul>
                                     </div>
                                 </td>

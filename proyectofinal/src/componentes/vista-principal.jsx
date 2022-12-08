@@ -8,9 +8,9 @@ import { useContext } from "react";
 import {useApiContext} from "../hooks/context/ApiContext";
 
 
-function VistaPrincipal(props) {
+function VistaPrincipal({onclickLogin}) {
     // Funciones de registro y entrar
-  const {login,register} = useApiContext()
+  const {LoginUser,register} = useApiContext()
 //   funciones de tomar los valores de los inputs
 // Name
 const [name, setName] = useState('');
@@ -47,10 +47,7 @@ const ChangeCc = event => {
 };
 
 
-// 
-// 
-// 
-// 
+
   const AddClick = ()=>{
     document.querySelector('.containerRed').classList.add("sign-up-mode")
 }
@@ -65,6 +62,7 @@ const someOnclicks = ()=>{
 function alert(){
     alert(9)
 }
+
 return(
     
     <motion.div className="containerRed" initial={{opacity:0}} animate={{opacity:1}} exit={{opacity:0, transition:{duration:0.2}}}>
@@ -85,8 +83,8 @@ return(
                 <input id="password1" type="password" placeholder="Contraseña"  onChange={ChangePassword}  />
                 </div>
                 <div className="main_div my-5">
-                { !password ? '' : <Link to='/vistaPrincipal-red' type="submit">
-                    <button type="submit" classNameName="fw-bold" onClick={()=>login(email,password)}>Ingresar</button>
+                { !password ? '' : <Link to='/vistaPrincipal-red'type="submit">
+                    <button type="submit" classNameName="fw-bold" onClick={()=>LoginUser(email,password)}>Ingresar</button>
                 </Link>}
                 {/* <Link to='/vistaPrincipal-red' type="submit">
                     <button type="submit" classNameName="fw-bold" onClick={()=>login(email,password)}>Ingresar</button>

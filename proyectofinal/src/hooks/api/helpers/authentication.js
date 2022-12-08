@@ -14,8 +14,11 @@ const Authentication =(url)=>{
             })
             let token = res.data.token
             localStorage.setItem('token',token)
+            let userData = res.data.user
+            console.log(userData)
+            console.log(userData)
 
-            console.log('este es el ' + res.data.user.role)
+            localStorage.setItem('DataUser', JSON.stringify(userData))
             console.log(res.data)
 
             return res.data
@@ -34,7 +37,8 @@ const Authentication =(url)=>{
         try {
             const res = await axios.post(`${url}logout`,{},
             {headers:headers})
-            localStorage.removeItem('token')
+            localStorage.removeItem('token') 
+            localStorage.removeItem('DataUser') 
             console.log(res.data)
             return res.data
         } catch (error) {

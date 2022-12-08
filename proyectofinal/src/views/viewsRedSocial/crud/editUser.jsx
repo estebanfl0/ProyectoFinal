@@ -6,6 +6,7 @@ function EditUser(){
 
     const {getUser}=useApiContext()
   const [data, setData] = useState({
+    
     name:'',
     email:'',
     password:'',
@@ -22,7 +23,7 @@ function EditUser(){
     //   console.log(res.data)
       setData(res.data)
     }
-
+   
      // Name
 const [name, setName] = useState('');
 const ChangeName = event => {
@@ -61,10 +62,10 @@ const ChangeCc = event => {
         <div>
              <form action="#" className="">
                 <h2 className="title">Agregar Usuario</h2>
+               
                 <div className="input-field">
                 <i className="fas fa-user"></i>
                 <input type="text" defaultValue={data.name} onChange={ChangeName}/>
-                
                 </div>
                 <div className="input-field">
                 <i className="fas fa-envelope"></i>
@@ -81,6 +82,7 @@ const ChangeCc = event => {
                 <div className="input-field">
                 <i class="bi bi-card-text"></i>
                 <input type="number" defaultValue={data.cc} onChange={ChangeCc}/>
+                {/* <h1>{cc}</h1> */}
                 </div>
                 
                 <div className="main_div my-5">
@@ -88,7 +90,7 @@ const ChangeCc = event => {
                         <button className="fw-bold mx-2" >Regresar</button>
                     </Link>
                     <Link to='/vista-administrar-rol'>
-                        <button className="fw-bold" onClick={()=>updateUser(name,email,password,birthdate,cc)} >Agregar</button>
+                        <button className="fw-bold" onClick={()=>updateUser(id,name,email,password,birthdate,cc)} >Editar</button>
                     </Link>
                     
                 </div>

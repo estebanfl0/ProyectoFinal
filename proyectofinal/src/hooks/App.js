@@ -42,7 +42,7 @@ import EditUser from "../views/viewsRedSocial/crud/editUser";
   const [loading,setLoading] = useState(false);
 
   // se importan las funciones de autenticacion 
-  const {login,logout,register} = useApiContext()
+  const {LoginUser,logout,register} = useApiContext()
   // se importan las funciones de usuario
   const {getUser,getAllUsers,updateUser,deleteUser,createUser}=useApiContext()
   // se importan las fucniones de dataUser
@@ -103,7 +103,7 @@ const {createlike, getlike, updatelike, deletelike, getAlllikes} = useApiContext
             {/* <button onClick={()=>getAllUsers()}>get all</button> */}
             {/* <button onClick={()=>deleteUser('6')}>delete</button> */}
             {/* <button onClick={()=>createUser("si se logro con axios","selogro1@gmail.com","12345","200-05-02","127751723331","2")}>crear usuario</button> */}
-            {/* <button onClick={()=>updateUser()}>update</button> */}
+            {/* <button onClick={()=>updateUser('2','Juan','email','12345','1999-01-01','123456789886')}>update</button> */}
 
         {/* funciones de data user */}
             {/* <button onClick={()=>userDatacreate('','campo,fotografia,cafe','masculino')}>create data user</button> */}
@@ -190,8 +190,6 @@ const {createlike, getlike, updatelike, deletelike, getAlllikes} = useApiContext
                           <Route path="/vista-administrar-rol/addUsers" element={<AddUsers/>}></Route>
                           <Route path="/vista-administrar-rol/showUser/:id" element={<ShowUser/>}></Route>
                           <Route path="/vista-administrar-rol/editUser/:id" element={<EditUser/>}></Route>
-
-
                         </Route>
                         <Route path="/vista-perfil-red" element={<VistaPerfil />}>
                           <Route path="/vista-perfil-red" element={<VistaInfoPerfil />}></Route>

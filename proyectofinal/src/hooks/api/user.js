@@ -64,16 +64,15 @@ const User = (url) => {
     }
     //ACTUALIZAR USER 
     const updateUser = async(id,name,email,password,birthdate,cc)=>{
+      let request = {name,email,password,birthdate,cc}
+      console.log(request)
+      console.log(id)
       try {
-        const res = await axios.put(`${apiurl}update/${id}`,{
-            name:name,
-            email:email,
-            password:password,
-            birthdate:birthdate,
-            cc:cc
-        })
+        const res = await axios.put(`${apiurl}update/${id}`,request)
+        console.log(res.data)
         return res.data
       } catch (error) {
+        console.log(error)
         return error.response.data
       }
     }
