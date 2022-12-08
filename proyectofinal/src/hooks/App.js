@@ -27,6 +27,11 @@ import VistaPostPerfil from "../views/viewsRedSocial/vistaPerfil/vista-post-perf
 import Recargar from "../componentes/componenteCargar/componenteCargar";
 import React, { useState } from "react";
 import { ApiProvider,useApiContext } from "./context/ApiContext";
+import AdministrarUsers from "../views/viewsRedSocial/vista-administrar-rol";
+import ShowAllUsers from "../views/viewsRedSocial/crud/showAllUsers";
+import ShowUser from "../views/viewsRedSocial/crud/showUser";
+import AddUsers from "../views/viewsRedSocial/crud/addUsers";
+import EditUser from "../views/viewsRedSocial/crud/editUser";
 
 
 
@@ -39,11 +44,11 @@ import { ApiProvider,useApiContext } from "./context/ApiContext";
   // se importan las funciones de autenticacion 
   const {login,logout,register} = useApiContext()
   // se importan las funciones de usuario
-  const {getUser,getAllUsers,updateUser,userDelete,createUser}=useApiContext() 
+  const {getUser,getAllUsers,updateUser,deleteUser,createUser}=useApiContext()
   // se importan las fucniones de dataUser
   const {userDatacreate,userGetData,userUpdatedata} = useApiContext()
   // se importan las funciones de publication
-  const {getAllPublication,getOnePublication,createPublication,updatePublication,deletePublication} = useApiContext() 
+  const {getAllPublication,getOnePublication,createPublication,updatePublication,deletePublication} = useApiContext()
   // se importan las funciones de comment
   const {createComment,getComment,getAllComment,updateComment,deleteComment} = useApiContext()
   // se importan las funciones de report
@@ -92,15 +97,12 @@ const {createlike, getlike, updatelike, deletelike, getAlllikes} = useApiContext
             {/* <button onClick={()=>logout()}>logout</button> */}
             {/* <button onClick={()=>login('mimail1@mail.com','12345')}>login</button> */}
             {/* <button onClick={()=>register('desde react','mimail1@mail.com','12345','1999-10-16','122313456789')}>Register</button> */}
-            <button onClick={()=>logout()}>logout</button>
-            <button onClick={()=>login('mimail1@mail.com','12345')}>login</button>
-            <button onClick={()=>register('desde react','mimail1@mail.com','12345','1999-10-16','122313456789')}>Register</button>
 
         {/* funciones de usuario */}
             {/* <button onClick={()=>getUser('1')}>get one</button> */}
             {/* <button onClick={()=>getAllUsers()}>get all</button> */}
-            {/* <button onClick={()=>userDelete('')}>delete</button> */}
-            {/* <button onClick={()=>createUser("si se logro con axios","selogro@gmail.com","12345","200-05-02","12775172333","3")}>crear usuario</button> */}
+            {/* <button onClick={()=>deleteUser('6')}>delete</button> */}
+            {/* <button onClick={()=>createUser("si se logro con axios","selogro1@gmail.com","12345","200-05-02","127751723331","2")}>crear usuario</button> */}
             {/* <button onClick={()=>updateUser()}>update</button> */}
 
         {/* funciones de data user */}
@@ -183,6 +185,14 @@ const {createlike, getlike, updatelike, deletelike, getAlllikes} = useApiContext
                         <Route path="/vista-ecommerce-red" element={<VistaEcommerce />}></Route>
                         <Route path="/vista-trabajo-red" element={<VistaTrabajoRed />}></Route>
                         <Route path="/vista-config-red" element={<VistaConfigRed />}></Route>
+                        <Route path="/vista-administrar-rol" element={<AdministrarUsers/>}>
+                          <Route path="/vista-administrar-rol" element={<ShowAllUsers/>}></Route>
+                          <Route path="/vista-administrar-rol/addUsers" element={<AddUsers/>}></Route>
+                          <Route path="/vista-administrar-rol/showUser/:id" element={<ShowUser/>}></Route>
+                          <Route path="/vista-administrar-rol/editUser/:id" element={<EditUser/>}></Route>
+
+
+                        </Route>
                         <Route path="/vista-perfil-red" element={<VistaPerfil />}>
                           <Route path="/vista-perfil-red" element={<VistaInfoPerfil />}></Route>
                           <Route path="/vista-perfil-red/vista-post-perfil" element={<VistaPostPerfil />}></Route>

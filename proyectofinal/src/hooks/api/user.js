@@ -56,6 +56,7 @@ const User = (url) => {
     const getAllUsers = async()=>{
       try {
         const res = await axios.get(`${apiurl}all`)
+        console.log(res.data)
         return res.data
       } catch (error) {
         return error.response.data
@@ -80,8 +81,10 @@ const User = (url) => {
     const deleteUser = async(id)=>{
       try {
         const res = await axios.delete(`${apiurl}delete/${id}`)
+
         return res.data
       } catch (error) {
+        console.log(error.response.data)
         return error.response.data
       }
     }

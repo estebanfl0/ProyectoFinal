@@ -14,8 +14,11 @@ const Authentication =(url)=>{
             })
             let token = res.data.token
             localStorage.setItem('token',token)
+
+            console.log('este es el ' + res.data.user.role)
             console.log(res.data)
-            return res.data            
+
+            return res.data
         } catch (error) {
             console.log(error.response.data)
             return error.response.data

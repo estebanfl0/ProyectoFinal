@@ -8,6 +8,7 @@ const publicaciones = (url) => {
   const getAllPublication = async()=>{
     try {
         const res = await axios.get(apiUrl)
+        console.log(res.data)
         return res.data
     } catch (error) {
         return error.response.data        

@@ -1,5 +1,6 @@
-import React from "react";
+/* eslint-disable no-unused-expressions */
 
+import React ,{useState}from "react";
 import './css/login.css';
 import{Link} from'react-router-dom'
 import{motion} from'framer-motion';
@@ -7,14 +8,65 @@ import { useContext } from "react";
 import {useApiContext} from "../hooks/context/ApiContext";
 
 
-function VistaPrincipal({onClick}) {
+function VistaPrincipal(props) {
+    // Funciones de registro y entrar
+  const {login,register} = useApiContext()
+//   funciones de tomar los valores de los inputs
+// Name
+const [name, setName] = useState('');
+const ChangeName = event => {
+    setName(event.target.value);
+};
+
+// Email
+const [email, setEmail] = useState('');
+const ChangeEmail = event => {
+    setEmail(event.target.value);
+
+};
+// Password
+const [password, setPassword] = useState('');
+const ChangePassword = event => {
+    setPassword(event.target.value);
+
+    
+};
+// Birthday
+const [birthday, setBirthday] = useState('');
+const ChangeBirthday = event => {
+    setBirthday(event.target.value);
+    
+    
+};
+// Cc
+const [cc, setCc] = useState('');
+const ChangeCc = event => {
+    setCc(event.target.value);
+
+    
+};
+
+
+// 
+// 
+// 
+// 
   const AddClick = ()=>{
     document.querySelector('.containerRed').classList.add("sign-up-mode")
 }
 const RemoveClick = ()=>{
     document.querySelector('.containerRed').classList.remove("sign-up-mode")
 }
+
+const someOnclicks = ()=>{
+    RemoveClick();
+    register(name,email,password,birthday,cc);
+}
+function alert(){
+    alert(9)
+}
 return(
+    
     <motion.div className="containerRed" initial={{opacity:0}} animate={{opacity:1}} exit={{opacity:0, transition:{duration:0.2}}}>
         
 
@@ -26,17 +78,20 @@ return(
                 
                 <div className="input-field">
                 <i className="fas fa-user"></i>
-                <input type="email" placeholder="Correo"  />
+                <input type="email" placeholder="Correo" onChange={ChangeEmail}  />
                 </div>
                 <div className="input-field">
                 <i className="fas fa-lock"></i>
-                <input id="password1" type="password" placeholder="Contraseña"/>
+                <input id="password1" type="password" placeholder="Contraseña"  onChange={ChangePassword}  />
                 </div>
                 <div className="main_div my-5">
-                    
-                <Link to='/vistaPrincipal-red'>
-                    <button type="submit" classNameName="fw-bold" onClick={onClick}>Ingresar</button>
-                </Link>
+                { !password ? '' : <Link to='/vistaPrincipal-red' type="submit">
+                    <button type="submit" classNameName="fw-bold" onClick={()=>login(email,password)}>Ingresar</button>
+                </Link>}
+                {/* <Link to='/vistaPrincipal-red' type="submit">
+                    <button type="submit" classNameName="fw-bold" onClick={()=>login(email,password)}>Ingresar</button>
+                </Link> */}
+                
                 </div>
                 <Link to='/vista-contraseña'><p className="social-text olv">Olvidé mi contraseña</p></Link>
               
@@ -46,22 +101,27 @@ return(
                 <h2 className="title">Crear</h2>
                 <div className="input-field">
                 <i className="fas fa-user"></i>
-                <input type="text" placeholder="Nombre" />
+                <input type="text" placeholder="Nombre" onChange={ChangeName}/>
                 </div>
                 <div className="input-field">
                 <i className="fas fa-envelope"></i>
-                <input type="email" placeholder="Correo" />
+                <input type="email" placeholder="Correo" onChange={ChangeEmail} />
                 </div>
                 <div className="input-field">
                 <i className="fas fa-lock"></i>
-                <input type="password" placeholder="Contraseña" />
+                <input type="password" placeholder="Contraseña"  onChange={ChangePassword} />
+                </div>
+                <div className="input-field">
+                <i className="fas fa-lock"></i>
+                <input type="date" placeholder="Cumpleaños" onChange={ChangeBirthday} />
+                </div>
+                <div className="input-field">
+                <i className="fas fa-lock"></i>
+                <input type="number" placeholder="Identificacion" onChange={ChangeCc}/>
                 </div>
                 <div className="main_div my-5">
-                
-                    <button className="fw-bold">Crear</button>
-                
+                    <button type="submit" className="fw-bold" onClick={()=>someOnclicks()} >Crear</button>
                 </div>
-                
             </form>
             </div>
         </div>
