@@ -13,13 +13,9 @@ const Authentication =(url)=>{
                 password:password,
             })
             let token = res.data.token
-            localStorage.setItem('token',token)
             let userData = res.data.user
-            console.log(userData)
-            console.log(userData)
-
+            localStorage.setItem('token',token)
             localStorage.setItem('DataUser', JSON.stringify(userData))
-            console.log(res.data)
 
             return res.data
         } catch (error) {

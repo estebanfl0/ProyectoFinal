@@ -642,6 +642,33 @@ form.sign-in-form {
     justify-content: center;
     align-items: center;
 }
+.comments{
+  margin: 20px;
+  height: 100px;
+  overflow-y: auto ;
+}
+.inputPuComent{
+  outline: none;
+  border-radius: 20px;
+  border: 2px solid black;
+  height: 40px;
+  text-indent: 10px;
+}
+.formComments{
+  
+  display: flex;
+  align-items: center;
+
+  flex-wrap: wrap;
+  gap: 50px;
+}
+.btnC{
+  border-radius: 50px;
+  border: none;
+  background-color: black;
+  color: white;
+  padding: 10px;
+}
 
 
 

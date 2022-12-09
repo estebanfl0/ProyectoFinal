@@ -1,7 +1,10 @@
 import React from "react";
 import { Link, Outlet } from "react-router-dom";
 import './cssPerfil.css'
+import { useApiContext } from "../../../hooks/context/ApiContext";
 function VistaPerfil(){
+    const {data} = useApiContext()
+
     return(
         <section className="perfil-usuario">
             <div className="contenedor-perfil">
@@ -11,7 +14,7 @@ function VistaPerfil(){
                         <img src={require('../../../images/imagenPerfil.png')} className='imgPerfil' alt="img"/>
                     </div>
                     <div className="datos-perfil">
-                        <h4 className="titulo-usuario">Joe Ramirez</h4>
+                        <h4 className="titulo-usuario">{data.name}</h4>
                         <p className="bio-usuario">Lorem ipsum dolor sit, amet consectetur adipisicing.</p>
                     </div>
                     <div className="opcciones-perfil">

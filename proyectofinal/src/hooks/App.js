@@ -69,11 +69,11 @@ const {createlike, getlike, updatelike, deletelike, getAlllikes} = useApiContext
 
 
 
-  const userGetcomment = async(id)=>{
-    setLoading(true)
-    const res = await getComment(id)
-    setLoading(false)
-  }
+  // const userGetcomment = async(id)=>{
+  //   setLoading(true)
+  //   const res = await getComment(id)
+  //   setLoading(false)
+  // }
   const cambiarEstado = () =>{
     
 
@@ -102,7 +102,7 @@ const {createlike, getlike, updatelike, deletelike, getAlllikes} = useApiContext
             {/* <button onClick={()=>getUser('1')}>get one</button> */}
             {/* <button onClick={()=>getAllUsers()}>get all</button> */}
             {/* <button onClick={()=>deleteUser('6')}>delete</button> */}
-            {/* <button onClick={()=>createUser("si se logro con axios","selogro1@gmail.com","12345","200-05-02","127751723331","2")}>crear usuario</button> */}
+            {/* <button onClick={()=>createUser("Admin","admin@gmail.com","admin","2000-05-02","1234512345","1")}>crear usuario</button> */}
             {/* <button onClick={()=>updateUser('2','Juan','email','12345','1999-01-01','123456789886')}>update</button> */}
 
         {/* funciones de data user */}
@@ -118,7 +118,7 @@ const {createlike, getlike, updatelike, deletelike, getAlllikes} = useApiContext
             {/* <button onClick={()=>deletePublication('6')}>delete</button> */}
 
         {/* funciones de comentarios */}
-            {/* <button onClick={()=>getComment('6')}>obtener un comentario</button> */}
+            {/* <button onClick={()=>getComment('1')}>obtener un comentario</button> */}
             {/* <button onClick={()=>createComment('1','3','este es mi comentario desde react')}>crear comment</button> */}
             {/* <button onClick={()=>updateComment('1','1','3','este es el segundo comentario')}>actualizar</button> */}
             {/* <button onClick={()=>deleteComment('3')}>eliminar</button> */}

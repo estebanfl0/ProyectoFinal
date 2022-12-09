@@ -22,10 +22,9 @@ export const ApiProvider = (props) => {
 
  const LoginUser = async(email,password)=>{
     let res = await login(email,password)
-    setData(res)
+    setData(res.user)
 }
-console.log('Desde api context')
-console.log(data)
+
   // se programa es uso de los hooks para la autenticacion async de la API
   const {login,logout,register,dataLogin} = Authentication(ApiUrl)  
   // se progrma el uso async de la API para la tabla de users

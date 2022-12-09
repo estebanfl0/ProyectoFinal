@@ -20,8 +20,8 @@ const comments = (url) => {
   const getComment = async(id)=>{
     try {
       const res = await axios.get(`${apiUrl}${id}`)
-      console.log(res.data)
-      return res.data 
+      console.log(res.data.data)
+      return res.data
     } catch (error) {
       console.log(error.response.data)
     }
