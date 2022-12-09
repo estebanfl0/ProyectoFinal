@@ -223,8 +223,11 @@ form.sign-in-form {
 
 .nav-link:hover {
   color: #11101d;
-  background: #fff;
-} 
+  background: #ffffff90;
+}
+.nav-link:visited{
+  color: white;
+}
 
 
 
@@ -588,7 +591,7 @@ form.sign-in-form {
 .cuadroPublicar{
     background-color: grey;
     width: 100% !important ; 
-    height: 80px;
+    min-height: 100px;
 }
 .inputPublicar{
     width: 90%;

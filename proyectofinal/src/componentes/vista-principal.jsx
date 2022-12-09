@@ -1,17 +1,19 @@
-/* eslint-disable no-unused-expressions */
 
-import React ,{useState}from "react";
+import React ,{useState,useRef,useEffect}from "react";
 import './css/login.css';
-import{Link} from'react-router-dom'
+import{Link,useNavigate,useLocation, Route, Navigate} from'react-router-dom'
 import{motion} from'framer-motion';
 import { useContext } from "react";
 import {useApiContext} from "../hooks/context/ApiContext";
+import swal from 'sweetalert'
+import VistaRedsocial from "./vistaPrincipal-red";
 
 
 function VistaPrincipal({onclickLogin}) {
     // Funciones de registro y entrar
-  const {LoginUser,register} = useApiContext()
+  const {LoginUser,register,data,getAllUsers,resul} = useApiContext()
 //   funciones de tomar los valores de los inputs
+
 // Name
 const [name, setName] = useState('');
 const ChangeName = event => {
@@ -58,10 +60,73 @@ const RemoveClick = ()=>{
 const someOnclicks = ()=>{
     RemoveClick();
     register(name,email,password,birthday,cc);
+    
 }
-function alert(){
-    alert(9)
+
+
+const click = () => {
+    swal({
+        title:'Wait',
+        text:'The credentials are incorrects',
+        icon:'error',
+        button:'Try',
+    });
 }
+// Validacion
+const DelayedLink = ({ delay, replace, state, to, ...props }) => {
+    const navigate = useNavigate();
+    const timerRef = useRef();
+  
+    useEffect(() => () => clearTimeout(timerRef.current), []);
+  
+    const clickHandler = (e) => {
+        e.preventDefault()
+      timerRef.current = setTimeout(navigate, delay, to, { replace, state });
+    };
+   
+  
+    return <Link to={to} {...props} onClick={clickHandler} />;
+  };
+
+const enviarDatos = () => {
+    console.log('enviando datos...' + email+ ' ' + password)
+    // if(email == data.email && password == data.password){
+    //     return(
+    //         <VistaRedsocial/>
+    //     )
+    // }else{
+    //     return(
+    //         <VistaPrincipal/>
+    //     )
+    // }
+    
+}
+const ValidacionUrl = ()=>{
+    let location = useLocation()
+    
+    location.href('/vistaPrincipal-red')
+}
+
+const ValidationUser = async(email,password)=>{
+    let res = await LoginUser(email,password)
+
+    if(res.res === true){
+        
+    }else{
+        return(
+            click()
+        )
+
+    }
+}
+
+
+ 
+      
+
+
+
+
 
 return(
     
@@ -71,23 +136,42 @@ return(
         <div className="forms-container">
             <div className="signin-signup">
                 
-            <form action="#" className="sign-in-form">
+            <form action="#" className="sign-in-form" onSubmit={enviarDatos} >
                 <h2 className="title">Ingresar</h2>
                 
                 <div className="input-field">
                 <i className="fas fa-user"></i>
                 <input type="email" placeholder="Correo" onChange={ChangeEmail}  />
                 </div>
+                
                 <div className="input-field">
                 <i className="fas fa-lock"></i>
                 <input id="password1" type="password" placeholder="Contraseña"  onChange={ChangePassword}  />
                 </div>
                 <div className="main_div my-5">
-                { !password ? '' : <Link to='/vistaPrincipal-red'type="submit">
-                    <button type="submit" classNameName="fw-bold" onClick={()=>LoginUser(email,password)}>Ingresar</button>
-                </Link>}
+                  
+                    
+                    {/* <DelayedLink delay={3000} to='/vistaPrincipal-red' onClick={()=>LoginUser(email,password)} >hhh</DelayedLink>
+                    {console.log(data)} */}
+                    
+                    <Link to={resul === true ? '/vistaPrincipal-red' : '/' }><button onClick={()=>ValidationUser(email,password)}>Clicxk</button></Link>
+                     
+                     
+                    
+                        
+                   
+                    
+                    {/* <button type="submit" classNameName="fw-bold" onClick={()=>ValidationUser(email,password)}>Ingresar</button> */}
+                    {/* {resul === false ? 
+                        
+                     : password !== '' && email !==   '' ?
+                    <button type="submit" classNameName="fw-bold" onClick={()=>click()}>Ingresar</button> : ''
+                 } */}
+                
+                
+                {/* <h1>{password}</h1> */}
                 {/* <Link to='/vistaPrincipal-red' type="submit">
-                    <button type="submit" classNameName="fw-bold" onClick={()=>login(email,password)}>Ingresar</button>
+                    <button type="submit" classNameName="fw-bold" onClick={()=>LoginUser(email,password)}>Ingresar</button>
                 </Link> */}
                 
                 </div>
@@ -95,6 +179,8 @@ return(
               
                 
             </form>
+            
+
             <form action="#" className="sign-up-form">
                 <h2 className="title">Crear</h2>
                 <div className="input-field">

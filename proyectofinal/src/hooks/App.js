@@ -32,6 +32,7 @@ import ShowAllUsers from "../views/viewsRedSocial/crud/showAllUsers";
 import ShowUser from "../views/viewsRedSocial/crud/showUser";
 import AddUsers from "../views/viewsRedSocial/crud/addUsers";
 import EditUser from "../views/viewsRedSocial/crud/editUser";
+import VistaUnaPubli from "../views/viewsRedSocial/vistaUnaPubli";
 
 
 
@@ -183,6 +184,7 @@ const {createlike, getlike, updatelike, deletelike, getAlllikes} = useApiContext
                     <Route path="/" element={<VistaRedsocial/>}>
                         <Route path="/vistaPrincipal-red" element={<VistaPostRed />}></Route>
                         <Route path="/vista-ecommerce-red" element={<VistaEcommerce />}></Route>
+                        <Route path="/vistaUnaPubli/:id" element={<VistaUnaPubli/>}></Route>
                         <Route path="/vista-trabajo-red" element={<VistaTrabajoRed />}></Route>
                         <Route path="/vista-config-red" element={<VistaConfigRed />}></Route>
                         <Route path="/vista-administrar-rol" element={<AdministrarUsers/>}>

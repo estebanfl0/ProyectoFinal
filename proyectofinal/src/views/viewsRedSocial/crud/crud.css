@@ -1,10 +1,12 @@
 .cardshow {
-    width: 500px;
+    min-width: 300px;
     height: 460px;
     background: #212529;
     border-radius: 15px;
     box-shadow: 1px 5px 60px 0px #00ff886b;
-    margin: 0 auto;
+    
+   
+    
    }
    
    .cardshow .cardshow-border-top {
@@ -67,4 +69,15 @@
   font-weight: 600;
   font-size: 1.1rem;
   color: #333;
+   }
+   .contentCardShow{
+    
+    padding: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+   }
+   .back{
+    text-decoration: none;
+    border-bottom: none;
    }

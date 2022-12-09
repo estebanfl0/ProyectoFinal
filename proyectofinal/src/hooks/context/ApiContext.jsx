@@ -19,11 +19,17 @@ const ApiContext = createContext();
 
 export const ApiProvider = (props) => {
   const[data,setData]= useState({})
+  const [resul,setResul] = useState(false)
 
  const LoginUser = async(email,password)=>{
     let res = await login(email,password)
     setData(res.user)
+    setResul(res.res)
+    console.log(res.res)
+    console.log(res)
+    return res
 }
+
 
   // se programa es uso de los hooks para la autenticacion async de la API
   const {login,logout,register,dataLogin} = Authentication(ApiUrl)  
@@ -64,6 +70,7 @@ const {createlike, getlike, updatelike, deletelike, getAlllikes} = like(ApiUrl)
       logout,
       register,
       data,
+      resul,
       // user
       createUser,
       getUser,

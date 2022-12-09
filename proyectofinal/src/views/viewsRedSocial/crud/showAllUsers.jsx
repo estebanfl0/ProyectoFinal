@@ -15,11 +15,12 @@ function ShowAllUsers(){
       }, []);
     //   const {id} = useParams()
       const getAlldata = async ()=>{
-        setCargar(true)
         const res = await getAllUsers()
+        console.log(res.data)
         setData(res.data)
-        setCargar(false)
       }
+      
+      
     //   const deleteDataUser = async id =>{
     //     const res = await userDelete(id)
     //     setDeleted(res.data)

@@ -61,7 +61,7 @@ const ChangeCc = event => {
     return(
         <div>
              <form action="#" className="">
-                <h2 className="title">Agregar Usuario</h2>
+                <h2 className="title">Editar Usuario</h2>
                
                 <div className="input-field">
                 <i className="fas fa-user"></i>

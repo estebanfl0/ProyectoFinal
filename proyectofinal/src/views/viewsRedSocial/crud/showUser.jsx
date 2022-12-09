@@ -25,9 +25,9 @@ function ShowUser(){
     }
     
     return(
-        <div> 
+        
             
-            <div>
+            <div className="contentCardShow border">
             <div class="cardshow">
   <div class="cardshow-border-top">
   </div>
@@ -39,11 +39,11 @@ function ShowUser(){
   <p class="job"> Fecha: {data.birthdate} </p>
   <p class="job"> Cedula: {data.cc} </p>
   <p class="job"> Rol: {data.role} </p>
-  <Link to='/vista-administrar-rol'><button>Back
+  <Link to='/vista-administrar-rol' className="back border"><button>Back
   </button></Link>
 </div>
         </div>
-        </div>
+      
         
     )
 }

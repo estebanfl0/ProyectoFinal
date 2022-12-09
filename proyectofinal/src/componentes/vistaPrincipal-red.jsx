@@ -17,7 +17,7 @@ function VistaRedsocial(){
     // const DataUser = async ()=>{
     //     setDataUser(data)
     // }
-    console.log(data)
+    console.log(data.role)
     
     
     // useEffect(()=>{
@@ -39,7 +39,7 @@ function VistaRedsocial(){
                 <div class="d-flex flex-sm-column flex-row flex-grow-1 align-items-center align-items-sm-start px-3 pt-2 text-white ">
                     <h1 className="fs-5 tittleLogo text-light fw-bold d-flex align-items-center"><img className="logoApp"  src={require('../images/logopequeño.png')}alt="" width='80px' /><span className="textApp">Coffecom</span></h1>
                     
-                        {/* {data.role === 1 ? <ul className="nav ul nav-pills flex-sm-column flex-row flex-nowrap flex-shrink-1 flex-sm-grow-0 flex-grow-1 mb-sm-auto mb-0 justify-content-around align-items-center align-items-sm-start" id="menu"><li class="nav-item">
+                        {data.role == 1 ? <ul className="nav ul nav-pills flex-sm-column flex-row flex-nowrap flex-shrink-1 flex-sm-grow-0 flex-grow-1 mb-sm-auto mb-0 justify-content-around align-items-center align-items-sm-start" id="menu"><li class="nav-item">
                             <Link  to='/vistaPrincipal-red' class="nav-link px-sm-0 px-2">
                              <i className="fs-5 bi bi-house hvo"></i><span class="ms-1 d-none d-sm-inline fw-bold fs-5 li">Inicio</span>
                             </Link>
@@ -72,10 +72,10 @@ function VistaRedsocial(){
                             <Link to='/vista-ecommerce-red' class="nav-link px-sm-0 px-2">
                             <i class=" fs-5 bi bi-cart4 hvo"></i><span class="ms-1 d-none d-sm-inline fw-bold fs-5 li">Tienda</span> </Link>
                         </li>
-                        </ul> } */}
+                        </ul> }
 
 
-                        <ul className="nav ul nav-pills flex-sm-column flex-row flex-nowrap flex-shrink-1 flex-sm-grow-0 flex-grow-1 mb-sm-auto mb-0 justify-content-around align-items-center align-items-sm-start" id="menu">
+                        {/* <ul className="nav ul nav-pills flex-sm-column flex-row flex-nowrap flex-shrink-1 flex-sm-grow-0 flex-grow-1 mb-sm-auto mb-0 justify-content-around align-items-center align-items-sm-start" id="menu">
                             <li class="nav-item">
                             <Link  to='/vistaPrincipal-red' class="nav-link px-sm-0 px-2">
                              <i className="fs-5 bi bi-house hvo"></i><span class="ms-1 d-none d-sm-inline fw-bold fs-5 li">Inicio</span>
@@ -102,7 +102,7 @@ function VistaRedsocial(){
                             <Link to='/vista-ecommerce-red' class="nav-link px-sm-0 px-2">
                             <i class=" fs-5 bi bi-cart4 hvo"></i><span class="ms-1 d-none d-sm-inline fw-bold fs-5 li">Tienda</span> </Link>
                         </li>
-                        </ul>
+                        </ul> */}
                         
                         
                         

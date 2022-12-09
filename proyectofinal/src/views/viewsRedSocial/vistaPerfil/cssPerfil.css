@@ -222,10 +222,16 @@
     width: 100%;
 }
  .lista-datos {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
     width: 50%;
     list-style: none;
 }
  .lista-datos li {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
     padding: 5px 0;
 }
 .PostPerfil{

@@ -18,6 +18,7 @@ const publicaciones = (url) => {
   const  getOnePublication = async(id)=>{
     try {
         const res = await axios.get(apiUrl+id)
+        // alert(res.data.data.title + ' ' + res.data.data.content )
         return res.data
     } catch (error) {
         return error.response.data
