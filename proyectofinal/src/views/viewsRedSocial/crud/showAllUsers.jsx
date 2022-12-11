@@ -7,7 +7,6 @@ function ShowAllUsers(){
     const {getUser,getAllUsers,updateUser,deleteUser,createUser}=useApiContext()
     const [data, setData] = useState(null);
     // const [deleted,setDeleted] = useState(null)
-    const [cargar, setCargar] = useState(false);
 
     useEffect(() => {
         getAlldata()

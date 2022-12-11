@@ -10,10 +10,34 @@ const Heart = ({id}) => {
   </svg>)}
 function CardPost({imagenPerfil,nombre,key,body,idPublicacion,ChangeComentario1,crearComentario,keyComent,onClick,clickEx,nombreComentario,comentario}){
     const [Favorite, setFavorite] = React.useState(false)
+    const{getAllComment} = useApiContext()
+    const[comments,setComments] = useState([])
     const handleClick = () => {
         setFavorite(!Favorite)
         
       }
+        useEffect(()=>{
+                AllComments(idPublicacion)
+        },[])
+        const AllComments = async (id)=>{
+            const res = await getAllComment(id)
+            console.log(res.data)
+            if(!res.res == false){
+                setComments(res.data)
+            }else{
+
+                let messages = {
+                    id: 0,
+                    content:'Nadie a comentado esta publicacion'
+
+                }
+                setComments([messages])
+            }
+
+           
+        // setComments(res.data)
+        
+        }
 
     
 
@@ -40,15 +64,20 @@ function CardPost({imagenPerfil,nombre,key,body,idPublicacion,ChangeComentario1,
                 </button>
                 <button type="button" className="btn" style={{backgroundColor:'red', width:'80px', height:'30px',fontSize:'12px'}} onClick={onClick}>Borrar</button>
             </div>
-            <div className="comments">
-                <div className="border-top d-flex" key={keyComent}>
+            {comments.map((comment)=>{
+                return(
+                    <div className="comments">
+                <div className="border-top d-flex" key={comment.id}>
                     <span><img src={imagenPerfil}className="rounded-5" width="25px" /></span>
                     <div className="mt-2">
-                    <h1 className="fs-6 d-flex align-items-center">{nombreComentario}</h1>
-                    <p className="">{comentario}</p>
+                    {/* <h1 className="fs-6 d-flex align-items-center">{comment.name}</h1> */}
+                    <p className="">{comment.content}</p>
                     </div>
                 </div>
             </div>
+                )
+            })}
+            
                 {/* <form action="" className="">
                     <div className="formComments">
                         <img src={imagenPerfil}className="rounded-5" width="50px"/>

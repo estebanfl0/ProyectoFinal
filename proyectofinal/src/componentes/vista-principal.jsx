@@ -11,7 +11,7 @@ import VistaRedsocial from "./vistaPrincipal-red";
 
 function VistaPrincipal({onclickLogin}) {
     // Funciones de registro y entrar
-  const {LoginUser,register,data,getAllUsers,resul} = useApiContext()
+  const {LoginUser,register,data,getAllUsers,resul,error} = useApiContext()
 //   funciones de tomar los valores de los inputs
 
 // Name
@@ -136,7 +136,15 @@ return(
         <div className="forms-container">
             <div className="signin-signup">
                 
+                
             <form action="#" className="sign-in-form" onSubmit={enviarDatos} >
+            {error &&
+                        <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                        <strong>Ups!</strong> Credenciales incorrectas
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                      </div>
+                    
+                    }
                 <h2 className="title">Ingresar</h2>
                 
                 <div className="input-field">
@@ -148,21 +156,31 @@ return(
                 <i className="fas fa-lock"></i>
                 <input id="password1" type="password" placeholder="Contraseña"  onChange={ChangePassword}  />
                 </div>
+                <div>
+
+                
+                </div>
                 <div className="main_div my-5">
                   
                     
                     {/* <DelayedLink delay={3000} to='/vistaPrincipal-red' onClick={()=>LoginUser(email,password)} >hhh</DelayedLink>
                     {console.log(data)} */}
                     
-                    <Link to={resul === true ? '/vistaPrincipal-red' : '/' }><button onClick={()=>ValidationUser(email,password)}>Clicxk</button></Link>
+                    
+                    {/* <Link to={resul === true ? '/vistaPrincipal-red' : '/' }><button onClick={()=>ValidationUser(email,password)}>Ingresar</button></Link> */}
+                    {/* <button onClick={()=>LoginUser(email,password)}>Ingresar</button> */}
+                    
+
                      
                      
+                    <Link to='/vistaPrincipal-red'><button onClick={()=>LoginUser(email,password)}>Ingresar</button></Link>
                     
                         
                    
                     
                     {/* <button type="submit" classNameName="fw-bold" onClick={()=>ValidationUser(email,password)}>Ingresar</button> */}
-                    {/* {resul === false ? 
+                    {/* {!resul === false ? 
+                        <Link to='/vistaPrincipal-red'><button onClick={()=>LoginUser(email,password)}>Ingresar</button></Link>
                         
                      : password !== '' && email !==   '' ?
                     <button type="submit" classNameName="fw-bold" onClick={()=>click()}>Ingresar</button> : ''

@@ -1,6 +1,7 @@
 import VistaPrincipal from "../componentes/vista-principal";
+import swal from 'sweetalert'
 
-import { Routes, Route , useLocation} from "react-router-dom";
+import { Routes, Route , BrowserRouter as Router, useLocation} from "react-router-dom";
 import CmabiarContraseña from "../views/viewsContraseña/cambiar-contraseña";
 import VistaContraseña from "../componentes/vista-contraseña";
 import IngresarCorreo from "../views/viewsContraseña/ingresar-correo";
@@ -25,7 +26,7 @@ import VistaPerfil from "../views/viewsRedSocial/vistaPerfil/vista-perfil-red";
 import VistaInfoPerfil from "../views/viewsRedSocial/vistaPerfil/vista-info-perfil";
 import VistaPostPerfil from "../views/viewsRedSocial/vistaPerfil/vista-post-perfil";
 import Recargar from "../componentes/componenteCargar/componenteCargar";
-import React, { useState } from "react";
+import React, { useState , useLayoutEffect } from "react";
 import { ApiProvider,useApiContext } from "./context/ApiContext";
 import AdministrarUsers from "../views/viewsRedSocial/vista-administrar-rol";
 import ShowAllUsers from "../views/viewsRedSocial/crud/showAllUsers";
@@ -43,7 +44,8 @@ import VistaUnaPubli from "../views/viewsRedSocial/vistaUnaPubli";
   const [loading,setLoading] = useState(false);
 
   // se importan las funciones de autenticacion 
-  const {LoginUser,logout,register} = useApiContext()
+  const {LoginUser,logout,register,resul,resHandler,isActive} = useApiContext()
+  
   // se importan las funciones de usuario
   const {getUser,getAllUsers,updateUser,deleteUser,createUser}=useApiContext()
   // se importan las fucniones de dataUser
@@ -75,6 +77,14 @@ const {createlike, getlike, updatelike, deletelike, getAlllikes} = useApiContext
   //   const res = await getComment(id)
   //   setLoading(false)
   // }
+
+  useLayoutEffect(()=>{
+    let active = isActive()
+    if(active){
+      resHandler()
+    }
+  },[])
+
   const cambiarEstado = () =>{
     
 
@@ -89,7 +99,14 @@ const {createlike, getlike, updatelike, deletelike, getAlllikes} = useApiContext
       <Recargar/>
     )
   }
-  
+  const click = () => {
+    swal({
+        title:'Wait',
+        text:'The credentials are incorrects',
+        icon:'error',
+        button:'Try',
+    });
+}
     return (
       // name,email,password,birthdate,cc
         <div className="App overflow-hidden">
@@ -176,12 +193,11 @@ const {createlike, getlike, updatelike, deletelike, getAlllikes} = useApiContext
           {/*<button onClick={()=>getAlllikes()}>obtener todos likes </button>*/} 
           {/*<button onClick={()=>updatelike('10','2','2')}>Actualizar like </button>*/}
           {/*<button onClick={()=>deletelike('10')}>eliminar </button> */}
-        
-       
-              <Routes>
-                    <Route path="/" element={<VistaPrincipal onClick={()=>cambiarEstado()} />}>
-                    </Route>
-                    <Route path="/" element={<VistaRedsocial/>}>
+
+                
+                <Routes>
+                  
+                  <Route path="/" element={resul ? <VistaRedsocial/> :<VistaPrincipal/>}>
                         <Route path="/vistaPrincipal-red" element={<VistaPostRed />}></Route>
                         <Route path="/vista-ecommerce-red" element={<VistaEcommerce />}></Route>
                         <Route path="/vistaUnaPubli/:id" element={<VistaUnaPubli/>}></Route>
@@ -204,8 +220,12 @@ const {createlike, getlike, updatelike, deletelike, getAlllikes} = useApiContext
                       <Route path="/cambiar-contraseña"  element={<CmabiarContraseña/>}></Route>
                       <Route path="/contraseña-cambiada"  element={<ContraseñaCambiada />}></Route>
                     </Route>
+                 
                    
+                    
               </Routes>
+              
+              
               </AnimatePresence>
           
           

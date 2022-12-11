@@ -60,9 +60,15 @@ const Authentication =(url)=>{
             return error.response.data
             
         }
+        
+    }
+    const isActive = ()=>{
+        let res = !!localStorage.getItem('DataUser')
+        return res
     }
 
     return {
+        isActive,
         login,
         logout,
         register,
