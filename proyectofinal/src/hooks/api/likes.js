@@ -1,8 +1,8 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import axios from "axios";
 
 
-const like = (url) => {
+const Like = (url) => {
   let apiUrl = `${url}like/`   
 
   const createlike= async(user_id, publication_id)=>{
@@ -26,6 +26,7 @@ const like = (url) => {
       console.log(error.response.data)
     }
   }
+  
   const getAlllikes = async()=>{
     try {
       const res = await axios.get(`${apiUrl}`)
@@ -67,4 +68,4 @@ const like = (url) => {
   }
 }
 
-export default like
+export default Like

@@ -12,6 +12,7 @@ import typenotification from "../api/typenotification";
 import imagespublication from "../api/imagespublication";
 import typepublication from "../api/typepubliction";
 import like from "../api/likes";
+import Like from "../api/likes";
 
 
 /* Creamos el context, se le puede pasar un valor inicial */
@@ -73,7 +74,7 @@ const {createimages_publication, getimages_publication, updateimages_publication
 // se importan las funciones de images publication
 const {createtypespublication, gettypespublication, updatetypespublication, deletetypespublication, getAlltypespublications} = typepublication(ApiUrl)
 // se importan las funciones de likes
-const {createlike, getlike, updatelike, deletelike, getAlllikes} = like(ApiUrl)
+const {createlike, getlike, updatelike, deletelike, getAlllikes} = Like(ApiUrl)
 
 
 

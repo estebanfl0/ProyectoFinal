@@ -58,8 +58,6 @@ export const CartProvider = ({ children }) => {
         cartItems.filter((productInCart) => productInCart.id !== productId)
       );
     } else {
-      /* Si la cantidad es mayor a 1, recorremos el carrito
-      y al producto le restamos uno en su cantidad, sino devolvemos el carrito como estaba */
       setCartItems(
         cartItems.map((productInCart) => {
           if (productInCart.id === productId) {
@@ -74,7 +72,6 @@ export const CartProvider = ({ children }) => {
   }
 
   return (
-    /* Envolvemos el children con el provider y le pasamos un objeto con las propiedades que necesitamos por value */
     <CartContext.Provider
       value={{ cartItems, AddItemToCart, DeleteItemToCart,click }}
     >

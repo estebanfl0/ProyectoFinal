@@ -27,12 +27,13 @@ function VistaInfoPerfil(){
     
     return(
         <motion.div className="perfil-usuario-footer " initial={{opacity:0}} animate={{opacity:1}} exit={{opacity:0, transition:{duration:0.2}}}>
+                
                 <ul className="lista-datos">
                     <li><i className="icono fas fa-map-signs"></i> Email: {user.email} </li>
-                    <li><i className="icono fas fa-phone-alt"></i> Birthdate: {user.birthdate}</li>
+                    <li><i className="icono fas fa-phone-alt"></i> Fecha: {user.birthdate}</li>
                 </ul>
                 <ul className="lista-datos">
-                    <li><i className="icono fas fa-map-marker-alt"></i> Cc: {user.cc} </li>
+                    <li><i className="icono fas fa-map-marker-alt"></i> Cedula: {user.cc} </li>
                     <li><i className="icono fas fa-calendar-alt"></i> Role: {role} </li>
                 </ul>
             </motion.div>

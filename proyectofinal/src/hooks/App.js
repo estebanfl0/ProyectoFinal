@@ -20,7 +20,6 @@ import'../componentes/css/card_job.css'
 import'../componentes/css/editarP.css'
 import'../componentes/css/notificaciones.css'
 import VistaEcommerce from "../views/viewsRedSocial/vista-ecommerce-red";
-import VistaTrabajoRed from "../views/viewsRedSocial/vista-trabajo-red";
 import VistaConfigRed from "../views/viewsRedSocial/vista-config-red";
 import VistaPerfil from "../views/viewsRedSocial/vistaPerfil/vista-perfil-red";
 import VistaInfoPerfil from "../views/viewsRedSocial/vistaPerfil/vista-info-perfil";
@@ -201,7 +200,6 @@ const {createlike, getlike, updatelike, deletelike, getAlllikes} = useApiContext
                         <Route path="/vistaPrincipal-red" element={<VistaPostRed />}></Route>
                         <Route path="/vista-ecommerce-red" element={<VistaEcommerce />}></Route>
                         <Route path="/vistaUnaPubli/:id" element={<VistaUnaPubli/>}></Route>
-                        <Route path="/vista-trabajo-red" element={<VistaTrabajoRed />}></Route>
                         <Route path="/vista-config-red" element={<VistaConfigRed />}></Route>
                         <Route path="/vista-administrar-rol" element={<AdministrarUsers/>}>
                           <Route path="/vista-administrar-rol" element={<ShowAllUsers/>}></Route>

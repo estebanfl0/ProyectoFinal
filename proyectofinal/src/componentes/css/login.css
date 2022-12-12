@@ -462,6 +462,7 @@ form.sign-in-form {
   .hvo,span{
     padding: 3px;
   }
+  
 
   
 }
@@ -471,6 +472,7 @@ form.sign-in-form {
         .contenidoPostNotiRed{
             flex-wrap: wrap;
         }
+        
         
         .subContenidoRed{
             overflow-y: auto;
@@ -516,6 +518,10 @@ form.sign-in-form {
       width: 40px;
       margin-top: 10px;
       
+    }
+    .comentarBox{
+      
+      margin-left: 50px;
     }
     
     
@@ -671,6 +677,49 @@ form.sign-in-form {
   background-color: black;
   color: white;
   padding: 10px;
+}
+
+.comentarBox{
+  display: flex;
+  gap: 10px;
+  
+  align-items: center;
+}
+.inputComments{
+  min-width: 100px;
+  outline: none;
+  height: 40px;
+  border: none;
+  background-color: #33333350;
+  text-indent: 10px;
+  border-radius: 20px;
+}
+.submitComments{
+  background-color: blue;
+  border: none;
+  padding: 10px;
+  color: white;
+  border-radius: 20px;
+}
+.clickLike{
+  background-color: white;
+  border: none;
+}
+.boxLogo{
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+}
+.titleCoffe{
+  color: white;
+}
+.imgsJobs{
+  border: 30px solid white;
+  border-radius: 20px;
+}
+.caroul{
+  padding: 70px;
 }
 
 

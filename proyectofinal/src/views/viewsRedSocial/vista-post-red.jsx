@@ -1,16 +1,17 @@
 import React from "react";
 import { Link, Outlet } from "react-router-dom";
-import CardJob from "../../componentes/comCardPostCardJobs/componenteCardJob";
 import CardPost from "../../componentes/comCardPostCardJobs/componenteCardPost";
 import{motion} from'framer-motion'
 import { useState, useEffect } from "react";
 import{useApiContext} from '../../hooks/context/ApiContext'
+import {uploadFile} from '../../firebase/config'
+import CardJobTrabajo from "../../componentes/comCardPostCardJobs/componenteCardJobTrabajos";
 
 
 
 function VistaPostRed (){
 
-  const {getAllPublication,getComment,createComment,getAllComment,getOnePublication,createPublication,updatePublication,deletePublication} = useApiContext()
+  const {getAllPublication,createlike,createPublication,deletePublication,getAlllikes} = useApiContext()
 
   const {data,isActive} = useApiContext()
   const [user,setUser] = useState({})
@@ -22,7 +23,7 @@ function VistaPostRed (){
   // Obtener datos con fetch API
 
 
-  const [comments,setComments] = useState('');
+
 
     useEffect(() => {
         AllPublication()
@@ -51,47 +52,9 @@ function VistaPostRed (){
         setComentarioPost(event.target.value);
         // console.log(comentarioPost)
       };
-  // useEffect(() => {
-
-  //   const cargarPost = async () => {
-  //     const response = await fetch(
-  //       "https://projectapi-production.up.railway.app/api/publication"
-  //     );
-  //     const data = await response.json();
-  //     // const arrayData = []
-  //     // data.data.forEach(element => {
-  //     //   arrayData.push(element );
-  //     // });
-  //     setPosts(data.data)
-  //     console.log(data.data)
-      
-
-      
-  //   };
-  //   if (cargar) {
-  //     cargarPost();
-  //     setCargar(false);
-  //   }
-
-  // }, [cargar]);
-  // useEffect(() => {
-
-  //   const cargarPost = async () => {
-  //     const response = await fetch(
-  //       "https://jsonplaceholder.typicode.com/posts?_limit=5"
-  //     );
-  //     const data = await response.json();
-  //     console.log(data);
-  //     setPosts(data);
-  //   };
-  //   if (cargar) {
-  //     cargarPost();
-  //     setCargar(false);
-  //   }
-
-  // }, [cargar]);
-
-  // Borrar datos con fetch API
+  // Like
+ 
+  // Borrar datos
   const borrarPost = async (id) => {
     let res = await deletePublication(id)
     if(res.res == true){
@@ -99,13 +62,14 @@ function VistaPostRed (){
       AllPublication()
     }
   };
-  // Publicar datos con fetch API
+
+  
+  // Publicar datos
     
     useEffect(()=>{
       
       if(Object.entries(data).length == 0){
           if(()=>isActive()){
-
               let dataUser = JSON.parse(localStorage.getItem('DataUser'))
               setUser(dataUser)
           }
@@ -116,7 +80,7 @@ function VistaPostRed (){
       console.log(user)
       
   },[])
-
+  
     const[error,setError] = useState(false)
   const agregarPosts = async  (titulo, mensaje) => {
     let data = await createPublication(user.id,titulo,mensaje)
@@ -130,17 +94,33 @@ function VistaPostRed (){
     setTitulo("");
     setCuerpoMsj("");
   };
+  const [file, setFile] = useState(null)
 
   // Controlador que maneja el envio del formulario
-  const controladorDelEnvio = (e) => {
+  const controladorDelEnvio = async (e) => {
     e.preventDefault();
+    const result = await uploadFile(file)
     
-    // let res = createPublication(user.id,titulo,cuerpoMsj)
-    // if(res.res == true){
-
-    // }
     agregarPosts(titulo, cuerpoMsj);
   };
+
+
+  useEffect(()=>{
+    getAllLikes()
+},[])
+const[getLikes,setGetLikes] = useState([])
+const getAllLikes = async()=>{
+    let res = await getAlllikes()
+    console.log('App ya')
+    console.log(res)
+    setGetLikes(res)
+    return res
+}
+
+
+
+
+
 
  
     return(
@@ -152,7 +132,7 @@ function VistaPostRed (){
                                     <label for='file-input'>
                                         <img src={require('../../images/publicar.png')} width='50px' />
                                     </label>
-                                    <input id="file-input" type="file"/>
+                                    <input id="file-input" type="file" onChange={e => setFile(e.target.files[0])}/>
                                 </div>
                                 <div className="escribirElegirPu mt-1 mx-3">
                                     <input className="inputPublicar rounded-5 border-0" type="text" value={titulo} onChange={(e) => setTitulo(e.target.value)} />
@@ -167,57 +147,88 @@ function VistaPostRed (){
                           }
                     </form>
                     
+                    
                 <div className="seePost mt-1 p-2">
                 {posts.map((post) => {
-          return (
-            <CardPost
-                              key={post.id}
-                              idPublicacion={post.id}
-                              nombre={post.title}
-                              imagenPerfil={require('../../images/imagenPerfil.png')}
-                              body={post.content}
-                              fotoPerfilComenatrio={require('../../images/imagenPerfil.png')}
-                              
-                              ChangeComentario1={ChangeComentario}
-                              crearComentario={()=> createComment('1','4',comentarioPost)}
-                              onClick={()=>borrarPost(post.id)}
-                          />
-          );
+                  
+                    return (
+                      <CardPost
+                                        key={post.id}
+                                        idPublicacion={post.id}
+                                        nombre={post.title}
+                                        imagenPerfil={require('../../images/imagenPerfil.png')}
+                                        body={post.content}
+                                        
+                                        fotoPerfilComenatrio={require('../../images/imagenPerfil.png')}
+                                        controladorDelEnvio={controladorDelEnvio}
+                                        onClick={()=>borrarPost(post.id)}
+                                    />
+                    );
+                  
+         
         })}
-
-
-
-               
-          
-            
-                
-            
-                {/* {!data ? null : data.map((datas)=>{
-                      return(
-                        <CardPost
-                              key={datas.id}
-                              src={datas.image}
-                              nombre={datas.title}
-                              imagenPerfil={require('../../images/imagenPerfil.png')}
-                              body={datas.content}
-                              fotoPerfilComenatrio={require('../../images/imagenPerfil.png')}
-                              keyComent={datas.id}
-                              onClick={()=>borrarPost(datas.id)}
-                              ChangeComentario1={ChangeComentario}
-                              crearComentario={()=> createComment('1','4',comentarioPost)}
-                          />
-                      );
-                  }) } */}
-                  {/* {comments.map((comment)=>{
-                    return(
-                        <h1>{comment.id}</h1>
-                    )
-                  })} */}
                 </div>
             </div>
-            <div className="noticias">
-                <div className="Jobs">
-                    
+            <div className="noticias p-5 d-none d-sm-table-cell">
+                
+                <div className="imgsJobs" >
+                <div id="carouselExampleControls" style={{width:'100%'}} class="carousel slide" data-bs-ride="carousel">
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+      <img src={require('../../images/cafe1.jpg')}class="d-block w-100"alt="..."/>
+    </div>
+   
+    <div class="carousel-item">
+      <img src={require('../../images/cafe3.jpeg')} class="d-block w-100" alt="..."/>
+    </div>
+  </div>
+  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Previous</span>
+  </button>
+  <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Next</span>
+  </button>
+</div>
+                </div>
+                <div className="Jobs mx-4 mt-4">
+                <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="true">
+  
+  <div class="carousel-inner caroul">
+    <div class="carousel-item active">
+      <CardJobTrabajo
+      image='https://d1ym9li8i4iu0v.cloudfront.net/07-29-2020/t_be3292f62f6d402fac2f0c24e0423997_name_Cafe__3.jpg'
+      tituloTrabajo='Se busca recolector de café'
+      contentCardJob='Una oferta de empleo deseada por muchos, comunicate a este numero 212131'
+      />
+    </div>
+    <div class="carousel-item">
+    <CardJobTrabajo
+      image='https://cdn.euroinnova.edu.es/img/subidasEditor/fotolia_45294210_subscription_monthly_xxl-1612523879.webp'
+      tituloTrabajo='¿Estas buscando empleo de Capataz?'
+      contentCardJob='Trabaja en una de las mejores fincas producturas de leche comunicate con nosotros 754385467'
+      />
+      
+    </div>
+    <div class="carousel-item">
+    <CardJobTrabajo
+      image='https://tipsparatuviaje.com/wp-content/uploads/2018/11/los-angeles-california.jpg'
+      tituloTrabajo='Comunicate con nosotros'
+      contentCardJob='Adentrate en un viaje con nosotros a la ciudad, comunicate 43643278'
+      />
+      
+    </div>
+  </div>
+  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Previous</span>
+  </button>
+  <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Next</span>
+  </button>
+</div>
                 </div>
                
             </div>

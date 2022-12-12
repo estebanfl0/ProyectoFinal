@@ -8,14 +8,13 @@ function CmabiarContraseña(){
             <form action="#" className="sign-in-form">
                 <h2 className="title text-center">Usa una contraseña fuerte</h2>
                 <img src={require('../../images/unlocked.gif')} className="infO" alt="" width="200px"/>
-                
                 <div className="input-field">
-                <i className="fas fa-lock"></i>
-                <input type="password" placeholder="Nueva contraseña" />
+                    <i className="fas fa-lock"></i>
+                    <input type="password" placeholder="Nueva contraseña" />
                 </div>
                 <div className="input-field">
-                <i className="fas fa-lock"></i>
-                <input type="password" placeholder="Confirmar contraseña" />
+                    <i className="fas fa-lock"></i>
+                    <input type="password" placeholder="Confirmar contraseña" />
                 </div>
                 <Link to='/contraseña-cambiada'>
                     <button className="btnOlvide mt-4 ">
@@ -24,10 +23,8 @@ function CmabiarContraseña(){
                         </span>
                     </button>
                 </Link>
-                
-                
             </form>
         </motion.div>
-    )                
+    )
 }
 export default CmabiarContraseña

@@ -4,7 +4,6 @@ import './cssPerfil.css'
 import { useApiContext } from "../../../hooks/context/ApiContext";
 function VistaPerfil(){
     const {data} = useApiContext()
-
     return(
         <section className="perfil-usuario">
             <div className="contenedor-perfil">
@@ -15,7 +14,6 @@ function VistaPerfil(){
                     </div>
                     <div className="datos-perfil">
                         <h4 className="titulo-usuario">{data.name}</h4>
-                        {/* <p className="bio-usuario">Lorem ipsum dolor sit, amet consectetur adipisicing.</p> */}
                     </div>
                     <div className="opcciones-perfil">
                         <Link to={`/vista-administrar-rol/editUser/${data.id}`} >
@@ -24,20 +22,10 @@ function VistaPerfil(){
                     </div>
                 </div>
                 <div className="menu-perfil">
-                    {/* <ul>
-                        <li><Link to='/vista-perfil-red' title=""><i className="icono-perfil fas fa-info-circle"></i> Informacion</Link></li>
-                        <li><Link to='/vista-perfil-red/vista-post-perfil'><i className="icono-perfil fas fa-bullhorn"></i> Publicaciones</Link></li>
-                        <li><a href="#" title=""><i className="icono-perfil fas fa-grin"></i> Amigos 43</a></li>
-                        <li><a href="#" title=""><i className="icono-perfil fas fa-camera"></i> Fotos</a></li>
-                    </ul> */}
                 </div>
                 <div className="p-5">
-
-                <Outlet />
+                    <Outlet />
                 </div>
-                
-                
-        
             </div>
         </section>
     )

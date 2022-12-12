@@ -5,7 +5,6 @@ import './products.css'
 import { ProductsData } from "../../data/Data";
 
 const Products = () => {
-  /* Traemos del context la funcion para agregar un producto */
   const { AddItemToCart} = useContext(CartContext);
   
   return (
@@ -14,10 +13,10 @@ const Products = () => {
       
       {ProductsData.map((product, i) => (
       <div class="cardEcommerce" key={i}>
-                    <img src={product.img} className='card-img ' />
+                    <img src={product.img} className='card-img 'style={{height:'200px',width:'200px'}}/>
                     <div class="card-info">
                         <p class="text-title">{product.name} </p>
-                        <p class="text-body">Product description and details</p>
+                        <p class="text-body">{product.comment} </p>
                     </div>
                     <div class="card-footer">
                     <span class="text-title">${product.price}</span>

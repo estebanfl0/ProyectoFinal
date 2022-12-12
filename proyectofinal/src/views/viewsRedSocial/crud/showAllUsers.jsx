@@ -4,31 +4,20 @@ import { useState, useEffect } from "react";
 import { Link,useParams } from "react-router-dom";
 
 function ShowAllUsers(){
-    const {getUser,getAllUsers,updateUser,deleteUser,createUser}=useApiContext()
+    const {getAllUsers,deleteUser}=useApiContext()
     const [data, setData] = useState(null);
-    // const [deleted,setDeleted] = useState(null)
 
     useEffect(() => {
         getAlldata()
         // deleteDataUser()
       }, []);
-    //   const {id} = useParams()
+
       const getAlldata = async ()=>{
         const res = await getAllUsers()
         console.log(res.data)
         setData(res.data)
       }
-      
-      
-    //   const deleteDataUser = async id =>{
-    //     const res = await userDelete(id)
-    //     setDeleted(res.data)
-    // }
-    
 
-      
-  
-    
     return(
         
         <div class="table-responsive">

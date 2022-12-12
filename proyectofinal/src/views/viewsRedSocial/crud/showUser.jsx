@@ -20,29 +20,26 @@ function ShowUser(){
     }, []);
     const getDataUser = async ()=>{
       const res = await getUser(id)
-    //   console.log(res.data)
       setData(res.data)
     }
     
     return(
-        
-            
-            <div className="contentCardShow border">
-            <div class="cardshow">
-  <div class="cardshow-border-top">
-  </div>
-  <div class="img">
-  </div>
-  <span> Name: {data.name}</span>
-  <p class="job"> # {id}</p>
-  <p class="job"> Correo: {data.email}  </p>
-  <p class="job"> Fecha: {data.birthdate} </p>
-  <p class="job"> Cedula: {data.cc} </p>
-  <p class="job"> Rol: {data.role} </p>
-  <Link to='/vista-administrar-rol' className="back border"><button>Back
-  </button></Link>
-</div>
+
+      <div className="contentCardShow border">
+        <div class="cardshow">
+          <div class="cardshow-border-top"></div>
+          <div class="img"></div>
+          <span> Name: {data.name}</span>
+          <p class="job"> # {id}</p>
+          <p class="job"> Correo: {data.email}  </p>
+          <p class="job"> Fecha: {data.birthdate} </p>
+          <p class="job"> Cedula: {data.cc} </p>
+          <p class="job"> Rol: {data.role} </p>
+          <Link to='/vista-administrar-rol' className="back border">
+            <button>Back</button>
+          </Link>
         </div>
+      </div>
       
         
     )

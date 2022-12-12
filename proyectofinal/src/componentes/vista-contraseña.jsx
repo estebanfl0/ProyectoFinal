@@ -8,7 +8,7 @@ return(
     <div className="containerRed containerRedOlvide" >
         <div className="forms-container">
             <div className="signin-signup">
-            <Outlet/>
+                <Outlet/>
             </div>
         </div>
         <div className="panels-container">
@@ -18,13 +18,7 @@ return(
                 </div>
                 <img className="image" src={require('../images/muñeco.png')}  style={{width:'400px'}}/>
             </div>
-            
         </div>
-       
-
-        
-
-        
     </div>
 
 )

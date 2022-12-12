@@ -13,7 +13,6 @@ function VistaEcommerce(){
                     <CartProvider>
                         <Home />
                     </CartProvider>
-                    {/* <Home/> */}
         </motion.div>
     );
 }
