@@ -31,8 +31,10 @@ function VistaGustados(){
     },[user])
     const getOneLikePerson = async(id)=>{
         let res = await getAllLikesOnePerson(id)
+        console.log(res)
         setOneLike(res.data)
     }
+
     console.log(getOneLikes)
     return(
         <motion.div className="contenidoPostNotiRed  d-flex" initial={{opacity:0}} animate={{opacity:1}} exit={{opacity:0, transition:{duration:0.2}}} >
@@ -42,7 +44,8 @@ function VistaGustados(){
                     return(
                        
                       <CardPost
-                        key={getOneLike.id}
+                        key={getOneLike.publication_id
+                        }
                       />
                 
                            

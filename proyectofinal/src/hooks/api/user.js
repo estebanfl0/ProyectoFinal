@@ -6,7 +6,7 @@ const User = (url) => {
     const apiurl = url+'user/'
     // funciones de llamado async
     // CREAR USUARIO <<<<name,email,password,birthdate,cc>>>
-    const createUser = async(name,email,password,birthdate,cc,role,image)=>{
+    const createUser = async(name,email,password,birthdate,cc,role)=>{
       /*aqui se utiliza fetch para guardar el usuario en la base de datos atraves de la API*/ 
       // try {
       //   const res = await fetch(`${apiurl}new`,{
@@ -31,7 +31,7 @@ const User = (url) => {
         
       // console.log(name,'\n',email,'\n',password,'\n',birthdate,'\n',cc,'\n',role)
       
-      let request = (typeof role === 'undefined') ? {name,email,password,birthdate,cc} : {name,email,password,birthdate,cc,role,image}
+      let request = (typeof role === 'undefined') ? {name,email,password,birthdate,cc} : {name,email,password,birthdate,cc,role}
       
       try {
         const res = await axios.post(`${apiurl}new`,request)

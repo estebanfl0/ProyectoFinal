@@ -46,14 +46,14 @@ function VistaRedsocial(){
                              <i className="fs-5 bi bi-house hvo"></i><span class="ms-1 d-none d-sm-inline fw-bold fs-5 li">Inicio</span>
                             </Link>
                         </li>
-                        <li>
+                        {/* <li>
                             <Link to='/vista-gustados' class="nav-link px-sm-0 px-2">
                             <i class="fs-5 bi bi-box2-heart-fill hvo"></i><span class="ms-1 d-none d-sm-inline fw-bold fs-5 li">Gustados</span></Link>
                         </li>
                         <li>
                             <Link to='/vista-config-red' class="nav-link px-sm-0 px-2">
                             <i class=" fs-5 bi bi-sliders hvo fs-5"></i><span class="ms-1 d-none d-sm-inline fw-bold fs-5 li">Notificaciones</span></Link>
-                        </li>
+                        </li> */}
                         <li>
                             <Link to='/vista-ecommerce-red' class="nav-link px-sm-0 px-2">
                             <i class=" fs-5 bi bi-cart4 hvo"></i><span class="ms-1 d-none d-sm-inline fw-bold fs-5 li">Tienda</span> </Link>

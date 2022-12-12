@@ -1,6 +1,7 @@
 import React,{useState,useEffect} from "react";
 import {useApiContext} from '../../../hooks/context/ApiContext'
 import { Link,useParams } from "react-router-dom";
+import { uploadFile } from "../../../firebase/config";
 function EditUser(){
     const {updateUser,getUser}=useApiContext()
     const [name, setName] = useState('');
@@ -55,10 +56,56 @@ function EditUser(){
         
     };
 
+    const [selectedFile, setSelectedFile] = useState()
+    const [preview, setPreview] = useState()
+
+    // create a preview as a side effect, whenever selected file is changed
+    useEffect(() => {
+        if (!selectedFile) {
+            setPreview(undefined)
+            return
+        }
+
+        const objectUrl = URL.createObjectURL(selectedFile)
+        setPreview(objectUrl)
+
+        // free memory when ever this component is unmounted
+        return () => URL.revokeObjectURL(objectUrl)
+    }, [selectedFile])
+
+    const onSelectFile = e => {
+        if (!e.target.files || e.target.files.length === 0) {
+            setSelectedFile(undefined)
+            return
+        }
+
+        // I've kept this example simple by using the first image instead of multiple
+        setSelectedFile(e.target.files[0])
+    }
+    const [file, setFile] = useState(null)
+    const[imageEdit,setImageEdit] = useState()
+    const[appear,setAppear] = useState(true)
+    // Controlador que maneja el envio del formulario
+    const controladorDelEnvio = async (e) => {
+      e.preventDefault();
+      const result = await uploadFile(file)
+      console.log(result)
+      setImageEdit(result)
+      setAppear(false)
+    };
+    console.log(imageEdit)
     return(
         <div>
              <form action="#" className="">
                 <h2 className="title">Editar Usuario</h2>
+                <h2>Escoja su imagen</h2>
+                <div className="imagePost">
+                                    <label for='file-input'>
+                                      {!selectedFile || appear == false ? <img src={data.image} width='50px' className="border-rounded" />  : <img src={preview} width='50px' className="border-rounded" />   }
+
+                                    </label>
+                                    <input id="file-input" type="file" onChange={(e)=>{setFile(e.target.files[0]) ; onSelectFile(e);}}/>
+                                </div>
                 <div className="input-field">
                     <i className="fas fa-user"></i>
                     <input type="text" defaultValue={data.name} onChange={ChangeName}/>
@@ -82,8 +129,8 @@ function EditUser(){
                 </div>
                 <div className="main_div my-5">
                     
+                        <button type="submit" className="fw-bold" onClick={()=>{controladorDelEnvio();updateUser(id,name,email,password,birthdate,cc,imageEdit)}} >Editar</button>
                     <Link to='/vista-administrar-rol'>
-                        <button className="fw-bold" onClick={()=>updateUser(id,name,email,password,birthdate,cc)} >Editar</button>
                     </Link>
                 </div>
             </form>
