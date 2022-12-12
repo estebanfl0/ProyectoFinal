@@ -23,8 +23,8 @@ const publicaciones = (url) => {
     }
   }
 
-  const createPublication = async(id,title,content)=>{
-    let request = {title,content,user_id:id}
+  const createPublication = async(id,title,content, image, type_publication_id)=>{
+    let request = {title,content,user_id:id, image, type_publication_id}
     try {
       const res = await axios.post(`${apiUrl}new`,request)
       return res.data
@@ -33,8 +33,8 @@ const publicaciones = (url) => {
     }
   }
 
-  const updatePublication = async(id,id_publication,title,content)=>{
-    let request = {title,content,user_id:id}
+  const updatePublication = async(id,id_publication,title,content, image, type_publication_id)=>{
+    let request = {title,content,user_id:id, image, type_publication_id}
     try {
       const res = await axios.put(`${apiUrl}update/${id_publication}`,request)
       return res.data

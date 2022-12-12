@@ -26,7 +26,7 @@ const notification = (url) => {
       console.log(error.response.data)
     }
   }
-  /*const getAllNotifications = async()=>{
+  const getAllNotifications = async()=>{
     try {
       const res = await axios.get(`${apiUrl}`)
       console.log(res.data)
@@ -46,7 +46,7 @@ const notification = (url) => {
       console.log(error.response.data)
       return error.response.data
     }
-  }*/
+  }
 
   const deleteNotification = async(id)=>{
     try {
@@ -63,7 +63,7 @@ const notification = (url) => {
     getNotification,
     /*updateNotification,*/
     deleteNotification,
-    /*getAllNotifications,*/
+    getAllNotifications,
   }
 }
 

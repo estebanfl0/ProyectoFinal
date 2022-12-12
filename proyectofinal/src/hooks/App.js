@@ -29,6 +29,10 @@ import React, { useState } from "react";
 
 import { ApiProvider,useApiContext, apdateRole } from "./context/ApiContext";
 
+//Esteban
+import {uploadFile} from './firebase/config'
+import { useState } from 'react';
+
 
 
 
@@ -82,21 +86,43 @@ const {createlike, getlike, updatelike, deletelike, getAlllikes} = useApiContext
       <Recargar/>
     )
   }
+  //Images Firebase
+  const [file, setFile] = useState(null)
+
+  const handleSubmit = async (e) => {
+    e.preventDefault()
+    try {
+      // throw new Error('No se cargo la imagen')
+      const result = await uploadFile(file)
+      console.log(result)
+    } catch (error) {
+      console.log(error)
+      alert('Fallo en nuestros servidores. Por favor intentelo mas tarde')
+    }
+    
+  }
   
     return (
       // name,email,password,birthdate,cc
         <div className="App overflow-hidden">
           <AnimatePresence>
+            {/*Firebase image */}
+            <form onSubmit={handleSubmit}>
+              <input type="file" name="" id="" onChange={e => setFile(e.target.files[0])} />
+                <button>
+                  Upload
+                </button>
+            </form>
         {/* funciones de autenticacion */}
             <button onClick={()=>logout()}>logout</button>
             <button onClick={()=>login('mimail1@mail.com','12345')}>login</button>
             <button onClick={()=>register('desde react','mimail1@mail.com','12345','1999-10-16','122313456789')}>Register</button>
 
         {/* funciones de usuario */}
-            {/* <button onClick={()=>getUser('1')}>get one</button> */}
+            {/* { <button onClick={()=>getUser('1')}>get one</button> } */}
             {/* <button onClick={()=>getAllUsers()}>get all</button> */}
             {/* <button onClick={()=>userDelete('')}>delete</button> */}
-            {/* <button onClick={()=>createUser("si se logro con axios","selogro@gmail.com","12345","200-05-02","12775172333","3")}>crear usuario</button> */}
+            {/* <button onClick={()=>createUser("si se logro con axios","selogro@gmail.com","12345","200-05-02","12775172333","3", "Aqui va la URL de la foto de perfil")}>crear usuario</button> */}
             {/* <button onClick={()=>updateUser()}>update</button> */}
 
         {/* funciones de data user */}
@@ -107,8 +133,8 @@ const {createlike, getlike, updatelike, deletelike, getAlllikes} = useApiContext
         {/* funciones de publicaciones*/}
             {/* <button onClick={()=>getAllPublication()}>todas las publicaciones</button> */}
             {/* <button onClick={()=>getOnePublication('1')}>ver una publicacion</button> */}
-            {/* <button onClick={()=>createPublication('1','esta es mi publicacion de prueba','aqui va mi publi')}>crear publ</button> */}
-            {/* <button onClick={()=>updatePublication('1','5','nuevo titulo','mi nuevo contenido')}>actualizar </button> */}
+            {/* <button onClick={()=>createPublication('1','esta es mi publicacion de prueba','aqui va mi publi', 'Aqui va la URL de la imagen', 'Tipo de publicacion')}>crear publ</button> */}
+            {/* <button onClick={()=>updatePublication('1','5','nuevo titulo','mi nuevo contenido', 'Nueva URL de la imagen', 'Nuevo tipo de publicacion')}>actualizar </button> */}
             {/* <button onClick={()=>deletePublication('6')}>delete</button> */}
 
         {/* funciones de comentarios */}
@@ -126,13 +152,14 @@ const {createlike, getlike, updatelike, deletelike, getAlllikes} = useApiContext
           {/*<button onClick={()=>deleteRole('1')}>eliminar Role</button>*/ }
 
       {/*Funciones Reports */}
-          {/*<button onClick={()=>getAllReports('1')}>obtener todos los reportes</button>*/} 
+          {/*<button onClick={()=>getAllReports('')}>obtener todos los reportes</button>*/} 
           {/*<button onClick={()=>getReport('1')}>obtener un report</button>*/} 
           {/*<button onClick={()=>createReport('friend', '1')}>crear report</button> */}
           {/* <button onClick={()=>updateReport('1','No friend','1')}>actualizar Report</button>*/}
           {/*<button onClick={()=>deleteReport('4')}>eliminar Report</button> */}
 
       {/*Funciones Notification */}
+          {/*<button onClick={()=>getAllNotifications('')}>obtener un Notification</button>*/}
           {/*<button onClick={()=>getNotification('1')}>obtener un Notification</button>*/} 
           {/*<button onClick={()=>createNotification('content','3','5','7')}>crear Notification</button> */}
           {/*<button onClick={()=>deleteNotification('3')}>eliminar Notification</button> */}
@@ -144,11 +171,6 @@ const {createlike, getlike, updatelike, deletelike, getAlllikes} = useApiContext
           {/*<button onClick={()=>updateTypeNotification('4','Ensayito 2 update','este es el segundo ensayo')}>Actualizar un tipo de Notification</button> */}
           {/*<button onClick={()=>deleteTypeNotification('4')}>eliminar Notification</button> */}
 
-        {/*Funciones Images Publication //////////ZZZZZZ FALTA todo*/}
-          {/*<button onClick={()=>createimages_publication('Ensayito', 'Primer ensayo')}>Craer un tipo Notification</button>*/} 
-          {/*<button onClick={()=>getimages_publication('2')}>obtener un ti´po de Notification</button>*/} 
-          {/*<button onClick={()=>updateimages_publication('4','Ensayito 2 update','este es el segundo ensayo')}>Actualizar un tipo de Notification</button> */}
-          {/*<button onClick={()=>deleteimages_publication('4')}>eliminar Notification</button> */}
 
         {/*Funciones Type Publication*/}
           {/*<button onClick={()=>createtypespublication('Ensayito', 'Primer ensayo')}>Crear un tipo </button>*/} 
@@ -193,6 +215,6 @@ const {createlike, getlike, updatelike, deletelike, getAlllikes} = useApiContext
         </div>
     );
   }
-
+  
 
 
