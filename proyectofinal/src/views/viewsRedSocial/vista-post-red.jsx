@@ -154,13 +154,12 @@ const getAllLikes = async()=>{
                     return (
                       <CardPost
                                         key={post.id}
+                                        id_publication={post.user_id}
                                         idPublicacion={post.id}
                                         nombre={post.title}
                                         imagenPerfil={require('../../images/imagenPerfil.png')}
                                         body={post.content}
-                                        
                                         fotoPerfilComenatrio={require('../../images/imagenPerfil.png')}
-                                        controladorDelEnvio={controladorDelEnvio}
                                         onClick={()=>borrarPost(post.id)}
                                     />
                     );

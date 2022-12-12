@@ -519,8 +519,17 @@ form.sign-in-form {
       margin-top: 10px;
       
     }
+    .photo-comment{
+      width: 40px;
+    }
+    .inputComments{
+      width: 5px;
+    }
+    .submitComments{
+      width: 50px;
+      font-size: 10px;
+    }
     .comentarBox{
-      
       margin-left: 50px;
     }
     
