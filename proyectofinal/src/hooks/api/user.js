@@ -6,7 +6,7 @@ const User = (url) => {
     const apiurl = url+'user/'
     // funciones de llamado async
     // CREAR USUARIO <<<<name,email,password,birthdate,cc>>>
-    const createUser = async(name,email,password,birthdate,cc,role)=>{
+    const createUser = async(name,email,password,birthdate,cc,role,image)=>{
       /*aqui se utiliza fetch para guardar el usuario en la base de datos atraves de la API*/ 
       // try {
       //   const res = await fetch(`${apiurl}new`,{
@@ -31,7 +31,7 @@ const User = (url) => {
         
       // console.log(name,'\n',email,'\n',password,'\n',birthdate,'\n',cc,'\n',role)
       
-      let request = (typeof role === 'undefined') ? {name,email,password,birthdate,cc} : {name,email,password,birthdate,cc,role}
+      let request = (typeof role === 'undefined') ? {name,email,password,birthdate,cc} : {name,email,password,birthdate,cc,role,image}
       
       try {
         const res = await axios.post(`${apiurl}new`,request)
@@ -63,8 +63,8 @@ const User = (url) => {
       }
     }
     //ACTUALIZAR USER 
-    const updateUser = async(id,name,email,password,birthdate,cc)=>{
-      let request = {name,email,password,birthdate,cc}
+    const updateUser = async(id,name,email,password,birthdate,cc,image)=>{
+      let request = {name,email,password,birthdate,cc,image}
       console.log(request)
       console.log(id)
       try {
@@ -74,6 +74,18 @@ const User = (url) => {
       } catch (error) {
         console.log(error)
         return error.response.data
+      }
+    }
+
+    const getAllPublicationPerson = async(user_id)=>{
+      try {
+        let res = await axios.get(`${apiurl}publications/${user_id}`)
+        console.log(res.data)
+        return res.data
+      } catch (error) {
+        console.log(error)
+        return error.response.data
+        
       }
     }
     // ELIMINAR USUARIO
@@ -91,6 +103,7 @@ const User = (url) => {
     // EL HOOK DEVULEVE LAS FUNCIONES ASYNC NECESARIAS
     return {
       getUser,
+      getAllPublicationPerson,
       deleteUser,
       getAllUsers,
       createUser,

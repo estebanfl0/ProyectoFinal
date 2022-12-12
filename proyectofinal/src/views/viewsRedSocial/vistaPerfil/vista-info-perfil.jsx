@@ -4,6 +4,7 @@ import { useApiContext } from "../../../hooks/context/ApiContext";
 import {motion} from 'framer-motion';
 import { useState } from "react";
 import { useEffect } from "react";
+import { Link } from "react-router-dom";
 function VistaInfoPerfil(){
     
     const {data,isActive} = useApiContext()
@@ -24,10 +25,9 @@ function VistaInfoPerfil(){
         }
         return data
     }
-    
     return(
         <motion.div className="perfil-usuario-footer " initial={{opacity:0}} animate={{opacity:1}} exit={{opacity:0, transition:{duration:0.2}}}>
-                
+            <Link to='vista-post-red'/>
                 <ul className="lista-datos">
                     <li><i className="icono fas fa-map-signs"></i> Email: {user.email} </li>
                     <li><i className="icono fas fa-phone-alt"></i> Fecha: {user.birthdate}</li>

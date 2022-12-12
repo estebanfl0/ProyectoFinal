@@ -33,8 +33,10 @@ const Authentication =(url)=>{
         try {
             const res = await axios.post(`${url}logout`,{},
             {headers:headers})
-            localStorage.removeItem('token') 
-            localStorage.removeItem('DataUser') 
+            if(res){
+                localStorage.removeItem('token')
+                localStorage.removeItem('DataUser')
+            }
             console.log(res.data)
             return res.data
         } catch (error) {
@@ -42,15 +44,10 @@ const Authentication =(url)=>{
         }
     }
     // funcion en donde se registra un nuevo ususario
-    const register = async(name,email,password,birthdate,cc)=>{
+    const register = async(name,email,password,birthdate,cc,image)=>{
+        let request = {name,email,password,birthdate,cc,image}
         try {
-            const res = await axios.post(`${url}register`,{
-                name:name,
-                email:email,
-                password:password,
-                birthdate:birthdate,
-                cc:cc
-            })
+            const res = await axios.post(`${url}register`,request)
             console.log(res.data)
             return res.data
         } catch (error) {

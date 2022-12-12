@@ -24,9 +24,10 @@ const publicaciones = (url) => {
         return error.response.data
     }
   }
+  
 
-  const createPublication = async(id,title,content)=>{
-    let request = {title,content,user_id:id}
+  const createPublication = async(id,title,content,image)=>{
+    let request = {title,content,user_id:id,image}
     try {
       const res = await axios.post(`${apiUrl}new`,request)
       return res.data

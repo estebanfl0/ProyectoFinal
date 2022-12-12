@@ -26,7 +26,19 @@ const Like = (url) => {
       console.log(error.response.data)
     }
   }
-  
+  const getAllLikesOnePerson = async(id)=>{
+    try {
+      const res = await axios.get(`${apiUrl}user/${id}}`)
+      console.log(id)
+      console.log(res)
+      return res
+    } catch (error) {
+      console.log(error)
+
+      return error.response.data
+      
+    }
+  }
   const getAlllikes = async()=>{
     try {
       const res = await axios.get(`${apiUrl}`)
@@ -60,6 +72,7 @@ const Like = (url) => {
   }
 
   return {
+    getAllLikesOnePerson,
     createlike,
     getlike,
     updatelike,

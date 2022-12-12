@@ -1,7 +1,7 @@
 import React,{useState} from "react";
 import { async } from "@firebase/util";
 import { useEffect } from "react";
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import {useApiContext} from '../../hooks/context/ApiContext'
 import '../css/login.css'
 
@@ -11,7 +11,7 @@ const Heart = ({id}) => {
   <path d="M112.577 6.51645L112.588 6.51678L112.598 6.51707C124.83 6.85668 134.648 13.4871 139.798 25.162C147.658 42.9826 142.048 60.4882 131.657 75.7368C121.27 90.9784 106.855 102.747 99.8285 107.966C92.3832 113.495 84.0338 118.699 75 123.419C65.9653 118.698 57.6161 113.496 50.1717 107.966L50.1715 107.966C43.1455 102.747 28.7296 90.9784 18.3433 75.7368C7.95214 60.4882 2.34207 42.9826 10.2021 25.162L10.2022 25.1617C15.3515 13.4855 25.1696 6.85669 37.4015 6.51709L37.4155 6.51667C49.4687 6.15616 62.0214 12.1853 69.9783 21.8669L75 27.9771L80.0217 21.8669C87.982 12.1812 100.536 6.14284 112.577 6.51645" stroke="black" strokeWidth="10" />
   </svg>)}
   
-  function CardPost({imagenPerfil,nombre,key,body,idPublicacion,onClick,id_publication}){
+  function CardPost({imagenPerfil,nombre,key,body,idPublicacion,imagePublication,onClick,id_publication}){
       
     const{getAllComment,deleteComment,createComment,data,isActive,createlike,deletelike} = useApiContext()
     // Constante para darle una clase a el boton de like
@@ -95,9 +95,11 @@ const Heart = ({id}) => {
         let res = await deletelike(id)
         setLikedF('')
     }
+    // Funcion para la imagen de comentarios y pucblicacion
+    
     return(
         <div className="card mx-auto mt-4" key={key}>
-            <Link to={`/vistaUnaPubli/${idPublicacion}`}><img src={require('../../images/imageDefecto.png')} className="card-img-top cursor-pointer"/></Link>
+            <Link to={`/vistaUnaPubli/${idPublicacion}`}><img src={imagePublication} className="card-img-top cursor-pointer"/></Link>
             <div className="card-body">
                 <h5 className="card-title">
                     <span>
@@ -129,11 +131,11 @@ const Heart = ({id}) => {
                                 <div className="mt-2">
                                     <p className="">{comment.content}</p>
                                 </div>
-                                {comment.user_id == user.id ?
-                                        <button  className="btn mx-5" style={{backgroundColor:'red', width:'80px', height:'30px',fontSize:'12px'}}  onClick={()=>borrarComentario(comment.id)}>Borrar</button>
-                                    :
+                                {comment.id == 0 || comment.user_id != user.id && user.role != 1 
+                                    ?
                                         ''
-                                }
+                                    :
+                                        <button  className="btn mx-5" style={{backgroundColor:'red', width:'80px', height:'30px',fontSize:'12px'}}  onClick={()=>borrarComentario(comment.id)}>Borrar</button>  }
                             </div>
                         </div>
                     )
@@ -141,7 +143,7 @@ const Heart = ({id}) => {
                 {/* Formulario para hacer el comentario */}
                 <form action=""onSubmit={controladorDelEnvio} >
                     <div className="comentarBox" style={{width:'130%'}} >
-                        <span><img src={imagenPerfil} className="rounded-5 photo-comment" width='50px' /></span>
+                        <span><img src={user.image} className="rounded-5 photo-comment" width='50px' /></span>
                         <input type="text" className="inputComments" value={sendComment} onChange={(e) => setComment(e.target.value)} />
                         <input type="submit" className="submitComments" />
                     </div>

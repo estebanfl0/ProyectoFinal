@@ -52,7 +52,7 @@ export const ApiProvider = (props) => {
   // se programa es uso de los hooks para la autenticacion async de la API
   const {login,logout,register,dataLogin,isActive} = Authentication(ApiUrl)  
   // se progrma el uso async de la API para la tabla de users
-  const {createUser, getUser,getAllUsers,updateUser,deleteUser} = User(ApiUrl)
+  const {createUser, getUser,getAllUsers,updateUser,deleteUser,getAllPublicationPerson} = User(ApiUrl)
   //se programa el uso asyn de la api para la tabla de data users 
   const {createData,getData,updateData} = userData(ApiUrl)
   // se importan las funciones de publicacion
@@ -74,7 +74,7 @@ const {createimages_publication, getimages_publication, updateimages_publication
 // se importan las funciones de images publication
 const {createtypespublication, gettypespublication, updatetypespublication, deletetypespublication, getAlltypespublications} = typepublication(ApiUrl)
 // se importan las funciones de likes
-const {createlike, getlike, updatelike, deletelike, getAlllikes} = Like(ApiUrl)
+const {createlike, getlike, updatelike, deletelike, getAlllikes,getAllLikesOnePerson} = Like(ApiUrl)
 
 
 
@@ -95,6 +95,7 @@ const {createlike, getlike, updatelike, deletelike, getAlllikes} = Like(ApiUrl)
       resul,
       // user
       createUser,
+      getAllPublicationPerson,
       getUser,
       getAllUsers,
       updateUser,
@@ -135,7 +136,7 @@ const {createlike, getlike, updatelike, deletelike, getAlllikes} = Like(ApiUrl)
     //typePublication
     createtypespublication, gettypespublication, updatetypespublication, deletetypespublication, getAlltypespublications,
       //like
-      createlike, getlike, updatelike, deletelike, getAlllikes,
+      createlike, getlike, updatelike, deletelike, getAlllikes,getAllLikesOnePerson
   })
     // nota: como segundo parametro se envia los hooks que no se desean alterar
   },[data,error,resul])

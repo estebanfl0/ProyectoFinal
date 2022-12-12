@@ -82,8 +82,8 @@ function VistaPostRed (){
   },[])
   
     const[error,setError] = useState(false)
-  const agregarPosts = async  (titulo, mensaje) => {
-    let data = await createPublication(user.id,titulo,mensaje)
+  const agregarPosts = async  (titulo, mensaje,image) => {
+    let data = await createPublication(user.id,titulo,mensaje,image)
     if(data.res == true){
       AllPublication()
       // AllComments()
@@ -93,15 +93,16 @@ function VistaPostRed (){
     }
     setTitulo("");
     setCuerpoMsj("");
+    setFile(null);
   };
   const [file, setFile] = useState(null)
-
+  const[appear,setAppear] = useState(true)
   // Controlador que maneja el envio del formulario
   const controladorDelEnvio = async (e) => {
     e.preventDefault();
     const result = await uploadFile(file)
-    
-    agregarPosts(titulo, cuerpoMsj);
+    agregarPosts(titulo, cuerpoMsj,result);
+    setAppear(false)
   };
 
 
@@ -117,12 +118,32 @@ const getAllLikes = async()=>{
     return res
 }
 
+const [selectedFile, setSelectedFile] = useState()
+    const [preview, setPreview] = useState()
 
+    // create a preview as a side effect, whenever selected file is changed
+    useEffect(() => {
+        if (!selectedFile) {
+            setPreview(undefined)
+            return
+        }
 
+        const objectUrl = URL.createObjectURL(selectedFile)
+        setPreview(objectUrl)
 
+        // free memory when ever this component is unmounted
+        return () => URL.revokeObjectURL(objectUrl)
+    }, [selectedFile])
 
+    const onSelectFile = e => {
+        if (!e.target.files || e.target.files.length === 0) {
+            setSelectedFile(undefined)
+            return
+        }
 
- 
+        // I've kept this example simple by using the first image instead of multiple
+        setSelectedFile(e.target.files[0])
+    }
     return(
         <motion.div className="contenidoPostNotiRed  d-flex" initial={{opacity:0}} animate={{opacity:1}} exit={{opacity:0, transition:{duration:0.2}}} >
             <div className="post p-4">
@@ -130,9 +151,10 @@ const getAllLikes = async()=>{
                         <div className="cuadroPublicar rounded-2 p-2 d-flex"> 
                                 <div className="imagePost">
                                     <label for='file-input'>
-                                        <img src={require('../../images/publicar.png')} width='50px' />
+                                      {!selectedFile || appear == false ? <img src={require('../../images/publicar.png')} width='50px' className="border-rounded" />  : <img src={preview} width='50px' className="border-rounded" />   }
+
                                     </label>
-                                    <input id="file-input" type="file" onChange={e => setFile(e.target.files[0])}/>
+                                    <input id="file-input" type="file" onChange={(e)=>{setFile(e.target.files[0]) ; onSelectFile(e);}}/>
                                 </div>
                                 <div className="escribirElegirPu mt-1 mx-3">
                                     <input className="inputPublicar rounded-5 border-0" type="text" value={titulo} onChange={(e) => setTitulo(e.target.value)} />
@@ -157,6 +179,7 @@ const getAllLikes = async()=>{
                                         id_publication={post.user_id}
                                         idPublicacion={post.id}
                                         nombre={post.title}
+                                        imagePublication={post.image}
                                         imagenPerfil={require('../../images/imagenPerfil.png')}
                                         body={post.content}
                                         fotoPerfilComenatrio={require('../../images/imagenPerfil.png')}

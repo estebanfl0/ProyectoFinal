@@ -9,8 +9,8 @@ function IngresarCorreo(){
                 <img src={require('../../images/enviar-correo.gif')} className="infO" alt="" width="200px"/>
                 <p className="fw-bold fs-4">Ingresa tu correo</p>
                 <div className="input-field">
-                <i className="fas fa-lock"></i>
-                <input type="password" placeholder="Correo" />
+                    <i className="fas fa-lock"></i>
+                    <input type="password" placeholder="Correo" />
                 </div>
                 <Link to='/recibir-codigo'>
                     <button className="btnOlvide mt-4">
@@ -19,7 +19,6 @@ function IngresarCorreo(){
                         </span>
                     </button>
                 </Link>
-                
             </form>
         </motion.div>
     )

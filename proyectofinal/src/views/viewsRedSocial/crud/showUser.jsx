@@ -7,6 +7,7 @@ import './crud.css'
 function ShowUser(){
   const {getUser}=useApiContext()
   const [data, setData] = useState({
+    image:'',
     name:'',
     email:'',
     birthdate:'',
@@ -28,7 +29,7 @@ function ShowUser(){
       <div className="contentCardShow border">
         <div class="cardshow">
           <div class="cardshow-border-top"></div>
-          <div class="img"></div>
+          <div class="img"><img src={data.image} alt="" width='100px' /></div>
           <span> Name: {data.name}</span>
           <p class="job"> # {id}</p>
           <p class="job"> Correo: {data.email}  </p>

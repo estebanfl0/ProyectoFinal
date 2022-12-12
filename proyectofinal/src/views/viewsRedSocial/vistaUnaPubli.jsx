@@ -31,6 +31,8 @@ function VistaUnaPubli(){
                         key={data.id}
                         idPublicacion={data.id}
                         nombre={data.title}
+                        imagePublication={data.image}
+
                         imagenPerfil={require('../../images/imagenPerfil.png')}
                         body={data.content}
                         fotoPerfilComenatrio={require('../../images/imagenPerfil.png')}

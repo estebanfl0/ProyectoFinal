@@ -4,8 +4,10 @@ import { useState, useEffect } from "react";
 import { Link,useParams } from "react-router-dom";
 
 function ShowAllUsers(){
-    const {getAllUsers,deleteUser}=useApiContext()
-    const [data, setData] = useState(null);
+    const {getAllUsers,deleteUser,isActive}=useApiContext()
+    const [data, setData] = useState([]);
+    const [user,setUser] = useState(null)
+
 
     useEffect(() => {
         getAlldata()
@@ -17,6 +19,17 @@ function ShowAllUsers(){
         console.log(res.data)
         setData(res.data)
       }
+      useEffect(()=>{
+        if(Object.entries(data).length == 0){
+            if(()=>isActive()){
+                let dataUser = JSON.parse(localStorage.getItem('DataUser'))
+                setUser(dataUser)
+            }
+        }else{
+            setUser(data)
+        }
+        console.log(user)
+    },[])
 
     return(
         
@@ -26,6 +39,7 @@ function ShowAllUsers(){
                 <thead class="bg-dark text-light">
                     <tr>
                         <th>#</th>
+                        <th>Imagen</th>
                         <th>Nombre</th>
                         <th className="d-none d-sm-table-cell">Correo</th>
                         <th className="d-none d-sm-table-cell">Fecha</th>
@@ -34,11 +48,12 @@ function ShowAllUsers(){
                         <th>Acciones</th>
                     </tr>
                 </thead>
-            {!data ? null :data.map((datas)=>{
+            {data.map((datas)=>{
                       return(
                         <tbody>
                             <tr>
                                 <td>{datas.id}</td>
+                                <td><img src={datas.image} alt="" width='50px'/></td>
                                 <td>{datas.name}</td>
                                 <td className="d-none d-sm-table-cell">{datas.email}</td>
                                 <td className="d-none d-sm-table-cell">{datas.birthdate}</td>

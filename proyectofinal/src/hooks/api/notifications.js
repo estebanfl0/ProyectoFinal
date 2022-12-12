@@ -26,27 +26,27 @@ const notification = (url) => {
       console.log(error.response.data)
     }
   }
-  const getAllNotifications = async()=>{
-    try {
-      const res = await axios.get(`${apiUrl}`)
-      console.log(res.data)
-      return res.data
-    } catch (error) {
-      return error.response.data
-    }
-  }
+  // const getAllNotifications = async()=>{
+  //   try {
+  //     const res = await axios.get(`${apiUrl}`)
+  //     console.log(res.data)
+  //     return res.data
+  //   } catch (error) {
+  //     return error.response.data
+  //   }
+  // }
   
-  const updateNotification = async(id, reasons, publication_id)=>{
-    let request = {reasons, publication_id}
-    try {
-      const res = await axios.put(`${apiUrl}${id}`,request)
-      console.log(res.data)
-      return res.data
-    } catch (error) {
-      console.log(error.response.data)
-      return error.response.data
-    }
-  }
+  // const updateNotification = async(id, reasons, publication_id)=>{
+  //   let request = {reasons, publication_id}
+  //   try {
+  //     const res = await axios.put(`${apiUrl}${id}`,request)
+  //     console.log(res.data)
+  //     return res.data
+  //   } catch (error) {
+  //     console.log(error.response.data)
+  //     return error.response.data
+  //   }
+  // }
 
   const deleteNotification = async(id)=>{
     try {

@@ -47,8 +47,8 @@ function VistaRedsocial(){
                             </Link>
                         </li>
                         <li>
-                            <a href="#" class="nav-link px-sm-0 px-2">
-                            <i class="fs-5 bi bi-box2-heart-fill hvo"></i><span class="ms-1 d-none d-sm-inline fw-bold fs-5 li">Gustados</span></a>
+                            <Link to='/vista-gustados' class="nav-link px-sm-0 px-2">
+                            <i class="fs-5 bi bi-box2-heart-fill hvo"></i><span class="ms-1 d-none d-sm-inline fw-bold fs-5 li">Gustados</span></Link>
                         </li>
                         <li>
                             <Link to='/vista-config-red' class="nav-link px-sm-0 px-2">
@@ -61,7 +61,7 @@ function VistaRedsocial(){
                         </ul> }
                     <div class="dropdown py-sm-4 mt-sm-auto ms-auto ms-sm-0 flex-shrink-1 px-2">
                         <a href="#" class="d-flex align-items-center text-white text-decoration-none dropdown-toggle" id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">
-                            <img src={require('../images/imagenPerfil.png')} alt="hugenerd" width="28" height="28" class="rounded-circle"/>
+                            <img src={user.image} alt="hugenerd" width="28" height="28" class="rounded-circle"/>
                             <span class="d-none d-sm-inline fs-5 mx-1">{user.name}</span>
                         </a>
                         <ul class="dropdown-menu dropdown-menu-dark text-small shadow" aria-labelledby="dropdownUser1">

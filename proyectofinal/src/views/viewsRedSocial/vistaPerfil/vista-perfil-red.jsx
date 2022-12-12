@@ -29,13 +29,13 @@ function VistaPerfil(){
                 <div className="portada-perfil" >
                     <div className="sombra"></div>
                     <div className="avatar-perfil">
-                        <img src={require('../../../images/imagenPerfil.png')} className='imgPerfil' alt="img"/>
+                        <img src={user.image} className='imgPerfil' alt="img"/>
                     </div>
                     <div className="datos-perfil">
                         <h4 className="titulo-usuario">{user.name}</h4>
                     </div>
                     <div className="opcciones-perfil">
-                        <Link to={`/vista-administrar-rol/editUser/${data.id}`} >
+                        <Link to={`/vista-administrar-rol/editUser/${user.id}`} >
                             <button type=""><i className="fas fa-wrench"></i></button>
                         </Link>
                     </div>
